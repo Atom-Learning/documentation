@@ -9,16 +9,22 @@
   "dependencies": {
     "@mdx-js/loader": "^1.5.1",
     "@mdx-js/react": "^1.6.18",
-    "@next/mdx": "^9.1.1",
+    "@next/mdx": "^10.0.6",
+    "@stitches/react": "0.0.3-canary.4",
     "next": "latest",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "next-compose-plugins": "^2.2.1",
+    "next-mdx-enhanced": "^5.0.0",
+    "next-transpile-modules": "^6.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-live": "^2.2.3"
   },
   "license": "MIT",
   "devDependencies": {
+    "@atom-learning/theme": "0.1.0-beta.3",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
+    "babel-plugin-import-glob-array": "^0.2.0",
     "typescript": "^4.1.3"
   }
 }

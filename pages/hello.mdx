@@ -1,0 +1,51 @@
+---
+title: Introducing Radix UI
+publishedAt: '2020-09-01'
+description: The UI Company you've been waiting for
+by: pedro
+---
+
+<!-- // import { Select } from '@atom-learning/components' -->
+
+# MDX + Next.js
+
+Look, a button! 👇
+
+```jsx live
+<Select options={[{ label: 'Hello', value: 'WHAT' }]} />
+```
+
+<PropsTable data={Select} />
+
+<!--
+The `Steps` component provides transitions between a series of views that form one multi-step process.
+
+Its `render` prop is a function which takes a `props` argument and returns an array of React components, e.g.
+
+```jsx
+<Steps
+  render={(props) => [
+    () => <Step1 {...props} />,
+    Step2,
+    () => <Step3 {...props} />
+  ]}
+/>
+```
+
+The `props` argument is an object with the following properties:
+
+- `currentIndex`: the array index of the current view
+- `goToIndex`: a function which takes a `number` as its argument and sets the `index` to that number
+- `goToNext`: a function which increments the index by 1
+- `goToPrevious`: a function which decrements the index by 1
+
+Whatever the change in `index`, the `Steps` component will animate the transition between views.
+
+By passing these `props` to your individual view components, you can control the flow from one view to the next.
+The simplest use cases will involve calling `next` after each step, while more complicated use cases will call `setIndex`
+with values which depend on what happens in each view. E.g. for a login process, if the user selects a recently used login
+in step 1, they would progress to enter their password. But if they chose "use another account" in step 1, they would progress
+to enter a new username _then_ to the password step.
+
+`background: papayawhip` is set on the `div` that _contains_ the `Steps` component, so the background
+color remains visible during the transitions. --> -->
