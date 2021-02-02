@@ -1,10 +1,42 @@
 ---
 title: Contribution Guide
+category: Introduction
 ---
 
 # Contribution Guide
 
 When contributing to this repository, use the following information, to uphold the standards we have set for this project. Please read through this and the `README.md` before starting.
+
+## Tests
+
+Please write tests to cover all the user interactions with a component. The target is to have as much test coverage as possible. Coverage is calculated when running the tests.
+
+As a minimum the following tests are required:
+
+- Snapshots for the different states of the component (ie, for an `accordion` cover both the collapsed and expanded states
+- Snapshots for each variant that outputs different HTML
+- Accessibility unit test
+
+### Examples
+
+```jsx
+describe(`Box component`, () => {
+  it('renders', async () => {
+    const { container } = render(
+      <Box css={{ m: 'auto', height: 100, width: 100 }}>BOX</Box>
+    )
+    await screen.findByText('BOX')
+    expect(container).toMatchSnapshot()
+  })
+
+  it('has no programmatically detectable a11y issues', async () => {
+    render(<Box />, document.body)
+
+    const results = await axe(document.body)
+    expect(results).toHaveNoViolations()
+  })
+})
+```
 
 ## Directory structure
 
@@ -59,37 +91,6 @@ Each component should have documentation which covers the following:
 - Available component specific properties
 - When it should be used
 - When it _shouldn't_ be used (e.g. instead of using an `Input` directly, we'll often want to use an `InputField`)
-
-## Tests
-
-Please write tests to cover all the user interactions with a component. The target is to have as much test coverage as possible. Coverage is calculated when running the tests.
-
-As a minimum the following tests are required:
-
-- Snapshots for the different states of the component (ie, for an `accordion` cover both the collapsed and expanded states
-- Snapshots for each variant that outputs different HTML
-- Accessibility unit test
-
-### Examples
-
-```jsx
-describe(`Box component`, () => {
-  it('renders', async () => {
-    const { container } = render(
-      <Box css={{ m: 'auto', height: 100, width: 100 }}>BOX</Box>
-    )
-    await screen.findByText('BOX')
-    expect(container).toMatchSnapshot()
-  })
-
-  it('has no programmatically detectable a11y issues', async () => {
-    render(<Box />, document.body)
-
-    const results = await axe(document.body)
-    expect(results).toHaveNoViolations()
-  })
-})
-```
 
 ## Raising a PR
 
