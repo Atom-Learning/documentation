@@ -1,0 +1,17 @@
+{
+  "name": "@atom-learning/documentation",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atom-Learning/documentation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Atom-Learning/documentation/issues"
+  },
+  "homepage": "https://github.com/Atom-Learning/documentation#readme"
+}
