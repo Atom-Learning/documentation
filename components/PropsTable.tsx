@@ -4,21 +4,16 @@ import * as React from 'react'
 import { styled } from '../stitches.config'
 import { Box, InlineCode, Link, Text } from './'
 
-type Props = {
-  for: React.ReactElement
+type PropsTableProps = {
+  for: React.FC
 }
 
-// const HeadCell = styled('th', {
-//   borderBottom: '1px solid $tonal300',
-//   fontSize: '$sm',
-//   fontFamily: '"Inter"',
-//   fontWeight: 600,
-//   color: '$tonal900',
-//   py: '$3',
-//   pr: '$3',
-//   whiteSpace: 'nowrap',
-// })
+const columns = ['Prop', 'Type', 'Default value', 'Required']
 
+const Table = styled('table', {
+  borderCollapse: 'collapse',
+  width: '100%'
+})
 const Cell = styled('td', {
   borderBottom: '1px solid $tonal300',
   color: '$tonal800',
@@ -27,6 +22,7 @@ const Cell = styled('td', {
   py: '$3',
   pr: '$3',
   textAlign: 'left',
+  verticalAlign: 'middle',
   variants: {
     appearance: {
       heading: {
@@ -38,90 +34,96 @@ const Cell = styled('td', {
   }
 })
 
-export const PropsTable = ({ for: Component }: Props): React.ReactElement => {
-  const data = docgen.find(
+const PropTypeCSS = () => (
+  <Link href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L1547">
+    <InlineCode>"CSSProperties"</InlineCode>
+  </Link>
+)
+const PropTypeAs = () => (
+  <Link href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L2993">
+    <InlineCode>"JSX.IntrinsicElements"</InlineCode>
+  </Link>
+)
+
+export const PropsTable: React.FC<PropsTableProps> = ({
+  for: Component
+}): React.ReactElement => {
+  const { props: componentProps } = docgen.find(
     (component) => component.displayName === Component.displayName
   )
+
+  if (!componentProps) {
+    return null
+  }
 
   return (
     <Box css={{ mt: '$5' }}>
       <Text size="lg">API Reference</Text>
-      <Box as="table" css={{ width: '100%', borderCollapse: 'collapse' }}>
+      <Table>
         <thead>
-          <Cell as="th" appearance="heading">
-            Prop
-          </Cell>
-          <Cell as="th" appearance="heading">
-            Type
-          </Cell>
-          <Cell as="th" appearance="heading">
-            Required
-          </Cell>
-          <Cell as="th" appearance="heading">
-            Default value
-          </Cell>
+          {columns.map((column) => (
+            <Cell as="th" appearance="heading" key={column}>
+              {column}
+            </Cell>
+          ))}
         </thead>
         <tbody>
-          {Object.keys(data.props).map((key) => {
-            const prop = data.props[key]
+          {Object.keys(componentProps).map((key) => {
+            const { name, type, defaultValue, required } = componentProps[key]
+
             return (
-              <Box as="tr" key={prop.name}>
-                <Cell>
-                  <InlineCode>{prop.name}</InlineCode>
+              <tr key={key}>
+                <Cell css={{ pr: '$4' }}>
+                  <InlineCode>{name}</InlineCode>
                 </Cell>
-                <Cell
-                  css={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    gap: '$2',
-                    alignItems: 'center'
-                  }}
-                >
-                  {prop.name === 'css' ? (
-                    <>
-                      <InlineCode>"object"</InlineCode>
-                      <Link
-                        size="sm"
-                        href="https://stitches.dev/docs/overriding-styles"
-                      >
-                        Read about `css` styles
-                      </Link>
-                    </>
-                  ) : prop.name === 'as' ? (
-                    <>
-                      <InlineCode>"string"</InlineCode>
-                      <Link
-                        size="sm"
-                        href="https://stitches.dev/docs/overriding-styles#overriding-the-html-tag"
-                      >
-                        Read about overriding the element
-                      </Link>
-                    </>
-                  ) : Array.isArray(prop.type.value) ? (
-                    prop.type.value
-                      .filter((val) => val.value !== 'undefined')
-                      .map((val) => (
-                        <InlineCode key={val.value}>{val.value}</InlineCode>
-                      ))
+                <Cell>
+                  {name === 'css' ? (
+                    <PropTypeCSS />
+                  ) : name === 'as' ? (
+                    <PropTypeAs />
+                  ) : Array.isArray(type.value) ? (
+                    <Box css={{ display: 'flex', gap: '$2' }}>
+                      {type.value
+                        .filter(({ value }) => value !== 'undefined')
+                        .map(({ value }) => (
+                          <InlineCode key={value}>{value}</InlineCode>
+                        ))}
+                    </Box>
                   ) : (
-                    <InlineCode>{prop.type.name}</InlineCode>
+                    <InlineCode>{type.name}</InlineCode>
                   )}
                 </Cell>
                 <Cell>
-                  <InlineCode>{prop.required.toString()}</InlineCode>
-                </Cell>
-                <Cell>
-                  {prop.defaultValue ? (
-                    <InlineCode>{prop.defaultValue.value}</InlineCode>
+                  {defaultValue ? (
+                    <InlineCode>{defaultValue.value}</InlineCode>
                   ) : (
                     '-'
                   )}
                 </Cell>
-              </Box>
+                <Cell>
+                  {required ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                  ) : (
+                    '-'
+                  )}
+                </Cell>
+              </tr>
             )
           })}
         </tbody>
-      </Box>
+      </Table>
     </Box>
   )
 }

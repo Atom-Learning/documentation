@@ -6,41 +6,46 @@ import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
 
 import { styled } from '../stitches.config'
 
+type CodeBlockProps = {
+  children: string
+  live?: boolean
+  className?: string
+}
+
 const StyledPre = styled('pre', {
   borderRadius: '$1',
   display: 'block',
   fontSize: '15px',
-  lineHeight: 1.5,
   fontWeight: 100,
-  mx: '-$4',
-  mt: 0,
+  lineHeight: 1.5,
   mb: '$4',
+  mt: 0,
+  mx: '-$4',
   overflow: 'hidden'
 })
-
+const StyledLivePreview = styled(LivePreview, {
+  mx: '-$4',
+  overflow: 'hidden',
+  px: '$4',
+  py: '$5'
+})
 const StyledLiveEditor = styled(LiveEditor, {
-  padding: 0,
-  margin: 0,
-  '> .npm__react-simple-code-editor__textarea': {
-    padding: '24px 32px'
-  },
-  '> pre': {
+  '> textarea,> pre': {
     padding: '24px 32px'
   }
 })
 const StyledLiveError = styled(LiveError, {
+  color: '$danger',
   fontFamily: '"Inter"',
-  fontSize: '$sm',
-  color: '$danger'
-})
-const StyledLivePreview = styled(LivePreview, {
-  px: '$4',
-  py: '$5',
-  mx: '-$4',
-  overflow: 'hidden'
+  fontSize: '$sm'
 })
 
-export const CodeBlock = ({ children, live, className }) => {
+export const CodeBlock: React.FC<CodeBlockProps> = ({
+  children,
+  live,
+  className
+}) => {
+  console.log(children)
   const language = className?.replace(/language-/, '')
 
   if (live) {
@@ -52,7 +57,7 @@ export const CodeBlock = ({ children, live, className }) => {
       >
         <StyledLivePreview />
         <StyledPre>
-          <StyledLiveEditor />
+          <StyledLiveEditor padding={null} />
         </StyledPre>
         <StyledLiveError />
       </LiveProvider>
@@ -63,18 +68,18 @@ export const CodeBlock = ({ children, live, className }) => {
     <StyledPre>
       <Highlight
         {...defaultProps}
-        theme={theme}
         code={children.trim()}
         language={language}
+        theme={theme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
             className={className}
             style={{
               ...style,
-              padding: '24px 32px',
               margin: 0,
-              overflow: 'auto'
+              overflow: 'auto',
+              padding: '24px 32px'
             }}
           >
             {tokens.map((line, i) => (
