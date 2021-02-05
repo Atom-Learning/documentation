@@ -45,7 +45,6 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   live,
   className
 }) => {
-  console.log(children)
   const language = className?.replace(/language-/, '')
 
   if (live) {
