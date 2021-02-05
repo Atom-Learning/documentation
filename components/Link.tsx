@@ -6,11 +6,5 @@ export const Link = styled('a', {
   ':hover,:focus': {
     color: '$primary800',
     textDecoration: 'underline'
-  },
-  variants: {
-    size: {
-      sm: { fontSize: '$sm' },
-      md: { fontSize: '$md' }
-    }
   }
 })

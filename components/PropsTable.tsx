@@ -34,6 +34,21 @@ const Cell = styled('td', {
   }
 })
 
+const IconCheckmark = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+)
 const PropTypeCSS = () => (
   <Link href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L1547">
     <InlineCode>"CSSProperties"</InlineCode>
@@ -45,9 +60,7 @@ const PropTypeAs = () => (
   </Link>
 )
 
-export const PropsTable: React.FC<PropsTableProps> = ({
-  for: Component
-}): React.ReactElement => {
+export const PropsTable: React.FC<PropsTableProps> = ({ for: Component }) => {
   const { props: componentProps } = docgen.find(
     (component) => component.displayName === Component.displayName
   )
@@ -100,25 +113,7 @@ export const PropsTable: React.FC<PropsTableProps> = ({
                     '-'
                   )}
                 </Cell>
-                <Cell>
-                  {required ? (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  ) : (
-                    '-'
-                  )}
-                </Cell>
+                <Cell>{required ? <IconCheckmark /> : '-'}</Cell>
               </tr>
             )
           })}

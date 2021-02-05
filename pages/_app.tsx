@@ -41,7 +41,7 @@ const nav = pages.reduce((obj, curr) => {
   }
 }, {})
 
-const App = ({ Component, pageProps }: AppProps) => (
+const App: React.FC<AppProps> = ({ Component, pageProps }) => (
   <Flex>
     <Box
       as="nav"
