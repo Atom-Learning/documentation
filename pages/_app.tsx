@@ -1,5 +1,5 @@
 import { MDXProvider } from '@mdx-js/react'
-// import { default as NextLink } from 'next/link'
+import type { AppProps } from 'next/app'
 import * as React from 'react'
 
 import {
@@ -9,6 +9,7 @@ import {
   InlineCode,
   Link,
   List,
+  PropsTable,
   Text
 } from '../components'
 import { frontMatter as pages } from '../pages/**/*.mdx'
@@ -26,7 +27,8 @@ const components = {
   ul: (props) => <List {...props} />,
   inlineCode: InlineCode,
   a: Link,
-  code: CodeBlock
+  code: CodeBlock,
+  PropsTable: PropsTable
 }
 
 const nav = pages.reduce((obj, curr) => {
@@ -39,7 +41,7 @@ const nav = pages.reduce((obj, curr) => {
   }
 }, {})
 
-const App: React.FC = ({ Component, pageProps }) => (
+const App = ({ Component, pageProps }: AppProps) => (
   <Flex>
     <Box
       as="nav"
@@ -57,9 +59,10 @@ const App: React.FC = ({ Component, pageProps }) => (
       {Object.keys(nav).map((key) => (
         <>
           <Text
+            as="h3"
             size="sm"
             css={{
-              textRendering: 'uppercase',
+              textTransform: 'uppercase',
               fontWeight: 600,
               letterSpacing: '0.1em',
               mb: '$2'

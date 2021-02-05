@@ -3,6 +3,8 @@ title: Box
 category: Components
 ---
 
+import { Box } from '@atom-learning/components'
+
 # Box
 
 The `Box` is our most fundamental container component. Many other components are composed of `Box`es. For example, this card:
@@ -17,17 +19,18 @@ addition of the powerful `css` prop and various styling utilities based on our t
 <Box
   as="section"
   css={{
-    bg: background,
-    borderRadius,
-    boxShadow: 'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px',
+    bg: '$tertiary500',
+    borderRadius: '$1',
+    boxShadow: '$1',
+    color: 'white',
     m: 'auto',
-    p: '$3',
+    p: '$4',
     textAlign: 'center',
-    width: '250px'
+    width: 250
   }}
 >
   Some text in a Box
 </Box>
 ```
 
-## Props
+<PropsTable for={Box} />
