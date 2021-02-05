@@ -49,20 +49,39 @@ const IconCheckmark = () => (
     <polyline points="20 6 9 17 4 12" />
   </svg>
 )
-const PropTypeCSS = () => (
-  <Link href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L1547">
-    <InlineCode>"CSSProperties"</InlineCode>
-  </Link>
-)
-const PropTypeAs = () => (
-  <Link href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L2993">
-    <InlineCode>"JSX.IntrinsicElements"</InlineCode>
-  </Link>
-)
+
+const PropType = ({ name, type }) => {
+  if (name === 'css') {
+    return (
+      <Link href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L1547">
+        <InlineCode>"CSSProperties"</InlineCode>
+      </Link>
+    )
+  }
+  if (name === 'as') {
+    return (
+      <Link href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L2993">
+        <InlineCode>"JSX.IntrinsicElements"</InlineCode>
+      </Link>
+    )
+  }
+  if (Array.isArray(type.value)) {
+    return (
+      <Box css={{ display: 'flex', gap: '$2', flexWrap: 'wrap' }}>
+        {type.value
+          .filter(({ value }) => value !== 'undefined')
+          .map(({ value }) => (
+            <InlineCode key={value}>{value}</InlineCode>
+          ))}
+      </Box>
+    )
+  }
+  return <InlineCode>{type.name}</InlineCode>
+}
 
 export const PropsTable: React.FC<PropsTableProps> = ({ for: Component }) => {
   const { props: componentProps } = docgen.find(
-    (component) => component.displayName === Component.displayName
+    (component) => component.displayName === Component?.displayName
   )
 
   if (!componentProps) {
@@ -84,27 +103,15 @@ export const PropsTable: React.FC<PropsTableProps> = ({ for: Component }) => {
           {Object.keys(componentProps).map((key) => {
             const { name, type, defaultValue, required } = componentProps[key]
 
+            if (type.name === 'never') return null
+
             return (
               <tr key={key}>
                 <Cell css={{ pr: '$4' }}>
                   <InlineCode>{name}</InlineCode>
                 </Cell>
                 <Cell>
-                  {name === 'css' ? (
-                    <PropTypeCSS />
-                  ) : name === 'as' ? (
-                    <PropTypeAs />
-                  ) : Array.isArray(type.value) ? (
-                    <Box css={{ display: 'flex', gap: '$2' }}>
-                      {type.value
-                        .filter(({ value }) => value !== 'undefined')
-                        .map(({ value }) => (
-                          <InlineCode key={value}>{value}</InlineCode>
-                        ))}
-                    </Box>
-                  ) : (
-                    <InlineCode>{type.name}</InlineCode>
-                  )}
+                  <PropType name={name} type={type} />
                 </Cell>
                 <Cell>
                   {defaultValue ? (
