@@ -50,6 +50,8 @@ const IconCheckmark = () => (
   </svg>
 )
 
+const Empty = () => <Text css={{ color: '$tonal500' }}>-</Text>
+
 const PropType = ({ name, type }) => {
   if (name === 'css') {
     return (
@@ -117,10 +119,10 @@ export const PropsTable: React.FC<PropsTableProps> = ({ for: Component }) => {
                   {defaultValue ? (
                     <InlineCode>{defaultValue.value}</InlineCode>
                   ) : (
-                    '-'
+                    <Empty />
                   )}
                 </Cell>
-                <Cell>{required ? <IconCheckmark /> : '-'}</Cell>
+                <Cell>{required ? <IconCheckmark /> : <Empty />}</Cell>
               </tr>
             )
           })}

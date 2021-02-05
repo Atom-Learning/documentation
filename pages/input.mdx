@@ -23,15 +23,8 @@ While `Input` accepts `"number"` for its `type` prop, this does not render `<inp
 it renders `<input type="text" inputmode="numeric" pattern=[0-9]*/>` to tell browsers to show a numeric keyboard
 while avoiding the [UX and accessibility problems associated with `type="number"`](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/).
 
-```jsx live
-<Input
-  id="email"
-  placeholder="Email"
-  css={{
-    m: 'auto',
-    width: 300
-  }}
-/>
+```jsx live center
+<Input id="email" placeholder="Email" css={{ width: 300 }} />
 ```
 
 <PropsTable for={Input} />

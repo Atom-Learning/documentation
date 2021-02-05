@@ -9,6 +9,7 @@ import { styled } from '../stitches.config'
 type CodeBlockProps = {
   children: string
   live?: boolean
+  center?: boolean
   className?: string
 }
 
@@ -43,6 +44,7 @@ const StyledLiveError = styled(LiveError, {
 export const CodeBlock: React.FC<CodeBlockProps> = ({
   children,
   live,
+  center,
   className
 }) => {
   const language = className?.replace(/language-/, '')
@@ -54,7 +56,15 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         scope={{ ...Components }}
         theme={theme}
       >
-        <StyledLivePreview />
+        <StyledLivePreview
+          css={
+            center && {
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }
+          }
+        />
         <StyledPre>
           <StyledLiveEditor padding={null} />
         </StyledPre>
