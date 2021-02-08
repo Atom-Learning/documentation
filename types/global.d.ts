@@ -1,14 +1,12 @@
-type NavigationCategories = 'Overview' | 'Components'
-
 interface FrontMatter {
   __resourcePath: string
-  category: NavigationCategories
+  category: 'Overview' | 'Components'
   title: string
   id: string
 }
 
 declare module '*.mdx' {
-  let MDXComponent: (props: any) => JSX.Element
+  let MDXComponent: () => JSX.Element
   export default MDXComponent
   export const frontMatter: FrontMatter[]
 }

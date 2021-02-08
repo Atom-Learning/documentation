@@ -2,18 +2,10 @@ import { MDXProvider } from '@mdx-js/react'
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
-import {
-  Box,
-  CodeBlock,
-  InlineCode,
-  Link,
-  List,
-  PropsTable,
-  Text
-} from '../components'
+import { Box, CodeBlock, InlineCode, Link, List, PropsTable, Text } from '.'
 
 type NavigationProps = {
-  items: [NavigationCategories, FrontMatter[]][]
+  items: [string, FrontMatter[]][]
 }
 
 const components = {

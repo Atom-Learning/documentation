@@ -1,5 +1,5 @@
 import * as Components from '@atom-learning/components'
-import Highlight, { defaultProps } from 'prism-react-renderer'
+import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
@@ -47,7 +47,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   center,
   className
 }) => {
-  const language = className?.replace(/language-/, '')
+  const language = className?.replace(/language-/, '') as Language
 
   if (live) {
     return (
@@ -66,6 +66,9 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           }
         />
         <StyledPre>
+          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+          {/*
+          // @ts-ignore */}
           <StyledLiveEditor padding={null} />
         </StyledPre>
         <StyledLiveError />
