@@ -1,6 +1,8 @@
+type NavigationCategories = 'Overview' | 'Components'
+
 interface FrontMatter {
   __resourcePath: string
-  category: 'Overview' | 'Components'
+  category: NavigationCategories
   title: string
   id: string
 }
