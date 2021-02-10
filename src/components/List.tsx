@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { styled } from '../stitches.config'
-import { Text } from './'
+import { Text } from '.'
 
 const StyledList = styled(Text, {})
 

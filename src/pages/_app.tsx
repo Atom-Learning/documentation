@@ -2,9 +2,9 @@ import type { AppProps } from 'next/app'
 import * as React from 'react'
 
 import { Flex } from '../components'
-import { Main, Navigation } from '../components/layout'
+import { Main } from '../components/layout'
 import { css } from '../stitches.config'
-import { getPages } from '../utilities'
+// import { getAllPages } from '../utilities'
 
 css.global({
   body: { margin: 0 }
@@ -12,7 +12,7 @@ css.global({
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => (
   <Flex>
-    <Navigation items={getPages()} />
+    {/* <Navigation items={getAllPages()} /> */}
     <Main>
       <Component {...pageProps} />
     </Main>

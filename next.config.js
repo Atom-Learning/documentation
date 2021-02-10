@@ -1,20 +1,17 @@
-const withMdxEnhanced = require('next-mdx-enhanced')
-
-module.exports = withMdxEnhanced({
-  extendFrontMatter: {
-    process: (_, frontMatter) => ({
-      id: frontMatter.__resourcePath.replace('.mdx', '')
-    })
-  }
-})({
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  async redirects() {
-    return [
-      {
-        source: '/',
-        destination: '/overview/introduction',
-        permanent: true
+module.exports = {
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on `fs` module
+    // without this we get
+    // ./node_modules/@babel/core/lib/transformation/normalize-file.js:9:0
+    // Module not found: Can't resolve 'fs'
+    // null
+    // as a result of next-mdx-remote
+    if (!isServer) {
+      config.node = {
+        fs: 'empty'
       }
-    ]
+    }
+
+    return config
   }
-})
+}

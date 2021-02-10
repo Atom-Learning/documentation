@@ -4,9 +4,9 @@ import * as React from 'react'
 
 import { Box, CodeBlock, InlineCode, Link, List, PropsTable, Text } from '.'
 
-type NavigationProps = {
-  items: [string, FrontMatter[]][]
-}
+// type NavigationProps = {
+//   items: [string, FrontMatter[]][]
+// }
 
 const components = {
   h1: (props) => <Text {...props} size="xxl" as="h1" />,
@@ -20,7 +20,7 @@ const components = {
   PropsTable: PropsTable
 }
 
-export const Navigation: React.FC<NavigationProps> = ({ items }) => (
+export const Navigation = ({ items }) => (
   <Box
     as="nav"
     css={{

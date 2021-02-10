@@ -2,7 +2,7 @@ import docgen from '@atom-learning/components/dist/docgen.json'
 import * as React from 'react'
 
 import { styled } from '../stitches.config'
-import { Box, InlineCode, Link, Text } from './'
+import { Box, InlineCode, Link, Text } from '.'
 
 type PropsTableProps = {
   for: React.FC
@@ -82,13 +82,15 @@ const PropType = ({ name, type }) => {
 }
 
 export const PropsTable: React.FC<PropsTableProps> = ({ for: Component }) => {
-  const { props: componentProps } = docgen.find(
+  const component = docgen.find(
     (component) => component.displayName === Component?.displayName
   )
 
-  if (!componentProps) {
+  if (!component?.props) {
     return null
   }
+
+  const { props: componentProps } = component
 
   return (
     <Box css={{ mt: '$5' }}>
