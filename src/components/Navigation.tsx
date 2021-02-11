@@ -3,11 +3,11 @@ import * as React from 'react'
 
 import { Box, Link, List, Text } from '.'
 
-type NavigationProps = {
-  items: [string, FrontMatter[]][]
-}
+// type NavigationProps = {
+//   items: [string, []][]
+// }
 
-export const Navigation: React.FC<NavigationProps> = ({ items }) => (
+export const Navigation = ({ items }) => (
   <Box
     as="nav"
     css={{
@@ -52,7 +52,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
         >
           {pages.map((page) => (
             <Box as="li" key={page.id}>
-              <NextLink passHref href={`/${page.id}`}>
+              <NextLink passHref href={`/${category}/${page.id}`}>
                 <Link
                   css={{
                     color: '$tonal700',
@@ -63,7 +63,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
                     mb: '$2'
                   }}
                 >
-                  {page.title}
+                  {page.data.title}
                 </Link>
               </NextLink>
             </Box>
