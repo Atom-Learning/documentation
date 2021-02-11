@@ -1,8 +1,7 @@
 import type { AppProps } from 'next/app'
 import * as React from 'react'
 
-import { Flex } from '../components'
-import { Main, Navigation } from '../components/layout'
+import { Flex, Main, Navigation } from '../components'
 import { css } from '../stitches.config'
 import { getPages } from '../utilities'
 
