@@ -47,6 +47,8 @@ export const getPageBySlug = (page) => {
 export const getAllPages = async () => {
   const { components } = await getSlugs()
 
+  // console.log({ components })
+
   return {
     components: components.map((page) => ({
       ...getPageBySlug(page),

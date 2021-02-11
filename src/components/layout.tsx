@@ -1,12 +1,13 @@
+import * as Components from '@atom-learning/components'
 import { MDXProvider } from '@mdx-js/react'
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
 import { Box, CodeBlock, InlineCode, Link, List, PropsTable, Text } from '.'
 
-// type NavigationProps = {
-//   items: [string, FrontMatter[]][]
-// }
+type NavigationProps = {
+  items: [string, any[]][]
+}
 
 const components = {
   h1: (props) => <Text {...props} size="xxl" as="h1" />,
@@ -17,10 +18,12 @@ const components = {
   inlineCode: InlineCode,
   a: Link,
   code: CodeBlock,
-  PropsTable: PropsTable
+  PropsTable: PropsTable,
+  // Button: (props) => <p {...props} />,
+  ...Components
 }
 
-export const Navigation = ({ items }) => (
+export const Navigation: React.FC<NavigationProps> = ({ items }) => (
   <Box
     as="nav"
     css={{
@@ -64,8 +67,8 @@ export const Navigation = ({ items }) => (
           }}
         >
           {pages.map((page) => (
-            <Box as="li" key={page.id}>
-              <NextLink passHref href={`/${page.id}`}>
+            <Box as="li" key={page.data.id}>
+              <NextLink passHref href={`/${category}/${page.id}`}>
                 <Link
                   css={{
                     color: '$tonal700',
@@ -76,7 +79,7 @@ export const Navigation = ({ items }) => (
                     mb: '$2'
                   }}
                 >
-                  {page.title}
+                  {page.data.title}
                 </Link>
               </NextLink>
             </Box>

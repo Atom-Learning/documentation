@@ -1,6 +1,7 @@
 import path from 'path'
 import * as React from 'react'
 
+import { Flex } from '../../components'
 import { Main, Navigation } from '../../components/layout'
 import {
   getAllPages,
@@ -9,14 +10,20 @@ import {
   stringToMdx
 } from '../../utilities'
 
-const Page = ({ post }) => {
-  return stringToMdx(post.content)
+type PageProps = {
+  pages: []
+  page: any
 }
 
-export default Page
+const Page: React.FC<PageProps> = ({ pages, page }) => (
+  <Flex>
+    <Navigation items={Object.entries(pages)} />
+    <Main>{stringToMdx(page.content)}</Main>
+  </Flex>
+)
 
-export async function getStaticProps({ params }) {
-  const thing =
+export const getStaticProps = async ({ params }) => {
+  const pathToFile =
     params.category === 'components'
       ? path.join(
           'node_modules',
@@ -28,35 +35,36 @@ export async function getStaticProps({ params }) {
         )
       : path.join('node_modules', '@atom-learning', 'theme', 'src', params.slug)
 
-  const post = getPageBySlug({
-    path: thing,
+  const pages = await getAllPages()
+  const page = getPageBySlug({
+    path: pathToFile,
     id: params.slug
   })
-  const content = await mdxToString(post.content || '')
+  const content = await mdxToString(page.content || '')
 
   return {
     props: {
-      post: {
-        ...post,
+      pages,
+      page: {
+        ...page,
         content
       }
     }
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths = async () => {
   const { components } = await getAllPages()
 
   return {
-    paths: [...components].map((post) => {
-      console.log({ post })
-      return {
-        params: {
-          category: post.category,
-          slug: post.id
-        }
+    paths: components.map(({ category, id }) => ({
+      params: {
+        category,
+        slug: id
       }
-    }),
+    })),
     fallback: false
   }
 }
+
+export default Page
