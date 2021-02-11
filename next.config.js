@@ -7,5 +7,14 @@ module.exports = withMdxEnhanced({
     })
   }
 })({
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx']
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/overview/introduction',
+        permanent: true
+      }
+    ]
+  }
 })

@@ -1,6 +1,7 @@
 import * as React from 'react'
+import { Merge } from 'type-fest'
 
-import { styled } from '../stitches.config'
+import { StitchesProps, styled } from '../stitches.config'
 
 const StyledText = styled('p', {
   color: '$tonal800',
@@ -39,6 +40,14 @@ const StyledText = styled('p', {
   }
 })
 
-export const Text = ({ size = 'md', ...rest }) => (
+type TextProps = Merge<
+  StitchesProps<typeof StyledText>,
+  {
+    as?: 'p' | 'h1' | 'h2' | 'h3'
+    size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+  }
+>
+
+export const Text: React.FC<TextProps> = ({ size = 'md', ...rest }) => (
   <StyledText size={size} {...rest} />
 )

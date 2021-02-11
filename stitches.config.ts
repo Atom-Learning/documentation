@@ -1,6 +1,8 @@
 import tokens from '@atom-learning/theme'
 import { createStyled } from '@stitches/react'
 
+export * from '@stitches/react'
+
 type CSSValue = number | string
 type CSSBlob = { [key: string]: CSSValue }
 
