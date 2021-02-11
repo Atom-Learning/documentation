@@ -1,8 +1,8 @@
 import docgen from '@atom-learning/components/dist/docgen.json'
 import * as React from 'react'
 
-import { styled } from '../stitches.config'
-import { Box, InlineCode, Link, Text } from './'
+import { styled } from '../../stitches.config'
+import { Box, InlineCode, Link, Text } from '.'
 
 type PropsTableProps = {
   for: React.FC

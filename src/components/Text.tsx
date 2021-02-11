@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Merge } from 'type-fest'
 
-import { StitchesProps, styled } from '../stitches.config'
+import { StitchesProps, styled } from '../../stitches.config'
 
 const StyledText = styled('p', {
   color: '$tonal800',
