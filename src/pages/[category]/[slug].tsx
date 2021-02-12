@@ -11,21 +11,23 @@ import {
 } from '../../utilities'
 
 type PageProps = {
-  component?: string
-  title: string
+  data: {
+    component?: string
+    title: string
+  }
   content: MdxRemote.Source
   pages: []
 }
 
-const Page: React.FC<PageProps> = ({ pages, content, title, component }) => (
+const Page: React.FC<PageProps> = ({ pages, content, data }) => (
   <Flex>
     <Navigation items={pages} />
     <Main>
       <Text as="h1" size="xxl">
-        {title}
+        {data.title}
       </Text>
       {stringToMdx(content)}
-      {component && <PropsTable for={component} />}
+      {data.component && <PropsTable for={data.component} />}
     </Main>
   </Flex>
 )
@@ -38,7 +40,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       pages,
-      ...page.data,
+      data: page.data,
       content
     }
   }

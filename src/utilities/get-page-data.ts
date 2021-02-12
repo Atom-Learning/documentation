@@ -39,14 +39,26 @@ export const getPagesSlugs = async (sources: string[]) => {
 }
 
 const getMarkdownFile = (basePath, name) => {
-  const fileAsMdx = path.join(basePath, `${name}.mdx`)
-  const fileAsMd = path.join(basePath, `${name}.md`)
-  const fileToRead = fs.existsSync(fileAsMdx) ? fileAsMdx : fileAsMd
+  const filePathAsMdx = path.join(basePath, `${name}.mdx`)
+  const filePathAsMd = path.join(basePath, `${name}.md`)
+
+  const fileToRead = fs.existsSync(filePathAsMdx) ? filePathAsMdx : filePathAsMd
 
   return fs.readFileSync(fileToRead, 'utf8')
 }
 
-export const getPageBySlug = (slug, source) => {
+export interface PageBySlug {
+  data: {
+    title?: string
+    component?: string
+    slug: string
+    id: string
+    category: 'components' | 'theme' | 'overview'
+  }
+  content: string
+}
+
+export const getPageBySlug = (slug, source): PageBySlug => {
   const id = path.basename(slug, path.extname(slug)).toLowerCase()
   const file = getMarkdownFile(getPagesSource(source), id)
 

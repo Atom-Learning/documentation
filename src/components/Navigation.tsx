@@ -1,10 +1,11 @@
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
+import { PageBySlug } from '../utilities'
 import { Box, Link, List, Text } from '.'
 
 type NavigationProps = {
-  items: [string, any[]][]
+  items: [string, PageBySlug[]][]
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ items }) => (
