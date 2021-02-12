@@ -5,7 +5,7 @@ import { styled } from '../../stitches.config'
 import { Box, InlineCode, Link, Text } from '.'
 
 type PropsTableProps = {
-  for: React.FC
+  for: string
 }
 
 const columns = ['Prop', 'Type', 'Default value', 'Required']
@@ -81,12 +81,14 @@ const PropType = ({ name, type }) => {
   return <InlineCode>{type.name}</InlineCode>
 }
 
-export const PropsTable: React.FC<PropsTableProps> = ({ for: Component }) => {
-  const { props: componentProps } = docgen.find(
-    (component) => component.displayName === Component?.displayName
+export const PropsTable: React.FC<PropsTableProps> = ({
+  for: componentName
+}) => {
+  const componentDocs = docgen.find(
+    (component) => component.displayName === componentName
   )
 
-  if (!componentProps) {
+  if (!componentDocs) {
     return null
   }
 
@@ -102,8 +104,10 @@ export const PropsTable: React.FC<PropsTableProps> = ({ for: Component }) => {
           ))}
         </thead>
         <tbody>
-          {Object.keys(componentProps).map((key) => {
-            const { name, type, defaultValue, required } = componentProps[key]
+          {Object.keys(componentDocs.props).map((key) => {
+            const { name, type, defaultValue, required } = componentDocs.props[
+              key
+            ]
 
             if (type.name === 'never') return null
 

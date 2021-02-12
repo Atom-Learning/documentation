@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { MdxRemote } from 'next-mdx-remote/types'
 import * as React from 'react'
 
-import { Flex, Main, Navigation } from '../../components'
+import { Flex, Main, Navigation, PropsTable, Text } from '../../components'
 import {
   getPageBySlug,
   getPages,
@@ -11,14 +11,22 @@ import {
 } from '../../utilities'
 
 type PageProps = {
-  pages: []
+  component?: string
+  title: string
   content: MdxRemote.Source
+  pages: []
 }
 
-const Page: React.FC<PageProps> = ({ pages, content }) => (
+const Page: React.FC<PageProps> = ({ pages, content, title, component }) => (
   <Flex>
     <Navigation items={pages} />
-    <Main>{stringToMdx(content)}</Main>
+    <Main>
+      <Text as="h1" size="xxl">
+        {title}
+      </Text>
+      {stringToMdx(content)}
+      {component && <PropsTable for={component} />}
+    </Main>
   </Flex>
 )
 
