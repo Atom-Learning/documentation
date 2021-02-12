@@ -13,5 +13,14 @@ module.exports = {
     }
 
     return config
+  },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/overview/introduction',
+        permanent: false
+      }
+    ]
   }
 }

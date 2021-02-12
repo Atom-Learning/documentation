@@ -5,7 +5,7 @@ import { MdxRemote } from 'next-mdx-remote/types'
 
 const components: MdxRemote.Components = Components
 
-export const mdxToString = async (mdx: string): Promise<MdxRemote.Source> => {
+export const mdxToString = async (mdx = ''): Promise<MdxRemote.Source> => {
   return await renderToString(mdx, { components })
 }
 

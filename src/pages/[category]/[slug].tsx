@@ -1,3 +1,5 @@
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { MdxRemote } from 'next-mdx-remote/types'
 import * as React from 'react'
 
 import { Flex, Main, Navigation } from '../../components'
@@ -10,7 +12,7 @@ import {
 
 type PageProps = {
   pages: []
-  content: any
+  content: MdxRemote.Source
 }
 
 const Page: React.FC<PageProps> = ({ pages, content }) => (
@@ -20,12 +22,10 @@ const Page: React.FC<PageProps> = ({ pages, content }) => (
   </Flex>
 )
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const pages = await getPages()
-  const page = getPageBySlug(params?.slug, params?.category)
-  const content = await mdxToString(page.content || '')
-
-  // console.log({ pages })
+  const page = getPageBySlug(params.slug, params.category)
+  const content = await mdxToString(page.content)
 
   return {
     props: {
@@ -36,15 +36,15 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const pages = await getPages()
-  const flattenedPages = pages.flatMap((category) => category[1])
+  const flattenedPages = pages.flatMap((source) => source[1])
 
   return {
-    paths: flattenedPages.map(({ category, id }) => ({
+    paths: flattenedPages.map(({ data }) => ({
       params: {
-        category,
-        slug: id
+        category: data.category,
+        slug: data.id
       }
     })),
     fallback: false

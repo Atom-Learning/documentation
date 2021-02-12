@@ -3,8 +3,8 @@ import glob from 'glob'
 import matter from 'gray-matter'
 import path from 'path'
 
-const getPagesSource = (category) => {
-  if (category === 'components')
+const getPagesSource = (source) => {
+  if (source === 'components') {
     return path.join(
       'node_modules',
       '@atom-learning',
@@ -12,47 +12,64 @@ const getPagesSource = (category) => {
       'dist',
       'docs'
     )
+  }
+
+  if (source === 'theme') {
+    return path.join('node_modules', '@atom-learning', 'theme', 'dist')
+  }
+
+  if (source === 'overview') {
+    return 'content'
+  }
   return null
 }
 
-export const getPagesSlugs = async (categories: string[]) => {
+export const getPagesSlugs = async (sources: string[]) => {
   const pageSlugs = await Promise.all(
-    categories.map((category) =>
-      glob.sync(path.join(getPagesSource(category), '**/*.{md,mdx}'))
+    sources.map((source) =>
+      glob.sync(path.join(getPagesSource(source), '**/*.{md,mdx}'))
     )
   )
+  const slugsBySource = sources.reduce(
+    (obj, source, i) => ({ ...obj, [source]: pageSlugs[i] }),
+    {}
+  )
 
-  return categories.reduce((obj, curr, i) => {
-    obj[curr] = pageSlugs[i]
-    return obj
-  }, {})
+  return slugsBySource
 }
 
-export const getPageBySlug = (slug: string, category: string) => {
-  const basePath = getPagesSource(category)
+const getMarkdownFile = (basePath, name) => {
+  const fileAsMdx = path.join(basePath, `${name}.mdx`)
+  const fileAsMd = path.join(basePath, `${name}.md`)
+  const fileToRead = fs.existsSync(fileAsMdx) ? fileAsMdx : fileAsMd
+
+  return fs.readFileSync(fileToRead, 'utf8')
+}
+
+export const getPageBySlug = (slug, source) => {
   const id = path.basename(slug, path.extname(slug)).toLowerCase()
+  const file = getMarkdownFile(getPagesSource(source), id)
 
-  const filePathMdx = path.join(basePath, `${id}.mdx`)
-  const filePathMd = path.join(basePath, `${id}.md`)
+  const { data, content } = matter(file)
 
-  const isMdx = fs.existsSync(filePathMdx)
-
-  const file = isMdx
-    ? fs.readFileSync(filePathMdx, 'utf8')
-    : fs.readFileSync(filePathMd, 'utf8')
-
-  const contents = matter(file)
-
-  return { ...contents, slug, id, category }
+  return {
+    data: {
+      ...data,
+      slug,
+      id,
+      category: source
+    },
+    content
+  }
 }
 
 export const getPages = async () => {
-  const categories = ['components']
-  const slugs = await getPagesSlugs(categories)
+  const sources = ['components', 'theme', 'overview']
+  const slugs = await getPagesSlugs(sources)
 
-  const pages = categories.map((category) => [
-    category,
-    slugs[category].map((slug) => getPageBySlug(slug, category))
+  const pages = sources.map((source) => [
+    source,
+    slugs[source].map((slug: string) => getPageBySlug(slug, source))
   ])
 
   return pages
