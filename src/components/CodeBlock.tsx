@@ -4,7 +4,7 @@ import theme from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
 
-import { styled } from '../stitches.config'
+import { styled } from '../../stitches.config'
 
 type CodeBlockProps = {
   children: string

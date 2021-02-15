@@ -1,10 +1,11 @@
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
+import { PageBySlug } from '../utilities'
 import { Box, Link, List, Text } from '.'
 
 type NavigationProps = {
-  items: [string, FrontMatter[]][]
+  items: [string, PageBySlug[]][]
 }
 
 export const Navigation: React.FC<NavigationProps> = ({ items }) => (
@@ -50,9 +51,9 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
             lineHeight: 1.2
           }}
         >
-          {pages.map((page) => (
+          {pages.map(({ data: page }) => (
             <Box as="li" key={page.id}>
-              <NextLink passHref href={`/${page.id}`}>
+              <NextLink passHref href={`/${page.category}/${page.id}`}>
                 <Link
                   css={{
                     color: '$tonal700',

@@ -1,11 +1,12 @@
 import docgen from '@atom-learning/components/dist/docgen.json'
 import * as React from 'react'
+import { ComponentDoc } from 'react-docgen-typescript'
 
-import { styled } from '../stitches.config'
-import { Box, InlineCode, Link, Text } from './'
+import { styled } from '../../stitches.config'
+import { Box, InlineCode, Link, Text } from '.'
 
 type PropsTableProps = {
-  for: React.FC
+  for: string
 }
 
 const columns = ['Prop', 'Type', 'Default value', 'Required']
@@ -81,12 +82,14 @@ const PropType = ({ name, type }) => {
   return <InlineCode>{type.name}</InlineCode>
 }
 
-export const PropsTable: React.FC<PropsTableProps> = ({ for: Component }) => {
-  const { props: componentProps } = docgen.find(
-    (component) => component.displayName === Component?.displayName
+export const PropsTable: React.FC<PropsTableProps> = ({
+  for: componentName
+}) => {
+  const componentDocs: ComponentDoc = docgen.find(
+    (component) => component.displayName === componentName
   )
 
-  if (!componentProps) {
+  if (!componentDocs) {
     return null
   }
 
@@ -95,37 +98,39 @@ export const PropsTable: React.FC<PropsTableProps> = ({ for: Component }) => {
       <Text size="lg">API Reference</Text>
       <Table>
         <thead>
-          {columns.map((column) => (
-            <Cell as="th" appearance="heading" key={column}>
-              {column}
-            </Cell>
-          ))}
+          <tr>
+            {columns.map((column) => (
+              <Cell as="th" appearance="heading" key={column}>
+                {column}
+              </Cell>
+            ))}
+          </tr>
         </thead>
         <tbody>
-          {Object.keys(componentProps).map((key) => {
-            const { name, type, defaultValue, required } = componentProps[key]
+          {Object.entries(componentDocs.props).map(
+            ([key, { name, type, defaultValue, required }]) => {
+              if (type.name === 'never') return null
 
-            if (type.name === 'never') return null
-
-            return (
-              <tr key={key}>
-                <Cell css={{ pr: '$4' }}>
-                  <InlineCode>{name}</InlineCode>
-                </Cell>
-                <Cell>
-                  <PropType name={name} type={type} />
-                </Cell>
-                <Cell>
-                  {defaultValue ? (
-                    <InlineCode>{defaultValue.value}</InlineCode>
-                  ) : (
-                    <Empty />
-                  )}
-                </Cell>
-                <Cell>{required ? <IconCheckmark /> : <Empty />}</Cell>
-              </tr>
-            )
-          })}
+              return (
+                <tr key={key}>
+                  <Cell css={{ pr: '$4' }}>
+                    <InlineCode>{name}</InlineCode>
+                  </Cell>
+                  <Cell>
+                    <PropType name={name} type={type} />
+                  </Cell>
+                  <Cell>
+                    {defaultValue ? (
+                      <InlineCode>{defaultValue.value}</InlineCode>
+                    ) : (
+                      <Empty />
+                    )}
+                  </Cell>
+                  <Cell>{required ? <IconCheckmark /> : <Empty />}</Cell>
+                </tr>
+              )
+            }
+          )}
         </tbody>
       </Table>
     </Box>

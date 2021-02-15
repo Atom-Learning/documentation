@@ -7,7 +7,7 @@ import NextDocument, {
 } from 'next/document'
 import * as React from 'react'
 
-import { css } from '../stitches.config'
+import { css } from '../../stitches.config'
 
 export default class Document extends NextDocument {
   static async getInitialProps(ctx: DocumentContext) {
