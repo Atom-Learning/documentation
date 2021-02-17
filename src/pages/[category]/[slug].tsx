@@ -13,6 +13,7 @@ import {
 type PageProps = {
   data: {
     component?: string
+    description?: string
     title: string
   }
   content: MdxRemote.Source
@@ -26,6 +27,7 @@ const Page: React.FC<PageProps> = ({ pages, content, data }) => (
       <Text as="h1" size="xxl">
         {data.title}
       </Text>
+      <Text size="lg">{data.description}</Text>
       {stringToMdx(content)}
       {data.component && <PropsTable for={data.component} />}
     </Main>
@@ -33,10 +35,10 @@ const Page: React.FC<PageProps> = ({ pages, content, data }) => (
 )
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const pages = await getPages()
+  const pages = await getPages(['title', 'source', 'id', 'category'])
   const page = getPageBySlug(params.slug, params.category)
   const content = await mdxToString(page.content)
-
+  // console.log(JSON.stringify(pages, null, 2))
   return {
     props: {
       pages,
@@ -53,7 +55,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: flattenedPages.map(({ data }) => ({
       params: {
-        category: data.category,
+        category: data.source,
         slug: data.id
       }
     })),

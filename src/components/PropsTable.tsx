@@ -69,17 +69,20 @@ const PropType = ({ name, type }) => {
     )
   }
   if (Array.isArray(type.value)) {
+    console.log(type.value)
     return (
       <Box css={{ display: 'flex', gap: '$2', flexWrap: 'wrap' }}>
         {type.value
           .filter(({ value }) => value !== 'undefined')
           .map(({ value }) => (
-            <InlineCode key={value}>{value}</InlineCode>
+            <InlineCode key={value}>
+              {value.replace(/;/g, ';\n').replace(/{/g, '{\n')}
+            </InlineCode>
           ))}
       </Box>
     )
   }
-  return <InlineCode>{type.name}</InlineCode>
+  return <InlineCode>{type.name.replace(';', ';\n')}</InlineCode>
 }
 
 export const PropsTable: React.FC<PropsTableProps> = ({
@@ -95,7 +98,9 @@ export const PropsTable: React.FC<PropsTableProps> = ({
 
   return (
     <Box css={{ mt: '$5' }}>
-      <Text size="lg">API Reference</Text>
+      <Text as="h2" size="lg">
+        API Reference
+      </Text>
       <Table>
         <thead>
           <tr>

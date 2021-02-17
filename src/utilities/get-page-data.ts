@@ -51,9 +51,10 @@ export interface PageBySlug {
   data: {
     title?: string
     component?: string
+    category?: string
     slug: string
     id: string
-    category: 'components' | 'theme' | 'overview'
+    source: 'components' | 'theme' | 'overview'
   }
   content: string
 }
@@ -69,19 +70,37 @@ export const getPageBySlug = (slug, source): PageBySlug => {
       ...data,
       slug,
       id,
-      category: source
+      source
     },
     content
   }
 }
 
-export const getPages = async () => {
+export const getPages = async (fields) => {
   const sources = ['components', 'theme', 'overview']
   const slugs = await getPagesSlugs(sources)
 
   const pages = sources.map((source) => [
     source,
-    slugs[source].map((slug: string) => getPageBySlug(slug, source))
+    slugs[source]
+      .map((slug: string) => getPageBySlug(slug, source))
+      .map((page) => {
+        const items = {}
+        if (!fields) return page
+
+        fields.forEach((field) => {
+          if (field == 'slug') {
+            items[field] = page.slug
+          }
+          if (field == 'content') {
+            items[field] = page.content
+          }
+          if (page.data[field]) {
+            items[field] = page.data[field]
+          }
+        })
+        return items
+      })
   ])
 
   return pages

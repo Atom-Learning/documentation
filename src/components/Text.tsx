@@ -21,7 +21,6 @@ const StyledText = styled('p', {
       lg: {
         color: '$tonal900',
         fontSize: '$lg',
-        fontWeight: 600,
         lineHeight: 1.2
       },
       xl: {
@@ -43,7 +42,7 @@ const StyledText = styled('p', {
 type TextProps = Merge<
   StitchesProps<typeof StyledText>,
   {
-    as?: 'p' | 'h1' | 'h2' | 'h3'
+    as?: 'p' | 'h1' | 'h2' | 'h3' | 'h4'
     size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
   }
 >

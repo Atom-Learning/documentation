@@ -21,15 +21,16 @@
   },
   "homepage": "https://github.com/Atom-Learning/documentation#readme",
   "dependencies": {
-    "@atom-learning/components": "../@atom-learning-components",
-    "@atom-learning/theme": "0.1.0-beta.3",
+    "@atom-learning/components": "https://github.com/atom-learning/components#a5d241b34cdf78634597b9da7b501495b2f4d9fd",
+    "@atom-learning/theme": "0.1.0-beta.4",
     "@next/mdx": "^10.0.6",
     "@stitches/react": "0.0.3-canary.4",
     "next": "^10.0.6",
     "prism-react-renderer": "^1.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-live": "^2.2.3"
+    "react-live": "^2.2.3",
+    "typescript-formatter": "^7.2.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",
