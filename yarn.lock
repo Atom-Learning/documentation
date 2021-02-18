@@ -58,10 +58,14 @@
   dependencies:
     "@radix-ui/react-checkbox" "^0.0.4"
     "@radix-ui/react-icons" "^1.0.1"
-    "@stitches/react" "0.0.3-canary.4"
+    "@stitches/react" "0.1.0-canary.7"
+    "@types/react" "^17.0.2"
+    "@types/resize-observer-browser" "^0.1.5"
 
-"@atom-learning/theme@../@atom-learning-theme":
-  version "0.1.0-beta.4"
+"@atom-learning/theme@^0.1.0-beta.5":
+  version "0.1.0-beta.5"
+  resolved "https://registry.atomlearning.technology/@atom-learning%2ftheme/-/theme-0.1.0-beta.5.tgz#ec61898c4e62239fd0b18d8038c8ca546a9f5f99"
+  integrity sha512-HQXSTlXESvC9wG3Bak/UMlE8MW/p3BLOqTr6fZcesIiUZw0IACmmgycJVXd7um7Ej4ZGXtfmctXaBt8YD+TIjQ==
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
@@ -1209,17 +1213,17 @@
   resolved "https://registry.atomlearning.technology/@radix-ui%2futils/-/utils-0.0.3.tgz#f20dfa8a5681d778a579ad695fe68fe6a2c0ee88"
   integrity sha512-ruWffd3JjN8r+j8+LOIzTNEHzJsFcHOiSnQfl8KeBs+sCHGQgaI9IaRWxsaNXgrOYgPdBlZCbYG3qsLww2WR+w==
 
-"@stitches/core@^0.0.3-canary.4":
-  version "0.0.3-canary.4"
-  resolved "https://registry.atomlearning.technology/@stitches%2fcore/-/core-0.0.3-canary.4.tgz#47f5bcf250f5a010218e76510af4ba52e066de6c"
-  integrity sha512-VlDwtJfhWvxItU8ai5i0UQcNx7MRUIMpy2i6ufUVxcINXkrFZDTBxfahdgKQIT5oS3kT0LbUySctRDEMbt79YA==
+"@stitches/core@^0.1.0-canary.7":
+  version "0.1.0-canary.7"
+  resolved "https://registry.atomlearning.technology/@stitches%2fcore/-/core-0.1.0-canary.7.tgz#624b4a7a9c94d3c1cb080e6eed2f6c1757e3bca2"
+  integrity sha512-99H7c9yMuZ9hzlTPY9h+zDCbJshKFyh5Bc0eUt4dAvZwXPf0lZ9s/NDBO3ivFQgUsa7D0dgjaJNq928MEakRiQ==
 
-"@stitches/react@0.0.3-canary.4":
-  version "0.0.3-canary.4"
-  resolved "https://registry.atomlearning.technology/@stitches%2freact/-/react-0.0.3-canary.4.tgz#a482ef65ee26607840b690910b177eb8a5c68d97"
-  integrity sha512-t9IotrA7nC3kM50yPgDumIwYUB9FhuEjuta2kEzUs8LTi5q8cvkG+9JOZAWDmTl/V5DImui8pv/5OMNKlG4bfg==
+"@stitches/react@0.1.0-canary.7":
+  version "0.1.0-canary.7"
+  resolved "https://registry.atomlearning.technology/@stitches%2freact/-/react-0.1.0-canary.7.tgz#fbf8ac34813f047b58f5615f2d14a53e4c6d6056"
+  integrity sha512-isc5opQRy8q6/v6IaNkaxuG5caUHiu+BovIjGOAIh2ZjNgOkfYbt3/p2sRbhVnApoJgsD4XHSsaB05FDmsKFdg==
   dependencies:
-    "@stitches/core" "^0.0.3-canary.4"
+    "@stitches/core" "^0.1.0-canary.7"
 
 "@types/hast@^2.0.0":
   version "2.3.1"
@@ -1267,6 +1271,19 @@
   dependencies:
     "@types/prop-types" "*"
     csstype "^3.0.2"
+
+"@types/react@^17.0.2":
+  version "17.0.2"
+  resolved "https://registry.atomlearning.technology/@types%2freact/-/react-17.0.2.tgz#3de24c4efef902dd9795a49c75f760cbe4f7a5a8"
+  integrity sha512-Xt40xQsrkdvjn1EyWe1Bc0dJLcil/9x2vAuW7ya+PuQip4UYUaXyhzWmAbwRsdMgwOFHpfp7/FFZebDU6Y8VHA==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^3.0.2"
+
+"@types/resize-observer-browser@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.atomlearning.technology/@types%2fresize-observer-browser/-/resize-observer-browser-0.1.5.tgz#36d897708172ac2380cd486da7a3daf1161c1e23"
+  integrity sha512-8k/67Z95Goa6Lznuykxkfhq9YU3l1Qe6LNZmwde1u7802a3x8v44oq0j91DICclxatTr0rNnhXx7+VTIetSrSQ==
 
 "@types/unist@*", "@types/unist@^2.0.0", "@types/unist@^2.0.2", "@types/unist@^2.0.3":
   version "2.0.3"

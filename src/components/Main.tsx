@@ -1,6 +1,5 @@
+import { Box } from '@atom-learning/components'
 import * as React from 'react'
-
-import { Box } from '.'
 
 export const Main: React.FC = ({ children }) => (
   <Box

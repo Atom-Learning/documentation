@@ -1,4 +1,4 @@
-import { styled } from '../../stitches.config'
+import { styled } from '@atom-learning/components'
 
 export const Divider = styled('hr', {
   bg: '$tonal400',

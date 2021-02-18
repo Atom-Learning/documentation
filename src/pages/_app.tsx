@@ -1,9 +1,8 @@
+import { globalCss } from '@atom-learning/components'
 import type { AppProps } from 'next/app'
 import * as React from 'react'
 
-import { css } from '../../stitches.config'
-
-css.global({
+globalCss({
   body: { margin: 0 }
 })()
 
