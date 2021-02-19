@@ -5,11 +5,14 @@ import theme from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
 
+const { Text } = Components
+
 type CodeBlockProps = {
-  children: string
-  live?: boolean
   center?: boolean
+  children: string
   className?: string
+  live?: boolean
+  preview?: boolean
 }
 
 const StyledPre = styled('pre', {
@@ -21,13 +24,28 @@ const StyledPre = styled('pre', {
   mb: '$4',
   mt: 0,
   mx: '-$4',
-  overflow: 'hidden'
+  overflow: 'hidden',
+  position: 'relative',
+  '&:focus-within': {
+    boxShadow: '0 0 0 3px $primary500'
+  }
 })
 const StyledLivePreview = styled(LivePreview, {
   mx: '-$4',
   overflow: 'hidden',
   px: '$4',
-  py: '$5'
+  py: '$5',
+  variants: {
+    layout: {
+      center: {
+        alignItems: 'center',
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '$3',
+        justifyContent: 'center'
+      }
+    }
+  }
 })
 const StyledLiveEditor = styled(LiveEditor, {
   '> textarea,> pre': {
@@ -41,10 +59,11 @@ const StyledLiveError = styled(LiveError, {
 })
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({
-  children,
-  live,
   center,
-  className
+  children,
+  className,
+  live,
+  preview
 }) => {
   const language = className?.replace(/language-/, '') as Language
 
@@ -55,20 +74,24 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         scope={{ ...Components }}
         theme={theme}
       >
-        <StyledLivePreview
-          css={
-            center && {
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }
-          }
-        />
+        <StyledLivePreview layout={center && 'center'} />
         <StyledPre>
           {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           {/*
           // @ts-ignore */}
           <StyledLiveEditor padding={null} />
+          <Text
+            as="span"
+            size="sm"
+            css={{
+              color: '$tonal500',
+              position: 'absolute',
+              right: '$3',
+              top: '$3'
+            }}
+          >
+            Edit me!
+          </Text>
         </StyledPre>
         <StyledLiveError />
       </LiveProvider>
@@ -76,33 +99,45 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   }
 
   return (
-    <StyledPre>
-      <Highlight
-        {...defaultProps}
-        code={children.trim()}
-        language={language}
-        theme={theme}
-      >
-        {({ className, style, tokens, getLineProps, getTokenProps }) => (
-          <pre
-            className={className}
-            style={{
-              ...style,
-              margin: 0,
-              overflow: 'auto',
-              padding: '24px 32px'
-            }}
-          >
-            {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </div>
-            ))}
-          </pre>
-        )}
-      </Highlight>
-    </StyledPre>
+    <>
+      {preview && (
+        <LiveProvider
+          code={children.trim()}
+          scope={{ ...Components }}
+          theme={theme}
+        >
+          <StyledLivePreview layout={center && 'center'} />
+          <StyledLiveError />
+        </LiveProvider>
+      )}
+      <StyledPre>
+        <Highlight
+          {...defaultProps}
+          code={children.trim()}
+          language={language}
+          theme={theme}
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre
+              className={className}
+              style={{
+                ...style,
+                margin: 0,
+                overflow: 'auto',
+                padding: '24px 32px'
+              }}
+            >
+              {tokens.map((line, i) => (
+                <div key={i} {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          )}
+        </Highlight>
+      </StyledPre>
+    </>
   )
 }

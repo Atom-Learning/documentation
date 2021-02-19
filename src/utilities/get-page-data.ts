@@ -1,6 +1,8 @@
 import fs from 'fs'
 import glob from 'glob'
 import matter from 'gray-matter'
+import { paramCase } from 'param-case'
+import { pascalCase } from 'pascal-case'
 import path from 'path'
 
 const getPagesSource = (source) => {
@@ -39,8 +41,8 @@ export const getPagesSlugs = async (sources: string[]) => {
 }
 
 const getMarkdownFile = (basePath, name) => {
-  const filePathAsMdx = path.join(basePath, `${name}.mdx`)
-  const filePathAsMd = path.join(basePath, `${name}.md`)
+  const filePathAsMdx = path.join(basePath, `${pascalCase(name)}.mdx`)
+  const filePathAsMd = path.join(basePath, `${pascalCase(name)}.md`)
 
   const fileToRead = fs.existsSync(filePathAsMdx) ? filePathAsMdx : filePathAsMd
 
@@ -51,40 +53,51 @@ export interface PageBySlug {
   data: {
     title?: string
     component?: string
+    category?: string
     slug: string
     id: string
-    category: 'components' | 'theme' | 'overview'
+    source: 'components' | 'theme' | 'overview'
   }
   content: string
 }
 
-export const getPageBySlug = (
-  slug: string,
-  source: 'components' | 'theme' | 'overview'
-): PageBySlug => {
-  const id = path.basename(slug, path.extname(slug)).toLowerCase()
+export const getPageBySlug = (slug, source): PageBySlug => {
+  const id = paramCase(path.basename(slug, path.extname(slug)))
   const file = getMarkdownFile(getPagesSource(source), id)
 
   const { data, content } = matter(file)
 
   return {
-    data: {
-      ...data,
-      slug,
-      id,
-      category: source
-    },
+    data: { ...data, slug, id, source },
     content
   }
 }
 
-export const getPages = async () => {
-  const sources = ['components', 'theme', 'overview']
+export const getPages = async (fields?: string[]) => {
+  const sources = ['overview', 'theme', 'components']
   const slugs = await getPagesSlugs(sources)
 
   const pages = sources.map((source: 'components' | 'theme' | 'overview') => [
     source,
-    slugs[source].map((slug: string) => getPageBySlug(slug, source))
+    slugs[source]
+      .map((slug: string) => getPageBySlug(slug, source))
+      .map((page) => {
+        const items = {}
+        if (!fields) return page
+
+        fields.forEach((field) => {
+          if (field == 'slug') {
+            items[field] = page.slug
+          }
+          if (field == 'content') {
+            items[field] = page.content
+          }
+          if (page.data[field]) {
+            items[field] = page.data[field]
+          }
+        })
+        return items
+      })
   ])
 
   return pages

@@ -1,12 +1,86 @@
 import { Box, Heading, Link, Text } from '@atom-learning/components'
+import { capitalCase } from 'capital-case'
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
 import { PageBySlug } from '../utilities'
 
 type NavigationProps = {
-  items: [string, PageBySlug[]][]
+  items: [
+    string,
+    {
+      category?: string
+    }[]
+  ][]
 }
+
+const applyNavigationStucture = (
+  items: [
+    string,
+    {
+      category?: string
+    }[]
+  ][]
+) =>
+  items.reduce((obj, [source, pages]) => {
+    if (pages.some((page) => page.category)) {
+      return {
+        ...obj,
+        [source]: pages.reduce((obj, page) => {
+          if (!obj[page.category]) {
+            obj[page.category] = []
+          }
+          return {
+            ...obj,
+            [page.category]: [...obj[page.category], page]
+          }
+        }, {})
+      }
+    }
+
+    return {
+      ...obj,
+      [source]: pages
+    }
+  }, {})
+
+const HeadingCategory = (props) => (
+  <Heading
+    {...props}
+    as="h3"
+    css={{
+      color: '$tonal800',
+      fontSize: '$sm',
+      fontWeight: 500,
+      letterSpacing: '0.1em',
+      mb: '$2',
+      textTransform: 'uppercase'
+    }}
+  />
+)
+const HeadingSource = (props) => (
+  <Heading
+    {...props}
+    as="h2"
+    css={{
+      fontSize: '$md',
+      fontWeight: 600,
+      mb: '$2'
+    }}
+  />
+)
+const List = (props) => (
+  <Text
+    {...props}
+    as="ul"
+    css={{
+      listStyleType: 'none',
+      m: 0,
+      mb: '$4',
+      p: 0
+    }}
+  />
+)
 
 export const Navigation: React.FC<NavigationProps> = ({ items }) => (
   <Box
@@ -28,42 +102,46 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
       <br />
       Design System
     </Heading>
-    {items.map(([category, pages]) => (
-      <React.Fragment key={category}>
-        <Heading
-          css={{
-            fontSize: '$sm',
-            textTransform: 'uppercase',
-            fontWeight: 600,
-            letterSpacing: '0.1em',
-            mb: '$2'
-          }}
-        >
-          {category}
-        </Heading>
-        <Text
-          as="ul"
-          css={{
-            m: 0,
-            mb: '$4',
-            p: 0,
-            listStyleType: 'none',
-            lineHeight: 1.2
-          }}
-        >
-          {pages.map(({ data: page }) =>
-            page.title ? (
-              <li key={page.id}>
-                <NextLink passHref href={`/${page.category}/${page.id}`}>
-                  <Link size="sm" css={{ display: 'block', py: '$0' }}>
-                    {page.title}
-                  </Link>
-                </NextLink>
-              </li>
-            ) : null
+    {Object.entries(applyNavigationStucture(items)).map(
+      ([source, categories]) => (
+        <React.Fragment key={source}>
+          <HeadingSource>{capitalCase(source)}</HeadingSource>
+          {Array.isArray(categories) ? (
+            <List>
+              {categories.map(({ id, source, title }) =>
+                title ? (
+                  <li key={`${source}${id}`}>
+                    <NextLink passHref href={`/${source}/${id}`}>
+                      <Link size="sm" css={{ display: 'block', py: '$0' }}>
+                        {title}
+                      </Link>
+                    </NextLink>
+                  </li>
+                ) : null
+              )}
+            </List>
+          ) : (
+            Object.entries(categories).map(([category, pages]) => (
+              <>
+                <HeadingCategory>{category}</HeadingCategory>
+                <List>
+                  {pages.map(({ id, source, title }) =>
+                    title ? (
+                      <li key={`${source}${id}`}>
+                        <NextLink passHref href={`/${source}/${id}`}>
+                          <Link size="sm" css={{ display: 'block', py: '$0' }}>
+                            {title}
+                          </Link>
+                        </NextLink>
+                      </li>
+                    ) : null
+                  )}
+                </List>
+              </>
+            ))
           )}
-        </Text>
-      </React.Fragment>
-    ))}
+        </React.Fragment>
+      )
+    )}
   </Box>
 )
