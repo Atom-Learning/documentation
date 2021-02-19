@@ -1274,10 +1274,15 @@
   resolved "https://registry.atomlearning.technology/@radix-ui%2futils/-/utils-0.0.3.tgz#f20dfa8a5681d778a579ad695fe68fe6a2c0ee88"
   integrity sha512-ruWffd3JjN8r+j8+LOIzTNEHzJsFcHOiSnQfl8KeBs+sCHGQgaI9IaRWxsaNXgrOYgPdBlZCbYG3qsLww2WR+w==
 
-"@stitches/core@^0.1.0-canary.5", "@stitches/core@^0.1.0-canary.8":
+"@stitches/core@^0.1.0-canary.5":
   version "0.1.0-canary.8"
   resolved "https://registry.atomlearning.technology/@stitches%2fcore/-/core-0.1.0-canary.8.tgz#f24a36263fdfa660940dbcf894ee3af242ea855c"
   integrity sha512-QckYQXdoQgAp5j4OMpXiIt8bxgSeO6MaMhqt17RUjqtZqYusGXUDmCTX1WCqRR59RUeHE/S32lyBY1xo7eWcuA==
+
+"@stitches/core@^0.1.0-canary.9":
+  version "0.1.0-canary.9"
+  resolved "https://registry.atomlearning.technology/@stitches%2fcore/-/core-0.1.0-canary.9.tgz#0991d4a6a1579078613b9d61894cf47c2df8ae84"
+  integrity sha512-qyxjy5hg4D0fF6JWaiuuvsoATbnzDtXNiSIJ4/WP/I+OJQ5pMIDLgQB2tp67qSGODdDsyxdGjwSJDj775RSOBA==
 
 "@stitches/react@0.1.0-canary.5":
   version "0.1.0-canary.5"
@@ -1286,12 +1291,12 @@
   dependencies:
     "@stitches/core" "^0.1.0-canary.5"
 
-"@stitches/react@0.1.0-canary.8":
-  version "0.1.0-canary.8"
-  resolved "https://registry.atomlearning.technology/@stitches%2freact/-/react-0.1.0-canary.8.tgz#aece7869c267f2b1144083521aa30d1ca2959fcd"
-  integrity sha512-R0tNLXTjsZUqPecNxDFN3UDq/wcKTSNjtlLggsYSl2lKuXqjRfK/bBB7irgLjtbAxKB0Io/5P9TEzlQ3JyNzBQ==
+"@stitches/react@^0.1.0-canary.9":
+  version "0.1.0-canary.9"
+  resolved "https://registry.atomlearning.technology/@stitches%2freact/-/react-0.1.0-canary.9.tgz#e9b802504c0f54cdf4e759b10c7f198e050bc72f"
+  integrity sha512-sDTi05Dzw24jNO0AboKOzqpitbWms8opwjQmoqp3OMBLw6j+Iq/jP9ohwwRVhesNchTR1OVdqQAectI1j/5gtw==
   dependencies:
-    "@stitches/core" "^0.1.0-canary.8"
+    "@stitches/core" "^0.1.0-canary.9"
 
 "@types/hast@^2.0.0":
   version "2.3.1"

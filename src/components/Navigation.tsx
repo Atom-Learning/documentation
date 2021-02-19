@@ -20,7 +20,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
       p: '$3',
       position: 'sticky',
       top: 0,
-      width: 300
+      width: 260
     }}
   >
     <Heading size="sm" css={{ mb: '$4' }}>
@@ -51,21 +51,17 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
             lineHeight: 1.2
           }}
         >
-          {pages.map(({ data: page }) => (
-            <li key={page.id}>
-              <NextLink passHref href={`/${page.category}/${page.id}`}>
-                <Link
-                  size="sm"
-                  css={{
-                    display: 'block',
-                    py: '$1'
-                  }}
-                >
-                  {page.title}
-                </Link>
-              </NextLink>
-            </li>
-          ))}
+          {pages.map(({ data: page }) =>
+            page.title ? (
+              <li key={page.id}>
+                <NextLink passHref href={`/${page.category}/${page.id}`}>
+                  <Link size="sm" css={{ display: 'block', py: '$0' }}>
+                    {page.title}
+                  </Link>
+                </NextLink>
+              </li>
+            ) : null
+          )}
         </Text>
       </React.Fragment>
     ))}
