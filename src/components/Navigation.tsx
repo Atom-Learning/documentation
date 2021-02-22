@@ -104,12 +104,12 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
             <SourceList items={content} />
           ) : (
             Object.entries(content).map(([category, pages]) => (
-              <>
+              <React.Fragment key={category}>
                 {category && category !== 'void' && (
                   <CategoryHeading>{category}</CategoryHeading>
                 )}
                 <SourceList items={pages} />
-              </>
+              </React.Fragment>
             ))
           )}
         </React.Fragment>

@@ -60,7 +60,7 @@
     "@radix-ui/react-icons" "^1.0.1"
     "@radix-ui/react-progress" "^0.0.5"
     "@radix-ui/react-radio-group" "^0.0.5"
-    "@stitches/react" "^0.1.0-canary.5"
+    "@stitches/react" "0.1.0-canary.5"
     "@types/react" "^17.0.2"
     "@types/resize-observer-browser" "^0.1.5"
 
@@ -1167,9 +1167,9 @@
     "@radix-ui/utils" "0.0.3"
 
 "@radix-ui/react-icons@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.atomlearning.technology/@radix-ui%2freact-icons/-/react-icons-1.0.1.tgz#37de40b8b4f3a8197ac1d29d04870e4a68f5c5b1"
-  integrity sha512-EKEB7aL4FaQyK77ff8hhl+XSIUE8wQ56pHh9XnJpuwXbYSDiYELQtbS+YNFo7KJJUDre6RVFmibc223SoUxozA==
+  version "1.0.2"
+  resolved "https://registry.atomlearning.technology/@radix-ui%2freact-icons/-/react-icons-1.0.2.tgz#e3590564d408438e1531d6d9038d580dc34bb6f5"
+  integrity sha512-6AAdgmQG6PZX7zL/kD4RGwTxXEiM4W2yiXQNZsaLcjKQYwLyUaMzZGsXFe2I0H6jp1a65uFphxmvDwROficOrg==
 
 "@radix-ui/react-label@0.0.4":
   version "0.0.4"
@@ -1287,12 +1287,12 @@
 
 "@stitches/core@^0.1.0-canary.5":
   version "0.1.0-canary.5"
-  resolved "https://registry.atomlearning.technology/@stitches%2fcore/-/core-0.1.0-canary.5.tgz#a0c32e33676606097c4841b3175cd1de7028e60f"
+  resolved "https://registry.yarnpkg.com/@stitches/core/-/core-0.1.0-canary.5.tgz#a0c32e33676606097c4841b3175cd1de7028e60f"
   integrity sha512-WfAVbKUcqAfg3tzLyZ5JnU1pHCOgHFKbJMhKcvSc/sdQPrQTk6nFs/X3V/FipUNTHXN0Ycw4+zP/VUFGaIPpzg==
 
-"@stitches/react@0.1.0-canary.5", "@stitches/react@^0.1.0-canary.5":
+"@stitches/react@0.1.0-canary.5":
   version "0.1.0-canary.5"
-  resolved "https://registry.atomlearning.technology/@stitches%2freact/-/react-0.1.0-canary.5.tgz#acc3fd2866c23a44d1cac03278ae64b2194ea0e3"
+  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-0.1.0-canary.5.tgz#acc3fd2866c23a44d1cac03278ae64b2194ea0e3"
   integrity sha512-t7JbvFVwIdgcJZWf+v+39U1JZ3me+mMC8MIJ9SiBP7Fbh6M6o2DpclnBeTsdAnSklIs9LRI938JUPa4fQ4ILiA==
   dependencies:
     "@stitches/core" "^0.1.0-canary.5"
