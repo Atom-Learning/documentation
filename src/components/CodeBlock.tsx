@@ -27,7 +27,7 @@ const StyledPre = styled('pre', {
   overflow: 'hidden',
   position: 'relative',
   '&:focus-within': {
-    boxShadow: '0 0 0 3px $primary500'
+    boxShadow: '0 0 0 3px $colors$primary500'
   }
 })
 const StyledLivePreview = styled(LivePreview, {
