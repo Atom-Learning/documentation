@@ -24,7 +24,7 @@
     "@atom-learning/components": "../@atom-learning-components",
     "@atom-learning/theme": "^0.1.0-beta.5",
     "@next/mdx": "^10.0.6",
-    "@stitches/react": "^0.1.0-canary.9",
+    "@stitches/react": "0.1.0-canary.5",
     "capital-case": "^1.0.4",
     "next": "^10.0.6",
     "param-case": "^3.0.4",
