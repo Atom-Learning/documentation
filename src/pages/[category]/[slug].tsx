@@ -40,7 +40,13 @@ const Page: React.FC<PageProps> = ({ pages, content, data }) => (
 )
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const pages = await getPages(['title', 'source', 'id', 'category'])
+  const pages = await getPages([
+    'title',
+    'source',
+    'id',
+    'category',
+    'priority'
+  ])
   const page = getPageBySlug(params.slug, params.category)
   const content = await mdxToString(page.content)
 
@@ -54,7 +60,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = await getPages(['source', 'id'])
+  const pages = await getPages(['source', 'id', 'priority'])
   const flattenedPages = pages.flatMap((source) => source[1])
 
   return {

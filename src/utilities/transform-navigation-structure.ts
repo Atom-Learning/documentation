@@ -7,8 +7,11 @@ const nestedNavigationCategories = {
   components: ['Overview', 'General', 'Layout', 'Media', 'Forms', 'Utilities']
 }
 
-const sortByCategory = (categories) => (a, b) =>
-  categories.indexOf(a.category) - categories.indexOf(b.category)
+const sortWithinSource = (categories) => (a, b) =>
+  // sort by category name
+  categories.indexOf(a.category) - categories.indexOf(b.category) ||
+  // sort by priority within that category, default to compare against high number
+  a.priority - (b.priority || 99)
 
 const groupByCategory = (accumulator, page) => {
   // default to void to not render category name
@@ -29,7 +32,7 @@ export const transformNavigationStructure = (
 
     navigation[source] = sourceHasCategories
       ? pages
-          .sort(sortByCategory(nestedNavigationCategories[source]))
+          .sort(sortWithinSource(nestedNavigationCategories[source]))
           .reduce(groupByCategory, {})
       : pages
   })
