@@ -22,9 +22,9 @@
   "homepage": "https://github.com/Atom-Learning/documentation#readme",
   "dependencies": {
     "@atom-learning/components": "../@atom-learning-components",
-    "@atom-learning/theme": "0.1.0-beta.3",
+    "@atom-learning/theme": "^0.1.0-beta.5",
     "@next/mdx": "^10.0.6",
-    "@stitches/react": "0.0.3-canary.4",
+    "@stitches/react": "^0.1.0-canary.9",
     "next": "^10.0.6",
     "prism-react-renderer": "^1.1.1",
     "react": "^17.0.1",

@@ -1,10 +1,9 @@
 import * as Components from '@atom-learning/components'
+import { styled } from '@atom-learning/components'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
-
-import { styled } from '../../stitches.config'
 
 type CodeBlockProps = {
   children: string

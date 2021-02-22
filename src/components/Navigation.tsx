@@ -1,8 +1,8 @@
+import { Box, Heading, Link, Text } from '@atom-learning/components'
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
 import { PageBySlug } from '../utilities'
-import { Box, Link, List, Text } from '.'
 
 type NavigationProps = {
   items: [string, PageBySlug[]][]
@@ -20,20 +20,19 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
       p: '$3',
       position: 'sticky',
       top: 0,
-      width: 300
+      width: 260
     }}
   >
-    <Text size="lg" css={{ mb: '$4' }}>
+    <Heading size="sm" css={{ mb: '$4' }}>
       Atom Learning
       <br />
       Design System
-    </Text>
+    </Heading>
     {items.map(([category, pages]) => (
       <React.Fragment key={category}>
-        <Text
-          as="h3"
-          size="sm"
+        <Heading
           css={{
+            fontSize: '$sm',
             textTransform: 'uppercase',
             fontWeight: 600,
             letterSpacing: '0.1em',
@@ -41,8 +40,9 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
           }}
         >
           {category}
-        </Text>
-        <List
+        </Heading>
+        <Text
+          as="ul"
           css={{
             m: 0,
             mb: '$4',
@@ -51,25 +51,18 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => (
             lineHeight: 1.2
           }}
         >
-          {pages.map(({ data: page }) => (
-            <Box as="li" key={page.id}>
-              <NextLink passHref href={`/${page.category}/${page.id}`}>
-                <Link
-                  css={{
-                    color: '$tonal700',
-                    display: 'block',
-                    fontSize: '$sm',
-                    fontWeight: 500,
-                    lineHeight: 1.2,
-                    mb: '$2'
-                  }}
-                >
-                  {page.title}
-                </Link>
-              </NextLink>
-            </Box>
-          ))}
-        </List>
+          {pages.map(({ data: page }) =>
+            page.title ? (
+              <li key={page.id}>
+                <NextLink passHref href={`/${page.category}/${page.id}`}>
+                  <Link size="sm" css={{ display: 'block', py: '$0' }}>
+                    {page.title}
+                  </Link>
+                </NextLink>
+              </li>
+            ) : null
+          )}
+        </Text>
       </React.Fragment>
     ))}
   </Box>

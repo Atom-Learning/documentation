@@ -1,4 +1,4 @@
-import { styled } from '../../stitches.config'
+import { styled } from '@atom-learning/components'
 
 export const InlineCode = styled('code', {
   py: '$1',

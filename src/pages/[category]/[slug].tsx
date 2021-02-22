@@ -1,8 +1,9 @@
+import { Flex, Heading } from '@atom-learning/components'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { MdxRemote } from 'next-mdx-remote/types'
 import * as React from 'react'
 
-import { Flex, Main, Navigation, PropsTable, Text } from '../../components'
+import { Main, Navigation, PropsTable } from '../../components'
 import {
   getPageBySlug,
   getPages,
@@ -23,9 +24,9 @@ const Page: React.FC<PageProps> = ({ pages, content, data }) => (
   <Flex>
     <Navigation items={pages} />
     <Main>
-      <Text as="h1" size="xxl">
+      <Heading as="h1" size="lg" css={{ mb: '$4' }}>
         {data.title}
-      </Text>
+      </Heading>
       {stringToMdx(content)}
       {data.component && <PropsTable for={data.component} />}
     </Main>

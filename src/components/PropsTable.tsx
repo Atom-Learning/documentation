@@ -1,9 +1,9 @@
+import { Box, Heading, Link, styled, Text } from '@atom-learning/components'
 import docgen from '@atom-learning/components/dist/docgen.json'
 import * as React from 'react'
 import { ComponentDoc } from 'react-docgen-typescript'
 
-import { styled } from '../../stitches.config'
-import { Box, InlineCode, Link, Text } from '.'
+import { InlineCode } from '.'
 
 type PropsTableProps = {
   for: string
@@ -95,7 +95,7 @@ export const PropsTable: React.FC<PropsTableProps> = ({
 
   return (
     <Box css={{ mt: '$5' }}>
-      <Text size="lg">API Reference</Text>
+      <Heading as="h2">API Reference</Heading>
       <Table>
         <thead>
           <tr>

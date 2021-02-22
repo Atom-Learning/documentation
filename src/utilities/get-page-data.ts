@@ -58,7 +58,10 @@ export interface PageBySlug {
   content: string
 }
 
-export const getPageBySlug = (slug, source): PageBySlug => {
+export const getPageBySlug = (
+  slug: string,
+  source: 'components' | 'theme' | 'overview'
+): PageBySlug => {
   const id = path.basename(slug, path.extname(slug)).toLowerCase()
   const file = getMarkdownFile(getPagesSource(source), id)
 
@@ -79,7 +82,7 @@ export const getPages = async () => {
   const sources = ['components', 'theme', 'overview']
   const slugs = await getPagesSlugs(sources)
 
-  const pages = sources.map((source) => [
+  const pages = sources.map((source: 'components' | 'theme' | 'overview') => [
     source,
     slugs[source].map((slug: string) => getPageBySlug(slug, source))
   ])
