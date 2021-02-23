@@ -71,7 +71,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
     return (
       <LiveProvider
         code={children.trim()}
-        scope={{ ...Components }}
+        scope={Components}
         theme={theme}
       >
         <StyledLivePreview layout={center && 'center'} />
@@ -103,7 +103,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
       {preview && (
         <LiveProvider
           code={children.trim()}
-          scope={{ ...Components }}
+          scope={Components}
           theme={theme}
         >
           <StyledLivePreview layout={center && 'center'} />
