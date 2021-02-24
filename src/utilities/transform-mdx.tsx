@@ -43,7 +43,8 @@ const components: MdxRemote.Components = {
       {...props}
       as="ul"
       css={{
-        mb: '$3'
+        mb: '$3',
+        lineHeight: 1.6
       }}
     />
   ),

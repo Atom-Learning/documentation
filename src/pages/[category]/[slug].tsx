@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@atom-learning/components'
+import { Flex, Heading, Text } from '@atom-learning/components'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { MdxRemote } from 'next-mdx-remote/types'
 import * as React from 'react'
@@ -14,6 +14,7 @@ import {
 type PageProps = {
   data: {
     component?: string
+    description?: string
     title: string
   }
   content: MdxRemote.Source
@@ -27,6 +28,11 @@ const Page: React.FC<PageProps> = ({ pages, content, data }) => (
       <Heading as="h1" size="lg" css={{ mb: '$4' }}>
         {data.title}
       </Heading>
+      {data.description && (
+        <Text size="lg" css={{ mb: '$3' }}>
+          {data.description}
+        </Text>
+      )}
       {stringToMdx(content)}
       {data.component && <PropsTable for={data.component} />}
     </Main>
@@ -34,7 +40,13 @@ const Page: React.FC<PageProps> = ({ pages, content, data }) => (
 )
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const pages = await getPages()
+  const pages = await getPages([
+    'title',
+    'source',
+    'id',
+    'category',
+    'priority'
+  ])
   const page = getPageBySlug(params.slug, params.category)
   const content = await mdxToString(page.content)
 
@@ -48,14 +60,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const pages = await getPages()
+  const pages = await getPages(['source', 'id', 'priority'])
   const flattenedPages = pages.flatMap((source) => source[1])
 
   return {
-    paths: flattenedPages.map(({ data }) => ({
+    paths: flattenedPages.map(({ source, id }) => ({
       params: {
-        category: data.category,
-        slug: data.id
+        category: source,
+        slug: id
       }
     })),
     fallback: false
