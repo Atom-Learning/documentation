@@ -1,6 +1,6 @@
 export { CodeBlock } from './CodeBlock'
+export { Divider } from './Divider'
 export { InlineCode } from './InlineCode'
-export { PropsTable } from './PropsTable'
 export { Main } from './Main'
 export { Navigation } from './Navigation'
-export { Divider } from './Divider'
+export { PropsTable } from './PropsTable'
