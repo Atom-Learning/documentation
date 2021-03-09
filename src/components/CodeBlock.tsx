@@ -66,7 +66,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   preview
 }) => {
   const language = className?.replace(/language-/, '') as Language
-  const code = `<>${children.trim()}</>`
+  const code = children.trim()
 
   if (live) {
     return (
@@ -106,7 +106,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
       <StyledPre>
         <Highlight
           {...defaultProps}
-          code={children.trim()}
+          code={code}
           language={language}
           theme={theme}
         >
