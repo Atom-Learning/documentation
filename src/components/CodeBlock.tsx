@@ -36,8 +36,8 @@ const StyledLivePreview = styled(LivePreview, {
   px: '$4',
   py: '$5',
   variants: {
-    layout: {
-      center: {
+    center: {
+      true: {
         alignItems: 'center',
         display: 'flex',
         flexWrap: 'wrap',
@@ -66,15 +66,12 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   preview
 }) => {
   const language = className?.replace(/language-/, '') as Language
+  const code = children.trim()
 
   if (live) {
     return (
-      <LiveProvider
-        code={children.trim()}
-        scope={Components}
-        theme={theme}
-      >
-        <StyledLivePreview layout={center && 'center'} />
+      <LiveProvider code={code} scope={Components} theme={theme}>
+        <StyledLivePreview center={center} />
         <StyledPre>
           {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           {/*
@@ -101,19 +98,15 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   return (
     <>
       {preview && (
-        <LiveProvider
-          code={children.trim()}
-          scope={Components}
-          theme={theme}
-        >
-          <StyledLivePreview layout={center && 'center'} />
+        <LiveProvider code={code} scope={Components} theme={theme}>
+          <StyledLivePreview center={center} />
           <StyledLiveError />
         </LiveProvider>
       )}
       <StyledPre>
         <Highlight
           {...defaultProps}
-          code={children.trim()}
+          code={code}
           language={language}
           theme={theme}
         >
