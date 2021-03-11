@@ -23,6 +23,7 @@ const getPagesSource = (source) => {
   if (source === 'overview') {
     return 'content'
   }
+
   return null
 }
 
