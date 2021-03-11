@@ -2,27 +2,29 @@ import fs from 'fs'
 import glob from 'glob'
 import matter from 'gray-matter'
 import { paramCase } from 'param-case'
+import { pascalCase } from 'pascal-case'
 import path from 'path'
-import { trueCasePathSync } from 'true-case-path'
+
+import { trueCasePathSync } from './true-case-path'
 
 const getPagesSource = (source) => {
-  console.log({
-    source,
-    __dirname,
-    cwd: process.cwd(),
-    components: path.resolve(
-      process.cwd(),
-      'node_modules',
-      '@atom-learning',
-      'components',
-      'dist',
-      'docs'
-    )
-  })
+  // console.log({
+  //   source,
+  //   __dirname,
+  //   cwd: process.cwd(),
+  //   components: path.resolve(
+  //     process.cwd(),
+  //     'node_modules',
+  //     '@atom-learning',
+  //     'components',
+  //     'dist',
+  //     'docs'
+  //   )
+  // })
 
   if (source === 'components') {
     return path.resolve(
-      process.cwd(),
+      // process.cwd(),
       'node_modules',
       '@atom-learning',
       'components',
@@ -33,7 +35,7 @@ const getPagesSource = (source) => {
 
   if (source === 'theme') {
     return path.resolve(
-      process.cwd(),
+      // process.cwd(),
       'node_modules',
       '@atom-learning',
       'theme',
@@ -42,7 +44,7 @@ const getPagesSource = (source) => {
   }
 
   if (source === 'overview') {
-    return path.resolve(process.cwd(), 'content')
+    return path.resolve('content')
   }
 
   return null
@@ -63,15 +65,13 @@ export const getPagesSlugs = async (sources: string[]) => {
 }
 
 const getMarkdownFile = (basePath, name) => {
-  const filePathAsMdx = path.join(basePath, `${name}.mdx`)
-  const filePathAsMd = path.join(basePath, `${name}.md`)
+  const filePathAsMdx = path.join(basePath, `${pascalCase(name)}.mdx`)
 
-  const fileToRead = fs.existsSync(filePathAsMdx) ? filePathAsMdx : filePathAsMd
+  const fileToRead = fs.existsSync(filePathAsMdx)
+    ? `${pascalCase(name)}.mdx`
+    : `${pascalCase(name)}.md`
 
-  console.log(fileToRead)
-  console.log(trueCasePathSync(fileToRead))
-
-  return fs.readFileSync(trueCasePathSync(fileToRead), 'utf8')
+  return fs.readFileSync(trueCasePathSync(fileToRead, basePath), 'utf8')
 }
 
 export interface PageBySlug {
