@@ -8,19 +8,19 @@ import path from 'path'
 import { trueCasePathSync } from './true-case-path'
 
 const getPagesSource = (source) => {
-  // console.log({
-  //   source,
-  //   __dirname,
-  //   cwd: process.cwd(),
-  //   components: path.resolve(
-  //     process.cwd(),
-  //     'node_modules',
-  //     '@atom-learning',
-  //     'components',
-  //     'dist',
-  //     'docs'
-  //   )
-  // })
+  console.log({
+    source,
+    __dirname,
+    cwd: process.cwd(),
+    components: path.resolve(
+      process.cwd(),
+      'node_modules',
+      '@atom-learning',
+      'components',
+      'dist',
+      'docs'
+    )
+  })
 
   if (source === 'components') {
     return path.resolve(
@@ -70,6 +70,8 @@ const getMarkdownFile = (basePath, name) => {
   const fileToRead = fs.existsSync(filePathAsMdx)
     ? `${pascalCase(name)}.mdx`
     : `${pascalCase(name)}.md`
+
+  console.log({ path: trueCasePathSync(fileToRead, basePath) })
 
   return fs.readFileSync(trueCasePathSync(fileToRead, basePath), 'utf8')
 }
