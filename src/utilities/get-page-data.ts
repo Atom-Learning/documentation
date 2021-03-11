@@ -6,8 +6,23 @@ import { pascalCase } from 'pascal-case'
 import path from 'path'
 
 const getPagesSource = (source) => {
+  console.log({
+    source,
+    __dirname,
+    cwd: process.cwd(),
+    components: path.resolve(
+      __dirname,
+      'node_modules',
+      '@atom-learning',
+      'components',
+      'dist',
+      'docs'
+    )
+  })
+
   if (source === 'components') {
-    return path.join(
+    return path.resolve(
+      __dirname,
       'node_modules',
       '@atom-learning',
       'components',
@@ -17,7 +32,13 @@ const getPagesSource = (source) => {
   }
 
   if (source === 'theme') {
-    return path.join('node_modules', '@atom-learning', 'theme', 'dist')
+    return path.resolve(
+      __dirname,
+      'node_modules',
+      '@atom-learning',
+      'theme',
+      'dist'
+    )
   }
 
   if (source === 'overview') {
@@ -46,6 +67,8 @@ const getMarkdownFile = (basePath, name) => {
   const filePathAsMd = path.join(basePath, `${pascalCase(name)}.md`)
 
   const fileToRead = fs.existsSync(filePathAsMdx) ? filePathAsMdx : filePathAsMd
+
+  console.log(fileToRead)
 
   return fs.readFileSync(fileToRead, 'utf8')
 }
