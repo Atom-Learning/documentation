@@ -4,7 +4,17 @@ const navigationStructure = {
   components: {}
 }
 const nestedNavigationCategories = {
-  components: ['Overview', 'General', 'Layout', 'Media', 'Forms', 'Utilities']
+  components: [
+    'Overview',
+    'Layout',
+    'Content',
+    'Surfaces',
+    'Media',
+    'Navigation',
+    'Forms',
+    'Feedback',
+    'Utilities'
+  ]
 }
 
 const sortWithinSource = (categories) => (a, b) =>

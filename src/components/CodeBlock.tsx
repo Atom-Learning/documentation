@@ -31,21 +31,15 @@ const StyledPre = styled('pre', {
   }
 })
 const StyledLivePreview = styled(LivePreview, {
+  alignItems: 'center',
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '$3',
+  justifyContent: 'center',
   mx: '-$4',
-  overflow: 'hidden',
+  overflow: 'visible',
   px: '$4',
-  py: '$5',
-  variants: {
-    center: {
-      true: {
-        alignItems: 'center',
-        display: 'flex',
-        flexWrap: 'wrap',
-        gap: '$3',
-        justifyContent: 'center'
-      }
-    }
-  }
+  py: '$5'
 })
 const StyledLiveEditor = styled(LiveEditor, {
   '> textarea,> pre': {
@@ -59,7 +53,6 @@ const StyledLiveError = styled(LiveError, {
 })
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({
-  center,
   children,
   className,
   live,
@@ -71,7 +64,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   if (live) {
     return (
       <LiveProvider code={code} scope={Components} theme={theme}>
-        <StyledLivePreview center={center} />
+        <StyledLivePreview />
         <StyledPre>
           {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           {/*
@@ -99,7 +92,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
     <>
       {preview && (
         <LiveProvider code={code} scope={Components} theme={theme}>
-          <StyledLivePreview center={center} />
+          <StyledLivePreview />
           <StyledLiveError />
         </LiveProvider>
       )}

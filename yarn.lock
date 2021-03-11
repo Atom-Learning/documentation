@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@^0.1.0-alpha.2":
-  version "0.1.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.1.0-alpha.2.tgz#6de1bc5426a86874575afe2f96d91ace196f133a"
-  integrity sha512-5paEIyjQ9KxxpLdJMFWeCZ3tdqUZeqQcG5bQ/uMcpmgbtLuulhJKbkWERnInz2TbCKVVTjSuBKFZWs+m/D8isw==
+"@atom-learning/components@0.1.0-alpha.3":
+  version "0.1.0-alpha.3"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.1.0-alpha.3.tgz#cce9deedcc4774109d5f98cfbef65b12b4240791"
+  integrity sha512-HNaHL5HaMrDHUROcByTmz4smNmVF4y/D4ChBzqfLj6I5b06APlMn5PxdhWlg42ucjfLPc+Lbz92DKHsBV2L/aA==
   dependencies:
     "@radix-ui/react-checkbox" "^0.0.4"
     "@radix-ui/react-icons" "^1.0.1"
