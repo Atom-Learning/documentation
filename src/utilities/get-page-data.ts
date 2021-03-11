@@ -2,8 +2,8 @@ import fs from 'fs'
 import glob from 'glob'
 import matter from 'gray-matter'
 import { paramCase } from 'param-case'
-import { pascalCase } from 'pascal-case'
 import path from 'path'
+import { trueCasePathSync } from 'true-case-path'
 
 const getPagesSource = (source) => {
   console.log({
@@ -63,14 +63,15 @@ export const getPagesSlugs = async (sources: string[]) => {
 }
 
 const getMarkdownFile = (basePath, name) => {
-  const filePathAsMdx = path.join(basePath, `${pascalCase(name)}.mdx`)
-  const filePathAsMd = path.join(basePath, `${pascalCase(name)}.md`)
+  const filePathAsMdx = path.join(basePath, `${name}.mdx`)
+  const filePathAsMd = path.join(basePath, `${name}.md`)
 
   const fileToRead = fs.existsSync(filePathAsMdx) ? filePathAsMdx : filePathAsMd
 
   console.log(fileToRead)
+  console.log(trueCasePathSync(fileToRead))
 
-  return fs.readFileSync(fileToRead, 'utf8')
+  return fs.readFileSync(trueCasePathSync(fileToRead), 'utf8')
 }
 
 export interface PageBySlug {
