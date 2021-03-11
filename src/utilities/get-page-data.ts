@@ -65,15 +65,29 @@ export const getPagesSlugs = async (sources: string[]) => {
 }
 
 const getMarkdownFile = (basePath, name) => {
-  const filePathAsMdx = path.join(basePath, `${pascalCase(name)}.mdx`)
+  // const filePathAsMdx = path.join(basePath, `${pascalCase(name)}.mdx`)
 
-  const fileToRead = fs.existsSync(filePathAsMdx)
-    ? `${pascalCase(name)}.mdx`
-    : `${pascalCase(name)}.md`
+  try {
+    const file = trueCasePathSync(`${pascalCase(name)}.mdx`, basePath)
+    return fs.readFileSync(file, 'utf8')
+  } catch (err) {
+    console.log(err)
+  }
 
-  console.log({ path: trueCasePathSync(fileToRead, basePath) })
+  try {
+    const file = trueCasePathSync(`${pascalCase(name)}.md`, basePath)
+    return fs.readFileSync(file, 'utf8')
+  } catch (err) {
+    console.log(err)
+  }
 
-  return fs.readFileSync(trueCasePathSync(fileToRead, basePath), 'utf8')
+  // const fileToRead = fs.existsSync(filePathAsMdx)
+  //   ? `${pascalCase(name)}.mdx`
+  //   : `${pascalCase(name)}.md`
+
+  // console.log({ filePathAsMdx, trueCasePath: trueCasePathSync(fileToRead, basePath) })
+
+  // return fs.readFileSync(trueCasePathSync(fileToRead, basePath), 'utf8')
 }
 
 export interface PageBySlug {
