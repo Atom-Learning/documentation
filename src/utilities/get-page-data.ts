@@ -10,7 +10,7 @@ import { trueCasePathSync } from './true-case-path'
 const getPagesSource = (source) => {
   if (source === 'components') {
     return path.resolve(
-      __dirname,
+      process.cwd(),
       'node_modules',
       '@atom-learning',
       'components',
@@ -21,7 +21,7 @@ const getPagesSource = (source) => {
 
   if (source === 'theme') {
     return path.resolve(
-      __dirname,
+      process.cwd(),
       'node_modules',
       '@atom-learning',
       'theme',
@@ -30,7 +30,7 @@ const getPagesSource = (source) => {
   }
 
   if (source === 'overview') {
-    return path.resolve(__dirname, 'content')
+    return path.resolve(process.cwd(), 'content')
   }
 
   return null
