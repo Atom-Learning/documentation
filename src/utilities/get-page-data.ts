@@ -8,20 +8,6 @@ import path from 'path'
 import { trueCasePathSync } from './true-case-path'
 
 const getPagesSource = (source) => {
-  console.log({
-    source,
-    __dirname,
-    cwd: process.cwd(),
-    components: path.resolve(
-      process.cwd(),
-      'node_modules',
-      '@atom-learning',
-      'components',
-      'dist',
-      'docs'
-    )
-  })
-
   if (source === 'components') {
     return path.resolve(
       process.cwd(),
@@ -65,29 +51,15 @@ export const getPagesSlugs = async (sources: string[]) => {
 }
 
 const getMarkdownFile = (basePath, name) => {
-  // const filePathAsMdx = path.join(basePath, `${pascalCase(name)}.mdx`)
-
   try {
     const file = trueCasePathSync(`${pascalCase(name)}.mdx`, basePath)
     return fs.readFileSync(file, 'utf8')
-  } catch (err) {
-    console.log(err)
-  }
+  } catch (err) {} // eslint-disable-line no-empty
 
   try {
     const file = trueCasePathSync(`${pascalCase(name)}.md`, basePath)
     return fs.readFileSync(file, 'utf8')
-  } catch (err) {
-    console.log(err)
-  }
-
-  // const fileToRead = fs.existsSync(filePathAsMdx)
-  //   ? `${pascalCase(name)}.mdx`
-  //   : `${pascalCase(name)}.md`
-
-  // console.log({ filePathAsMdx, trueCasePath: trueCasePathSync(fileToRead, basePath) })
-
-  // return fs.readFileSync(trueCasePathSync(fileToRead, basePath), 'utf8')
+  } catch (err) {} // eslint-disable-line no-empty
 }
 
 export interface PageBySlug {
