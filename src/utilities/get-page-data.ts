@@ -5,9 +5,12 @@ import { paramCase } from 'param-case'
 import { pascalCase } from 'pascal-case'
 import path from 'path'
 
+import { trueCasePathSync } from './true-case-path'
+
 const getPagesSource = (source) => {
   if (source === 'components') {
-    return path.join(
+    return path.resolve(
+      __dirname,
       'node_modules',
       '@atom-learning',
       'components',
@@ -17,11 +20,17 @@ const getPagesSource = (source) => {
   }
 
   if (source === 'theme') {
-    return path.join('node_modules', '@atom-learning', 'theme', 'dist')
+    return path.resolve(
+      __dirname,
+      'node_modules',
+      '@atom-learning',
+      'theme',
+      'dist'
+    )
   }
 
   if (source === 'overview') {
-    return 'content'
+    return path.resolve(__dirname, 'content')
   }
 
   return null
@@ -42,12 +51,17 @@ export const getPagesSlugs = async (sources: string[]) => {
 }
 
 const getMarkdownFile = (basePath, name) => {
-  const filePathAsMdx = path.join(basePath, `${pascalCase(name)}.mdx`)
-  const filePathAsMd = path.join(basePath, `${pascalCase(name)}.md`)
+  // try to access .mdx initially, attempt .md after
+  // true-case-path will error if neither are found
+  try {
+    const file = trueCasePathSync(`${pascalCase(name)}.mdx`, basePath)
+    return fs.readFileSync(file, 'utf8')
+  } catch (err) {} // eslint-disable-line no-empty
 
-  const fileToRead = fs.existsSync(filePathAsMdx) ? filePathAsMdx : filePathAsMd
-
-  return fs.readFileSync(fileToRead, 'utf8')
+  try {
+    const file = trueCasePathSync(`${pascalCase(name)}.md`, basePath)
+    return fs.readFileSync(file, 'utf8')
+  } catch (err) {} // eslint-disable-line no-empty
 }
 
 export interface PageBySlug {
