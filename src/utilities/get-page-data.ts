@@ -11,7 +11,7 @@ const getPagesSource = (source) => {
     __dirname,
     cwd: process.cwd(),
     components: path.resolve(
-      __dirname,
+      process.cwd(),
       'node_modules',
       '@atom-learning',
       'components',
@@ -22,7 +22,7 @@ const getPagesSource = (source) => {
 
   if (source === 'components') {
     return path.resolve(
-      __dirname,
+      process.cwd(),
       'node_modules',
       '@atom-learning',
       'components',
@@ -33,7 +33,7 @@ const getPagesSource = (source) => {
 
   if (source === 'theme') {
     return path.resolve(
-      __dirname,
+      process.cwd(),
       'node_modules',
       '@atom-learning',
       'theme',
@@ -42,7 +42,7 @@ const getPagesSource = (source) => {
   }
 
   if (source === 'overview') {
-    return 'content'
+    return path.resolve(process.cwd(), 'content')
   }
 
   return null
