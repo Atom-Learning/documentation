@@ -76,9 +76,10 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
             size="sm"
             css={{
               color: '$tonal500',
+              pointerEvents: 'none',
               position: 'absolute',
               right: '$3',
-              top: '$3'
+              top: '$2'
             }}
           >
             Edit me!
