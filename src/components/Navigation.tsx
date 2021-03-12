@@ -80,7 +80,7 @@ const StyledNavigation = styled('nav', {
   width: 260,
   transform: 'translateX(-280px)',
   zIndex: 1,
-  transition: 'transform 250ms ease-out',
+  transition: 'transform 175ms ease-out',
   when: {
     lg: {
       boxShadow: 'none',
@@ -104,15 +104,20 @@ type SourceListProps = {
     title: string
     source: 'overview' | 'theme' | 'components'
   }[]
+  onNavigate: () => void
 }
 
-const SourceList: React.FC<SourceListProps> = ({ items }) => (
+const SourceList: React.FC<SourceListProps> = ({ items, onNavigate }) => (
   <List>
     {items.map(({ id, source, title }) =>
       title ? (
         <li key={`${source}${id}`}>
           <NextLink passHref href={`/${source}/${id}`}>
-            <Link size="sm" css={{ display: 'block', py: '$0' }}>
+            <Link
+              size="sm"
+              css={{ display: 'block', py: '$0' }}
+              onClick={onNavigate}
+            >
               {title}
             </Link>
           </NextLink>
@@ -192,14 +197,20 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
           <React.Fragment key={source}>
             <SourceHeading>{capitalCase(source)}</SourceHeading>
             {Array.isArray(content) ? (
-              <SourceList items={content} />
+              <SourceList
+                items={content}
+                onNavigate={() => setMenuOpen(false)}
+              />
             ) : (
               Object.entries(content).map(([category, pages]) => (
                 <React.Fragment key={category}>
                   {category && category !== 'void' && (
                     <CategoryHeading>{category}</CategoryHeading>
                   )}
-                  <SourceList items={pages} />
+                  <SourceList
+                    items={pages}
+                    onNavigate={() => setMenuOpen(false)}
+                  />
                 </React.Fragment>
               ))
             )}

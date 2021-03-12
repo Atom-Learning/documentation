@@ -53,9 +53,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   ])
 
   const transformedPages = transformNavigationStructure(pages)
-  const orderedPages = Object.keys(transformedPages).reduce((arr, key) => {
-    return [...arr, ...Object.values(transformedPages[key]).flat()]
-  }, [])
+  const orderedPages = Object.keys(transformedPages).reduce(
+    (arr, source) => [
+      ...arr,
+      ...Object.keys(transformedPages[source])
+        .filter((category) => category !== 'void')
+        .map((category) => transformedPages[source][category])
+        .flat()
+    ],
+    []
+  )
 
   const page = getPageBySlug(params.slug, params.category)
   const content = await mdxToString(page.content)
