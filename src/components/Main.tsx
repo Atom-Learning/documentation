@@ -9,7 +9,8 @@ export const Main: React.FC = ({ children }) => (
       maxWidth: 640,
       mx: 'auto',
       px: '$3',
-      py: '$5'
+      py: '$5',
+      width: '100%'
     }}
   >
     {children}

@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import * as React from 'react'
 
 globalCss({
+  '*': { boxSizing: 'border-box' },
   body: { margin: 0 }
 })()
 
