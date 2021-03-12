@@ -9,6 +9,28 @@ import {
 import { capitalCase } from 'capital-case'
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
+import { Menu } from 'react-feather'
+
+type PageData = {
+  id: string
+  title: string
+  source: 'overview' | 'theme' | 'components'
+}
+
+type NavigationProps = {
+  items: {
+    [key: string]:
+      | PageData[]
+      | {
+          [key: string]: PageData[]
+        }
+  }
+}
+
+type SourceListProps = {
+  items: PageData[]
+  onNavigate: () => void
+}
 
 const useOnClickOutside = (ref, handler) => {
   React.useEffect(() => {
@@ -98,14 +120,33 @@ const StyledNavigation = styled('nav', {
   }
 })
 
-type SourceListProps = {
-  items: {
-    id: string
-    title: string
-    source: 'overview' | 'theme' | 'components'
-  }[]
-  onNavigate: () => void
-}
+const NavigationButton = (props) => (
+  <Flex
+    as="button"
+    css={{
+      alignItems: 'center',
+      background: 'white',
+      border: '1px solid $tonal400',
+      borderRadius: '$0',
+      cursor: 'pointer',
+      justifyContent: 'center',
+      left: '$3',
+      p: 'unset',
+      position: 'fixed',
+      size: '$2',
+      top: '$3',
+      zIndex: 1,
+      when: {
+        lg: {
+          display: 'none'
+        }
+      }
+    }}
+    {...props}
+  >
+    <Icon is={Menu} />
+  </Flex>
+)
 
 const SourceList: React.FC<SourceListProps> = ({ items, onNavigate }) => (
   <List>
@@ -127,33 +168,6 @@ const SourceList: React.FC<SourceListProps> = ({ items, onNavigate }) => (
   </List>
 )
 
-type NavigationProps = {
-  items: [
-    string,
-    {
-      category?: string
-    }[]
-  ][]
-}
-
-const IconMenu = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <line x1="3" y1="12" x2="21" y2="12" />
-    <line x1="3" y1="6" x2="21" y2="6" />
-    <line x1="3" y1="18" x2="21" y2="18" />
-  </svg>
-)
-
 export const Navigation: React.FC<NavigationProps> = ({ items }) => {
   const ref = React.useRef()
   const [menuOpen, setMenuOpen] = React.useState(false)
@@ -162,31 +176,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
 
   return (
     <>
-      <Flex
-        as="button"
-        onClick={() => setMenuOpen(true)}
-        css={{
-          alignItems: 'center',
-          background: 'white',
-          border: '1px solid $tonal400',
-          borderRadius: '$0',
-          cursor: 'pointer',
-          justifyContent: 'center',
-          left: '$3',
-          p: 'unset',
-          position: 'fixed',
-          size: '$2',
-          top: '$3',
-          zIndex: 1,
-          when: {
-            lg: {
-              display: 'none'
-            }
-          }
-        }}
-      >
-        <Icon is={IconMenu} />
-      </Flex>
+      <NavigationButton onClick={() => setMenuOpen(true)} />
       <StyledNavigation ref={ref} open={menuOpen}>
         <Heading size="sm" css={{ mb: '$4' }}>
           Atom Learning
