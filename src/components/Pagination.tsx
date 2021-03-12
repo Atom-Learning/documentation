@@ -22,7 +22,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   const previousPage = orderedPages[currentPageIndex - 1]
 
   return (
-    <Flex css={{ mt: '$5' }}>
+    <Flex as="footer" css={{ mt: '$5' }}>
       {previousPage && (
         <Box css={{ textAlign: 'left', mr: 'auto' }}>
           <Text css={{ color: '$tonal500' }} size="sm">
