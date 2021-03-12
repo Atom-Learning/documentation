@@ -20,7 +20,9 @@ type PageProps = {
     id: string
   }
   content: MdxRemote.Source
-  pages: []
+  pages: {
+    [key: string]: []
+  }
   orderedPages: []
 }
 
@@ -43,14 +45,16 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
   </Flex>
 )
 
+type Pages = [string, { category: string }[]][]
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const pages = await getPages([
+  const pages = (await getPages([
     'title',
     'source',
     'id',
     'category',
     'priority'
-  ])
+  ])) as Pages
 
   const transformedPages = transformNavigationStructure(pages)
   const orderedPages = Object.keys(transformedPages).reduce(
