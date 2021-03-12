@@ -10,14 +10,9 @@ import { capitalCase } from 'capital-case'
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
-import { transformNavigationStructure } from '../utilities'
-
-// Hook
-
 const useOnClickOutside = (ref, handler) => {
   React.useEffect(() => {
     const listener = (event) => {
-      // Do nothing if clicking ref's element or descendent elements
       if (!ref.current || ref.current.contains(event.target)) {
         return
       }
@@ -193,25 +188,23 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
           <br />
           Design System
         </Heading>
-        {Object.entries(transformNavigationStructure(items)).map(
-          ([source, content]) => (
-            <React.Fragment key={source}>
-              <SourceHeading>{capitalCase(source)}</SourceHeading>
-              {Array.isArray(content) ? (
-                <SourceList items={content} />
-              ) : (
-                Object.entries(content).map(([category, pages]) => (
-                  <React.Fragment key={category}>
-                    {category && category !== 'void' && (
-                      <CategoryHeading>{category}</CategoryHeading>
-                    )}
-                    <SourceList items={pages} />
-                  </React.Fragment>
-                ))
-              )}
-            </React.Fragment>
-          )
-        )}
+        {Object.entries(items).map(([source, content]) => (
+          <React.Fragment key={source}>
+            <SourceHeading>{capitalCase(source)}</SourceHeading>
+            {Array.isArray(content) ? (
+              <SourceList items={content} />
+            ) : (
+              Object.entries(content).map(([category, pages]) => (
+                <React.Fragment key={category}>
+                  {category && category !== 'void' && (
+                    <CategoryHeading>{category}</CategoryHeading>
+                  )}
+                  <SourceList items={pages} />
+                </React.Fragment>
+              ))
+            )}
+          </React.Fragment>
+        ))}
       </StyledNavigation>
     </>
   )

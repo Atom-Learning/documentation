@@ -39,7 +39,8 @@ const StyledLivePreview = styled(LivePreview, {
   mx: '-$4',
   overflow: 'visible',
   px: '$4',
-  py: '$5'
+  py: '$5',
+  whiteSpace: 'initial'
 })
 const StyledLiveEditor = styled(LiveEditor, {
   '> textarea,> pre': {
