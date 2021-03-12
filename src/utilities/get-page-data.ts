@@ -51,6 +51,8 @@ export const getPagesSlugs = async (sources: string[]) => {
 }
 
 const getMarkdownFile = (basePath, name) => {
+  // try to access .mdx initially, attempt .md after
+  // true-case-path will error if neither are found
   try {
     const file = trueCasePathSync(`${pascalCase(name)}.mdx`, basePath)
     return fs.readFileSync(file, 'utf8')

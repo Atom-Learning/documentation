@@ -3,12 +3,13 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { MdxRemote } from 'next-mdx-remote/types'
 import * as React from 'react'
 
-import { Main, Navigation, PropsTable } from '../../components'
+import { Main, Navigation, Pagination, PropsTable } from '../../components'
 import {
   getPageBySlug,
   getPages,
   mdxToString,
-  stringToMdx
+  stringToMdx,
+  transformNavigationStructure
 } from '../../utilities'
 
 type PageProps = {
@@ -16,12 +17,14 @@ type PageProps = {
     component?: string
     description?: string
     title: string
+    id: string
   }
   content: MdxRemote.Source
   pages: []
+  orderedPages: []
 }
 
-const Page: React.FC<PageProps> = ({ pages, content, data }) => (
+const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
   <Flex>
     <Navigation items={pages} />
     <Main>
@@ -35,6 +38,7 @@ const Page: React.FC<PageProps> = ({ pages, content, data }) => (
       )}
       {stringToMdx(content)}
       {data.component && <PropsTable for={data.component} />}
+      <Pagination orderedPages={orderedPages} currentPage={data.id} />
     </Main>
   </Flex>
 )
@@ -47,12 +51,26 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     'category',
     'priority'
   ])
+
+  const transformedPages = transformNavigationStructure(pages)
+  const orderedPages = Object.keys(transformedPages).reduce(
+    (arr, source) => [
+      ...arr,
+      ...Object.keys(transformedPages[source])
+        .filter((category) => category !== 'void')
+        .map((category) => transformedPages[source][category])
+        .flat()
+    ],
+    []
+  )
+
   const page = getPageBySlug(params.slug, params.category)
   const content = await mdxToString(page.content)
 
   return {
     props: {
-      pages,
+      pages: transformedPages,
+      orderedPages,
       data: page.data,
       content
     }

@@ -1,4 +1,12 @@
-import { Box, Heading, Link, styled, Text } from '@atom-learning/components'
+import {
+  Box,
+  Check,
+  Heading,
+  Icon,
+  Link,
+  styled,
+  Text
+} from '@atom-learning/components'
 import docgen from '@atom-learning/components/dist/docgen.json'
 import * as React from 'react'
 import { ComponentDoc } from 'react-docgen-typescript'
@@ -34,22 +42,6 @@ const Cell = styled('td', {
     }
   }
 })
-
-const IconCheckmark = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-)
 
 const Empty = () => <Text css={{ color: '$tonal500' }}>-</Text>
 
@@ -96,43 +88,45 @@ export const PropsTable: React.FC<PropsTableProps> = ({
   return (
     <Box css={{ mt: '$5' }}>
       <Heading as="h2">API Reference</Heading>
-      <Table>
-        <thead>
-          <tr>
-            {columns.map((column) => (
-              <Cell as="th" appearance="heading" key={column}>
-                {column}
-              </Cell>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(componentDocs.props).map(
-            ([key, { name, type, defaultValue, required }]) => {
-              if (type.name === 'never') return null
+      <Box css={{ overflow: 'auto' }}>
+        <Table>
+          <thead>
+            <tr>
+              {columns.map((column) => (
+                <Cell as="th" appearance="heading" key={column}>
+                  {column}
+                </Cell>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(componentDocs.props).map(
+              ([key, { name, type, defaultValue, required }]) => {
+                if (type.name === 'never') return null
 
-              return (
-                <tr key={key}>
-                  <Cell css={{ pr: '$4' }}>
-                    <InlineCode>{name}</InlineCode>
-                  </Cell>
-                  <Cell>
-                    <PropType name={name} type={type} />
-                  </Cell>
-                  <Cell>
-                    {defaultValue ? (
-                      <InlineCode>{defaultValue.value}</InlineCode>
-                    ) : (
-                      <Empty />
-                    )}
-                  </Cell>
-                  <Cell>{required ? <IconCheckmark /> : <Empty />}</Cell>
-                </tr>
-              )
-            }
-          )}
-        </tbody>
-      </Table>
+                return (
+                  <tr key={key}>
+                    <Cell css={{ pr: '$4' }}>
+                      <InlineCode>{name}</InlineCode>
+                    </Cell>
+                    <Cell>
+                      <PropType name={name} type={type} />
+                    </Cell>
+                    <Cell>
+                      {defaultValue ? (
+                        <InlineCode>{defaultValue.value}</InlineCode>
+                      ) : (
+                        <Empty />
+                      )}
+                    </Cell>
+                    <Cell>{required ? <Icon is={Check} /> : <Empty />}</Cell>
+                  </tr>
+                )
+              }
+            )}
+          </tbody>
+        </Table>
+      </Box>
     </Box>
   )
 }
