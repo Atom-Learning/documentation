@@ -1,6 +1,7 @@
 import {
   Box,
   Check,
+  Flex,
   Heading,
   Icon,
   Link,
@@ -62,13 +63,13 @@ const PropType = ({ name, type }) => {
   }
   if (Array.isArray(type.value)) {
     return (
-      <Box css={{ display: 'flex', gap: '$2', flexWrap: 'wrap' }}>
+      <Flex css={{ gap: '$2', flexWrap: 'wrap' }}>
         {type.value
           .filter(({ value }) => value !== 'undefined')
           .map(({ value }) => (
             <InlineCode key={value}>{value}</InlineCode>
           ))}
-      </Box>
+      </Flex>
     )
   }
   return <InlineCode>{type.name}</InlineCode>
