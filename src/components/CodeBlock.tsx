@@ -39,7 +39,8 @@ const StyledLivePreview = styled(LivePreview, {
   mx: '-$4',
   overflow: 'visible',
   px: '$4',
-  py: '$5'
+  py: '$5',
+  whiteSpace: 'initial'
 })
 const StyledLiveEditor = styled(LiveEditor, {
   '> textarea,> pre': {
@@ -75,9 +76,10 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
             size="sm"
             css={{
               color: '$tonal500',
+              pointerEvents: 'none',
               position: 'absolute',
               right: '$3',
-              top: '$3'
+              top: '$2'
             }}
           >
             Edit me!
