@@ -30,11 +30,11 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
   <Flex>
     <Navigation items={pages} />
     <Main>
-      <Heading as="h1" size="lg" css={{ mb: '$4' }}>
+      <Heading as="h1" size="lg" css={{ mb: '$5' }}>
         {data.title}
       </Heading>
       {data.description && (
-        <Text size="lg" css={{ mb: '$3' }}>
+        <Text size="lg" css={{ mb: '$4' }}>
           {data.description}
         </Text>
       )}
