@@ -2,7 +2,7 @@ import { Box, Flex, Text } from '@atom-learning/components'
 import * as React from 'react'
 
 type ScaleProps = {
-  children: (value: string, key: string) => React.ReactNode
+  children: (value: string) => React.ReactNode
   scale: Record<string, string>
 }
 
@@ -20,7 +20,7 @@ export const Scale: React.FC<ScaleProps> = ({ scale, children, ...props }) => (
           }
         }}
       >
-        {children(value, key)}
+        {children(value)}
         <Text css={{ pl: '$4' }}>{`$${key}`}</Text>
       </Flex>
     ))}

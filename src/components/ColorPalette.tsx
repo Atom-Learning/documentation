@@ -1,16 +1,30 @@
 import { Box, Flex, Text } from '@atom-learning/components'
 import * as React from 'react'
 
-const getLightness = (color) => {
+const isLight = (color: string): boolean => {
+  // parse hsl
   const reg = new RegExp(/hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g)
+  // exit if can't match hsl
+  if (!color.match(reg)) return false
+  // format h, s, l values into array
   const result = color.split(reg).filter(Boolean)
-  return parseInt(result[result.length - 1]) < 70
+  // access lightness value
+  const lightness = parseInt(result[result.length - 1])
+  // return boolean based on abritrary lightness value
+  return lightness > 70
 }
 
-export const ColorPalette = ({ colors }) => (
-  <Box>
+type ColorPaletteProps = {
+  colors: Record<string, string>
+}
+
+export const ColorPalette: React.FC<ColorPaletteProps> = ({
+  colors,
+  ...props
+}) => (
+  <Box {...props}>
     {Object.entries(colors).map(([key, value]) => {
-      const color = getLightness(value) ? 'white' : '$tonal800'
+      const color = isLight(value) ? '$tonal700' : 'white'
       return (
         <Flex
           key={key}
