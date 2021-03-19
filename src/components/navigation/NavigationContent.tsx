@@ -23,7 +23,7 @@ const CategoryHeading = (props) => (
       fontSize: '$sm',
       fontWeight: 400,
       letterSpacing: '0.1em',
-      mb: '$1',
+      mb: '$3',
       textTransform: 'uppercase'
     }}
   />
@@ -33,7 +33,7 @@ const NavigationList: React.FC<NavigationListProps> = ({
   items,
   onNavigate
 }) => (
-  <Text as="ul" css={{ listStyleType: 'none', m: 0, mb: '$3', p: 0 }}>
+  <Text as="ul" css={{ listStyleType: 'none', m: 0, mb: '$4', p: 0 }}>
     {items.map(({ id, source, title }) =>
       title ? (
         <li key={`${source}${id}`}>
@@ -67,7 +67,7 @@ export const NavigationContent: React.FC<NavigationContentProps> = ({
           {category && category !== 'void' && (
             <CategoryHeading>{category}</CategoryHeading>
           )}
-          <NavigationList items={pages} onNavigate={onNavigate} />
+          {pages && <NavigationList items={pages} onNavigate={onNavigate} />}
         </React.Fragment>
       ))}
     </>

@@ -8,12 +8,12 @@ import * as React from 'react'
 import { CodeBlock, Divider, InlineCode } from '../components'
 
 const components: MdxRemote.Components = {
-  h2: (props) => <Heading {...props} as="h2" css={{ mt: '$4', mb: '$3' }} />,
+  h2: (props) => <Heading {...props} as="h2" css={{ mt: '$5', mb: '$4' }} />,
   h3: (props) => (
-    <Heading {...props} as="h3" size="sm" css={{ mt: '$3', mb: '$2' }} />
+    <Heading {...props} as="h3" size="sm" css={{ mt: '$4', mb: '$3' }} />
   ),
-  p: (props) => <Text {...props} css={{ mb: '$3', lineHeight: 1.6 }} />,
-  ul: (props) => <List {...props} css={{ mb: '$3' }} />,
+  p: (props) => <Text {...props} css={{ mb: '$4' }} />,
+  ul: (props) => <List {...props} css={{ mb: '$4' }} />,
   li: (props) => (
     <List.Item {...props} css={{ '&:not(:last-child)': { mb: '$2' } }} />
   ),

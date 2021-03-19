@@ -88,7 +88,9 @@ export const PropsTable: React.FC<PropsTableProps> = ({
 
   return (
     <Box css={{ mt: '$5' }}>
-      <Heading as="h2">API Reference</Heading>
+      <Heading as="h2" css={{ mb: '$3' }}>
+        API Reference
+      </Heading>
       <Box css={{ overflow: 'auto' }}>
         <Table>
           <thead>

@@ -89,7 +89,7 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
         </Heading>
         {Object.entries(items).map(([source, content]) => (
           <React.Fragment key={source}>
-            <Heading as="h2" size="sm" css={{ mb: '$2' }}>
+            <Heading as="h2" size="xs" css={{ mb: '$4' }}>
               {capitalCase(source)}
             </Heading>
             <NavigationContent
