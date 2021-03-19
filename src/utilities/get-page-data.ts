@@ -30,7 +30,7 @@ const getPagesSource = (source) => {
   }
 
   if (source === 'overview') {
-    return path.resolve(process.cwd(), 'content')
+    return path.resolve(process.cwd(), 'src', 'content')
   }
 
   return null

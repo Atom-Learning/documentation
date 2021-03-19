@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@0.1.0-alpha.4":
-  version "0.1.0-alpha.4"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.1.0-alpha.4.tgz#11ccc2b73eb38c2ad822ec3361ec4138c19d1c60"
-  integrity sha512-+wQNcmbNKpRLkEEjUi1OAHAFYUX6B1HC8e1GU8Z4+6tbYL/dPEbUfamd43zl4o/tBjpSw1nlDqbcce+fZKzo8w==
+"@atom-learning/components@0.1.0-alpha.5":
+  version "0.1.0-alpha.5"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.1.0-alpha.5.tgz#92004b22093d4641cca4ab2c756c5feb4de24d21"
+  integrity sha512-KSIiQMCWVaawwJkMl24sHpeGxa6mg7UkBuuWG4fTY+uXTfQElzYcahqedcV5MJeN4NT8VKRRV+WhBQYfis0dqA==
   dependencies:
     "@radix-ui/react-checkbox" "^0.0.4"
     "@radix-ui/react-icons" "^1.0.1"
@@ -19,10 +19,10 @@
     react-player "^2.9.0"
     rollup-plugin-url "^3.0.1"
 
-"@atom-learning/theme@^0.1.0-beta.5":
-  version "0.1.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-0.1.0-beta.5.tgz#ec61898c4e62239fd0b18d8038c8ca546a9f5f99"
-  integrity sha512-HQXSTlXESvC9wG3Bak/UMlE8MW/p3BLOqTr6fZcesIiUZw0IACmmgycJVXd7um7Ej4ZGXtfmctXaBt8YD+TIjQ==
+"@atom-learning/theme@0.1.0-beta.6":
+  version "0.1.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-0.1.0-beta.6.tgz#d71ebea8d46abc8aef9dc96cd85b5ad65b547e1f"
+  integrity sha512-r91bpsk5q9l5nbsnrh6LDM5RGIWM2vO04q4NJNx94wgfloSTnnKy8lOub8+PNSYT+vC9iq+3aok/uRTeXOSiew==
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"

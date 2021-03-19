@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/Atom-Learning/documentation#readme",
   "dependencies": {
-    "@atom-learning/components": "0.1.0-alpha.4",
-    "@atom-learning/theme": "^0.1.0-beta.5",
+    "@atom-learning/components": "0.1.0-alpha.5",
+    "@atom-learning/theme": "0.1.0-beta.6",
     "@next/mdx": "^10.0.6",
     "@stitches/react": "0.1.0-canary.5",
     "capital-case": "^1.0.4",

@@ -18,7 +18,7 @@ module.exports = {
     return [
       {
         source: '/',
-        destination: '/components/readme',
+        destination: '/overview/introduction',
         permanent: false
       }
     ]
