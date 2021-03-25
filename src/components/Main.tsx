@@ -12,10 +12,8 @@ export const Main: React.FC = ({ children }) => (
       pt: '$6',
       pb: '$5',
       width: '100%',
-      when: {
-        md: {
-          pb: '$6'
-        }
+      '@md': {
+        pb: '$6'
       }
     }}
   >

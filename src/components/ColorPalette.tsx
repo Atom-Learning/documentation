@@ -30,12 +30,13 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
             alignItems: 'center',
             bg: `$${key}`,
             justifyContent: 'space-between',
-            px: '$4',
+            pl: '$4',
+            pr: '$3',
             py: '$3'
           }}
         >
           <Text css={{ color }}>{`$${key}`}</Text>
-          <Text size="sm" css={{ color }}>
+          <Text size="sm" css={{ color, fontFamily: '$mono' }}>
             {value}
           </Text>
         </Flex>

@@ -1,6 +1,6 @@
 import { Flex, Icon } from '@atom-learning/components'
 import * as React from 'react'
-import { Menu } from 'react-feather'
+import { Hamburger } from '@atom-learning/icons'
 
 type NavigationTriggerProps = {
   onClick: () => void
@@ -15,21 +15,20 @@ export const NavigationTrigger: React.FC<NavigationTriggerProps> = (props) => (
       border: '1px solid $tonal400',
       borderRadius: '$0',
       cursor: 'pointer',
+      color: '$tonal900',
       justifyContent: 'center',
       left: '$3',
       p: 'unset',
       position: 'fixed',
-      size: '$2',
+      size: '$4',
       top: '$3',
       zIndex: 1,
-      when: {
-        lg: {
-          display: 'none'
-        }
+      '@lg': {
+        display: 'none'
       }
     }}
     {...props}
   >
-    <Icon is={Menu} />
+    <Icon is={Hamburger} />
   </Flex>
 )
