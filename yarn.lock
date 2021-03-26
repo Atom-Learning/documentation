@@ -25,10 +25,10 @@
   dependencies:
     ikonate "^1.1.1"
 
-"@atom-learning/theme@^0.1.0-beta.7":
-  version "0.1.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-0.1.0-beta.7.tgz#5f81a69c9b8be8b4db9fa88d096fcc8f467e973b"
-  integrity sha512-DyJtln9jJp+2RVDpb5nGUZEcZhJWExbzIfudOXhvXNGY6rNkRGX764v0NocyAUplyYMJuzrU8aw/B8SNeZ5+BQ==
+"@atom-learning/theme@^0.1.0-beta.8":
+  version "0.1.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-0.1.0-beta.8.tgz#7119a5f9eb79d9102c45abb5953e34d94b41eb67"
+  integrity sha512-q+VbGelIy9PhOEeZuXSujU+YopPWJoZmwLKguZh6txrOJWB/c61HD/jjV7ndD8Lg4obBAX7eV2qdNqF1e+LH/w==
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
