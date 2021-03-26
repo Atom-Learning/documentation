@@ -1,5 +1,4 @@
-import * as Components from '@atom-learning/components'
-import { Heading, Link, List, Text } from '@atom-learning/components'
+import { Box, Heading, Link, List, Text } from '@atom-learning/components'
 import theme from '@atom-learning/theme'
 import hydrate from 'next-mdx-remote/hydrate'
 import renderToString from 'next-mdx-remote/render-to-string'
@@ -11,7 +10,8 @@ import {
   ColorPalette,
   Divider,
   InlineCode,
-  Scale
+  Scale,
+  IconTable
 } from '../components'
 
 const components: MdxRemote.Components = {
@@ -38,18 +38,20 @@ const components: MdxRemote.Components = {
   hr: Divider,
   ColorPalette,
   Scale,
-  // spread @atom-learning/components to enable usage within react-live
-  ...Components
-}
-
-const scope = {
-  theme
+  IconTable,
+  Text,
+  Box
 }
 
 export const mdxToString = async (mdx = ''): Promise<MdxRemote.Source> => {
-  return await renderToString(mdx, { components, scope })
+  return await renderToString(mdx, {
+    components,
+    scope: { theme }
+  })
 }
 
 export const stringToMdx = (string: MdxRemote.Source): React.ReactNode => {
-  return hydrate(string, { components })
+  return hydrate(string, {
+    components
+  })
 }

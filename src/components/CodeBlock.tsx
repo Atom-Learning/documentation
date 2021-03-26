@@ -1,3 +1,4 @@
+import * as Icons from '@atom-learning/icons'
 import * as Components from '@atom-learning/components'
 import { styled } from '@atom-learning/components'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
@@ -61,10 +62,11 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
 }) => {
   const language = className?.replace(/language-/, '') as Language
   const code = children.trim()
+  const scope = { ...Icons, ...Components }
 
   if (live) {
     return (
-      <LiveProvider code={code} scope={Components} theme={theme}>
+      <LiveProvider code={code} scope={scope} theme={theme}>
         <StyledLivePreview />
         <StyledPre>
           {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
@@ -93,7 +95,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
   return (
     <>
       {preview && (
-        <LiveProvider code={code} scope={Components} theme={theme}>
+        <LiveProvider code={code} scope={scope} theme={theme}>
           <StyledLivePreview />
           <StyledLiveError />
         </LiveProvider>

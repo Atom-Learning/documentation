@@ -3,10 +3,16 @@ import * as React from 'react'
 
 type ScaleProps = {
   children: (value: string) => React.ReactNode
+  displayValue?: boolean
   scale: Record<string, string>
 }
 
-export const Scale: React.FC<ScaleProps> = ({ scale, children, ...props }) => (
+export const Scale: React.FC<ScaleProps> = ({
+  scale,
+  children,
+  displayValue = true,
+  ...props
+}) => (
   <Box {...props}>
     {Object.entries(scale).map(([key, value]) => (
       <Flex
@@ -20,8 +26,31 @@ export const Scale: React.FC<ScaleProps> = ({ scale, children, ...props }) => (
           }
         }}
       >
+        <Flex css={{ flexDirection: 'column' }}>
+          <Text
+            css={{
+              color: '$tonal800',
+              fontFamily: '$mono',
+              fontSize: '$sm',
+              mr: '$2',
+              mb: '$3'
+            }}
+          >
+            {`$${key}`}
+          </Text>
+          {displayValue && (
+            <Text
+              css={{
+                color: '$tonal600',
+                fontFamily: '$mono',
+                fontSize: '$sm'
+              }}
+            >
+              {value}
+            </Text>
+          )}
+        </Flex>
         {children(value)}
-        <Text css={{ pl: '$4' }}>{`$${key}`}</Text>
       </Flex>
     ))}
   </Box>

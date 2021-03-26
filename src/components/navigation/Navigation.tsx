@@ -57,13 +57,11 @@ const StyledNavigation = styled('nav', {
   transform: 'translateX(-280px)',
   zIndex: 1,
   transition: 'transform 175ms ease-out',
-  when: {
-    lg: {
-      boxShadow: 'none',
-      position: 'sticky',
-      transform: 'none',
-      transition: '0ms'
-    }
+  '@lg': {
+    boxShadow: 'none',
+    position: 'sticky',
+    transform: 'none',
+    transition: '0ms'
   },
   variants: {
     open: {

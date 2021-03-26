@@ -1,6 +1,5 @@
 import {
   Box,
-  Check,
   Flex,
   Heading,
   Icon,
@@ -8,6 +7,7 @@ import {
   styled,
   Text
 } from '@atom-learning/components'
+import { Ok } from '@atom-learning/icons'
 import docgen from '@atom-learning/components/dist/docgen.json'
 import * as React from 'react'
 import { ComponentDoc } from 'react-docgen-typescript'
@@ -122,7 +122,7 @@ export const PropsTable: React.FC<PropsTableProps> = ({
                         <Empty />
                       )}
                     </Cell>
-                    <Cell>{required ? <Icon is={Check} /> : <Empty />}</Cell>
+                    <Cell>{required ? <Icon is={Ok} /> : <Empty />}</Cell>
                   </tr>
                 )
               }
