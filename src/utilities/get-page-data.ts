@@ -70,6 +70,7 @@ export interface PageBySlug {
     component?: string
     category?: string
     slug: string
+    homepage: string
     id: string
     source: 'components' | 'theme' | 'overview'
   }
@@ -83,7 +84,15 @@ export const getPageBySlug = (slug, source): PageBySlug => {
   const { data, content } = matter(file)
 
   return {
-    data: { ...data, slug, id, source },
+    data: {
+      ...data,
+      slug,
+      id,
+      source,
+      homepage: `https://github.com/Atom-Learning/components/tree/main/src/${
+        data.category === 'Utilities' ? 'utilities' : 'components'
+      }/${id}`
+    },
     content
   }
 }

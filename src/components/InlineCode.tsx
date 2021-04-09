@@ -6,5 +6,6 @@ export const InlineCode = styled('code', {
   m: 0,
   fontSize: '85%',
   backgroundColor: '$tonal200',
-  borderRadius: '$0'
+  borderRadius: '$0',
+  fontFamily: '$mono'
 })
