@@ -2,6 +2,7 @@ import { Heading, styled } from '@atom-learning/components'
 import { capitalCase } from 'capital-case'
 import * as React from 'react'
 
+import { Logo } from './Logo'
 import { NavigationContent } from './NavigationContent'
 import { NavigationTrigger } from './NavigationTrigger'
 
@@ -50,7 +51,8 @@ const StyledNavigation = styled('nav', {
   left: 0,
   overflowX: 'hidden',
   overflowY: 'auto',
-  p: '$3',
+  px: '$3',
+  py: '$4',
   position: 'fixed',
   top: 0,
   width: 260,
@@ -82,12 +84,13 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
     <>
       <NavigationTrigger onClick={() => setMenuOpen(true)} />
       <StyledNavigation ref={ref} open={menuOpen}>
-        <Heading size="sm" css={{ mb: '$4', width: 200 }}>
-          Atom Learning Design System
-        </Heading>
+        <Logo
+          css={{ mb: '$4', height: 'auto', width: 160 }}
+          aria-title="Atom Learning Design System"
+        />
         {Object.entries(items).map(([source, content]) => (
           <React.Fragment key={source}>
-            <Heading as="h2" size="xs" css={{ mb: '$4' }}>
+            <Heading as="h2" size="xs" css={{ mb: '$3' }}>
               {capitalCase(source)}
             </Heading>
             <NavigationContent
