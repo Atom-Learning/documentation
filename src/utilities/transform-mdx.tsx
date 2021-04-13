@@ -1,4 +1,11 @@
-import { Box, Heading, Link, List, Text } from '@atom-learning/components'
+import {
+  Box,
+  Divider,
+  Heading,
+  Link,
+  List,
+  Text
+} from '@atom-learning/components'
 import theme from '@atom-learning/theme'
 import hydrate from 'next-mdx-remote/hydrate'
 import renderToString from 'next-mdx-remote/render-to-string'
@@ -8,10 +15,9 @@ import * as React from 'react'
 import {
   CodeBlock,
   ColorPalette,
-  Divider,
+  IconTable,
   InlineCode,
-  Scale,
-  IconTable
+  Scale
 } from '../components'
 
 const components: MdxRemote.Components = {
