@@ -1,5 +1,5 @@
+import { Box, CSS, Flex, Icon, Tooltip } from '@atom-learning/components'
 import * as Icons from '@atom-learning/icons'
-import { Flex, Box, Icon, CSS } from '@atom-learning/components'
 import * as React from 'react'
 
 const copyIcon = (str: string) => {
@@ -11,16 +11,11 @@ const copyIcon = (str: string) => {
   document.body.removeChild(el)
 }
 
-type IconTableProps = {
-  css: CSS
-}
-
-export const IconTable: React.FC<IconTableProps> = ({ css }) => (
-  <Flex css={{ flexWrap: 'wrap', gap: '$2', ...(css as any) }}>
-    {Object.entries(Icons).map(([key, Val]) => (
+const IconTableItem = ({ name, Component }) => (
+  <Tooltip>
+    <Tooltip.Trigger>
       <Flex
         as="button"
-        key={key}
         css={{
           alignItems: 'center',
           bg: 'white',
@@ -43,15 +38,35 @@ export const IconTable: React.FC<IconTableProps> = ({ css }) => (
             outline: 'none'
           }
         }}
-        onClick={() => copyIcon(key)}
-        title={key}
+        onClick={() => copyIcon(name)}
       >
         <Icon
-          is={Val}
+          is={Component}
           size="md"
-          css={{ color: '$primary900', transition: 'all 75ms ease-out' }}
+          css={{ color: '$primary900', transition: 'all 100ms ease-out' }}
         />
       </Flex>
+    </Tooltip.Trigger>
+    <Tooltip.Content>{name}</Tooltip.Content>
+  </Tooltip>
+)
+
+type IconTableProps = {
+  css: CSS
+}
+
+export const IconTable: React.FC<IconTableProps> = ({ css }) => (
+  <Flex
+    css={{
+      flexWrap: 'wrap',
+      gap: '$2',
+      '@md': { mx: '-$sizes$4' },
+      '@lg': { mx: '-102px' },
+      ...(css as any)
+    }}
+  >
+    {Object.entries(Icons).map(([key, value]) => (
+      <IconTableItem key={key} name={key} Component={value} />
     ))}
     {/* Prevent last item filling the entire width */}
     {[0, 1, 2, 3, 4].map((i) => (
