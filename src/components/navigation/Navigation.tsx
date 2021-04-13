@@ -1,7 +1,9 @@
 import { Heading, styled } from '@atom-learning/components'
+import pkg from '@atom-learning/components/package.json'
 import { capitalCase } from 'capital-case'
 import * as React from 'react'
 
+import { Pill } from '../'
 import { Logo } from './Logo'
 import { NavigationContent } from './NavigationContent'
 import { NavigationTrigger } from './NavigationTrigger'
@@ -84,10 +86,8 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
     <>
       <NavigationTrigger onClick={() => setMenuOpen(true)} />
       <StyledNavigation ref={ref} open={menuOpen}>
-        <Logo
-          css={{ mb: '$4', height: 'auto', width: 160 }}
-          aria-title="Atom Learning Design System"
-        />
+        <Logo css={{ mb: '$4', height: 'auto', width: 160 }} />
+        <Pill>{`v${pkg.version}`}</Pill>
         {Object.entries(items).map(([source, content]) => (
           <React.Fragment key={source}>
             <Heading as="h2" size="xs" css={{ mb: '$3' }}>

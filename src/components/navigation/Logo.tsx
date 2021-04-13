@@ -14,6 +14,7 @@ export const Logo: React.FC<LogoProps> = (props) => (
     viewBox="0 0 350 96"
     {...props}
   >
+    <title>Atom Learning Design System</title>
     <path
       fill="#F74E4E"
       d="M234.2 93.5a2.2 2.2 0 01-2.2 2.1h-96.4a2.2 2.2 0 01-2.2-2.2 49.8 49.8 0 0150.4-48.3 49.7 49.7 0 0150.4 48.2v.2zM224.3 40.1a10 10 0 100-19.9 10 10 0 000 19.9z"
