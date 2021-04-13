@@ -7,8 +7,8 @@ import {
   styled,
   Text
 } from '@atom-learning/components'
-import { Ok } from '@atom-learning/icons'
 import docgen from '@atom-learning/components/dist/docgen.json'
+import { Ok } from '@atom-learning/icons'
 import * as React from 'react'
 import { ComponentDoc } from 'react-docgen-typescript'
 
@@ -18,7 +18,7 @@ type PropsTableProps = {
   for: string
 }
 
-const columns = ['Prop', 'Type', 'Default value', 'Required']
+const columns = ['Prop', 'Type', 'Default', 'Required']
 
 const Table = styled('table', {
   borderCollapse: 'collapse',
@@ -26,19 +26,19 @@ const Table = styled('table', {
 })
 const Cell = styled('td', {
   borderBottom: '1px solid $tonal300',
-  color: '$tonal800',
-  fontSize: '$md',
-  fontFamily: '"Inter"',
-  py: '$3',
+  color: '$tonal700',
+  fontFamily: '$sans',
+  fontSize: '$sm',
   pr: '$3',
+  py: '$3',
   textAlign: 'left',
   verticalAlign: 'middle',
   variants: {
     appearance: {
       heading: {
-        fontSize: '$sm',
-        whiteSpace: 'nowrap',
-        fontWeight: 600
+        color: '$tonal800',
+        fontWeight: 700,
+        whiteSpace: 'nowrap'
       }
     }
   }
@@ -49,15 +49,21 @@ const Empty = () => <Text css={{ color: '$tonal500' }}>-</Text>
 const PropType = ({ name, type }) => {
   if (name === 'css') {
     return (
-      <Link href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L1547">
-        <InlineCode>"CSSProperties"</InlineCode>
+      <Link
+        size="sm"
+        href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L1547"
+      >
+        <InlineCode>CSSProperties</InlineCode>
       </Link>
     )
   }
   if (name === 'as') {
     return (
-      <Link href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L2993">
-        <InlineCode>"JSX.IntrinsicElements"</InlineCode>
+      <Link
+        size="sm"
+        href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L2993"
+      >
+        <InlineCode>JSX.IntrinsicElements</InlineCode>
       </Link>
     )
   }
@@ -122,7 +128,13 @@ export const PropsTable: React.FC<PropsTableProps> = ({
                         <Empty />
                       )}
                     </Cell>
-                    <Cell>{required ? <Icon is={Ok} /> : <Empty />}</Cell>
+                    <Cell>
+                      {required && name !== 'as' && name !== 'css' ? (
+                        <Icon is={Ok} size="sm" />
+                      ) : (
+                        <Empty />
+                      )}
+                    </Cell>
                   </tr>
                 )
               }
