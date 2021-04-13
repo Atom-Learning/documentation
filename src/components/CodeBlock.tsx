@@ -1,12 +1,12 @@
-import * as Icons from '@atom-learning/icons'
 import * as Components from '@atom-learning/components'
 import { styled } from '@atom-learning/components'
+import * as Icons from '@atom-learning/icons'
 import Highlight, { defaultProps, Language } from 'prism-react-renderer'
 import theme from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
 
-const { Text } = Components
+const { Text, css } = Components
 
 type CodeBlockProps = {
   center?: boolean
@@ -17,18 +17,25 @@ type CodeBlockProps = {
 }
 
 const StyledPre = styled('pre', {
-  borderRadius: '$1',
   display: 'block',
-  fontSize: '15px',
+  fontSize: '$sm',
   fontWeight: 100,
   lineHeight: 1.5,
   mb: '$4',
   mt: 0,
-  mx: '-$4',
+  mx: '-$3',
   overflow: 'hidden',
   position: 'relative',
   '&:focus-within': {
     boxShadow: '0 0 0 3px $colors$primary500'
+  },
+  '@sm': {
+    borderRadius: '$1',
+    mx: 0
+  },
+  '@md': {
+    fontSize: '15px',
+    mx: '-$4'
   }
 })
 const StyledLivePreview = styled(LivePreview, {
@@ -37,15 +44,26 @@ const StyledLivePreview = styled(LivePreview, {
   flexWrap: 'wrap',
   gap: '$3',
   justifyContent: 'center',
-  mx: '-$4',
+  mx: '-$3',
   overflow: 'visible',
-  px: '$4',
-  py: '$5',
-  whiteSpace: 'initial'
+  p: '$4',
+  whiteSpace: 'initial',
+  '@sm': {
+    borderRadius: '$1',
+    mx: 0
+  },
+  '@md': {
+    mx: '-$4',
+    py: '$5'
+  }
 })
 const StyledLiveEditor = styled(LiveEditor, {
   '> textarea,> pre': {
-    padding: '24px 32px'
+    p: '$3',
+    '@md': {
+      px: '$4',
+      py: '$sizes$2'
+    }
   }
 })
 const StyledLiveError = styled(LiveError, {
@@ -78,10 +96,14 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
             size="sm"
             css={{
               color: '$tonal500',
+              display: 'none',
               pointerEvents: 'none',
               position: 'absolute',
               right: '$3',
-              top: '$2'
+              top: '$2',
+              '@sm': {
+                display: 'block'
+              }
             }}
           >
             Edit me!
@@ -109,13 +131,16 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className={className}
-              style={{
+              className={`${className} ${css({
                 ...style,
-                margin: 0,
+                m: 0,
                 overflow: 'auto',
-                padding: '24px 32px'
-              }}
+                p: '$3',
+                '@md': {
+                  px: '$4',
+                  py: '$sizes$2'
+                }
+              })}`}
             >
               {tokens.map((line, i) => (
                 <div key={i} {...getLineProps({ line, key: i })}>
