@@ -7,9 +7,16 @@ type ExternalLinksProps = {
   component: string
 }
 
+const accessRootComponent = (component: string) => {
+  if (component.includes(',')) {
+    return component.split(',')[0]
+  }
+  return component
+}
+
 const ExternalLink = ({ children, to }) => (
   <Link size="sm" href={to} target="_blank">
-    {children} <Icon size="sm" is={ArrowRightTop} />
+    {children} <Icon css={{ size: '0.75rem' }} is={ArrowRightTop} />
   </Link>
 )
 
@@ -22,7 +29,7 @@ export const ExternalLinks: React.FC<ExternalLinksProps> = ({
     <ExternalLink to="https://github.com/Atom-Learning/components/issues/new">
       Report an issue
     </ExternalLink>
-    <ExternalLink to={`${homepage}/${component}.mdx`}>
+    <ExternalLink to={`${homepage}/${accessRootComponent(component)}.mdx`}>
       Edit this page
     </ExternalLink>
   </Stack>
