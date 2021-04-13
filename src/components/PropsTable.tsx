@@ -5,7 +5,8 @@ import {
   Icon,
   Link,
   styled,
-  Text
+  Text,
+  Tooltip
 } from '@atom-learning/components'
 import docgen from '@atom-learning/components/dist/docgen.json'
 import { Ok } from '@atom-learning/icons'
@@ -46,35 +47,60 @@ const Cell = styled('td', {
 
 const Empty = () => <Text css={{ color: '$tonal500' }}>-</Text>
 
+const TooltipLink = ({ children, content, ...rest }) => (
+  <Tooltip>
+    <Tooltip.Trigger>
+      <Link size="sm" {...rest}>
+        {children}
+      </Link>
+    </Tooltip.Trigger>
+    <Tooltip.Content
+      css={{
+        width: '90vw',
+        textAlign: 'center',
+        lineHeight: 1.4,
+        letterSpacing: '0.01em',
+        fontSize: '$sm'
+      }}
+    >
+      {content}
+    </Tooltip.Content>
+  </Tooltip>
+)
+
 const PropType = ({ name, type }) => {
   if (name === 'css') {
     return (
-      <Link
-        size="sm"
+      <TooltipLink
         href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L1547"
+        content="Override the component styles. Supports tokens, media queries and all stitches features"
       >
         <InlineCode>CSSProperties</InlineCode>
-      </Link>
+      </TooltipLink>
     )
   }
   if (name === 'as') {
     return (
-      <Link
-        size="sm"
+      <TooltipLink
         href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L2993"
+        content="Change the component to a different HTML tag or custom component"
       >
         <InlineCode>JSX.IntrinsicElements</InlineCode>
-      </Link>
+      </TooltipLink>
     )
   }
   if (Array.isArray(type.value)) {
+    const values = type.value
+      .filter(({ value }) => value !== 'undefined')
+      .filter(({ value }) => !value.startsWith('{ [x: string]'))
     return (
       <Flex css={{ gap: '$2', flexWrap: 'wrap' }}>
-        {type.value
-          .filter(({ value }) => value !== 'undefined')
-          .map(({ value }) => (
+        {values.map(({ value }, index) => (
+          <React.Fragment key={value}>
             <InlineCode key={value}>{value}</InlineCode>
-          ))}
+            {index < values.length - 1 && ' | '}
+          </React.Fragment>
+        ))}
       </Flex>
     )
   }
@@ -102,7 +128,19 @@ export const PropsTable: React.FC<PropsTableProps> = ({
           <thead>
             <tr>
               {columns.map((column) => (
-                <Cell as="th" appearance="heading" key={column}>
+                <Cell
+                  as="th"
+                  appearance="heading"
+                  key={column}
+                  css={
+                    ((column === 'Default' || column === 'Required') && {
+                      width: 74
+                    }) ||
+                    (column === 'Prop' && {
+                      width: '20%'
+                    })
+                  }
+                >
                   {column}
                 </Cell>
               ))}
