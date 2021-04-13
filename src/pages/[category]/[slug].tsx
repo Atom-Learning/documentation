@@ -25,6 +25,7 @@ type PageProps = {
     title: string
     id: string
     homepage: string
+    source: 'overview' | 'theme' | 'components'
   }
   content: MdxRemote.Source
   pages: {
@@ -50,7 +51,10 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
       )}
       {stringToMdx(content)}
       {data.component && <PropsTable for={data.component} />}
-      <Pagination orderedPages={orderedPages} currentPage={data.id} />
+      <Pagination
+        orderedPages={orderedPages}
+        currentPage={{ source: data.source, id: data.id }}
+      />
     </Main>
   </Flex>
 )
