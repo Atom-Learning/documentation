@@ -1,3 +1,4 @@
+import pkg from '@atom-learning/components/package.json'
 import fs from 'fs'
 import glob from 'glob'
 import matter from 'gray-matter'
@@ -6,6 +7,13 @@ import { pascalCase } from 'pascal-case'
 import path from 'path'
 
 import { trueCasePathSync } from './true-case-path'
+
+const constructSourceUrl = ({ category, id }) => {
+  const base = new URL(pkg.homepage)
+  return `${base.origin}${base.pathname}/tree/main/src/${
+    category === 'Utilities' ? 'utilities' : 'components'
+  }/${id}`
+}
 
 const getPagesSource = (source) => {
   if (source === 'components') {
@@ -72,6 +80,7 @@ export interface PageBySlug {
     slug: string
     id: string
     source: 'components' | 'theme' | 'overview'
+    homepage: string
   }
   content: string
 }
@@ -83,7 +92,13 @@ export const getPageBySlug = (slug, source): PageBySlug => {
   const { data, content } = matter(file)
 
   return {
-    data: { ...data, slug, id, source },
+    data: {
+      ...data,
+      slug,
+      id,
+      source,
+      homepage: constructSourceUrl({ category: data.category, id })
+    },
     content
   }
 }

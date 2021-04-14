@@ -8,7 +8,10 @@ type PaginationProps = {
     title: string
     source: 'overview' | 'theme' | 'components'
   }[]
-  currentPage: string
+  currentPage: {
+    id: string
+    source: 'overview' | 'theme' | 'components'
+  }
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
@@ -16,7 +19,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   currentPage
 }) => {
   const currentPageIndex = orderedPages.findIndex(
-    ({ id }) => id === currentPage
+    ({ id, source }) => id === currentPage.id && source === currentPage.source
   )
   const nextPage = orderedPages[currentPageIndex + 1]
   const previousPage = orderedPages[currentPageIndex - 1]

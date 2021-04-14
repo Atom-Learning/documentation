@@ -1,7 +1,11 @@
 import { Heading, styled } from '@atom-learning/components'
+import pkg from '@atom-learning/components/package.json'
 import { capitalCase } from 'capital-case'
+import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
+import { Pill } from '../'
+import { Logo } from './Logo'
 import { NavigationContent } from './NavigationContent'
 import { NavigationTrigger } from './NavigationTrigger'
 
@@ -50,13 +54,14 @@ const StyledNavigation = styled('nav', {
   left: 0,
   overflowX: 'hidden',
   overflowY: 'auto',
-  p: '$3',
   position: 'fixed',
+  px: '$3',
+  py: '$4',
   top: 0,
-  width: 260,
   transform: 'translateX(-280px)',
-  zIndex: 1,
   transition: 'transform 175ms ease-out',
+  width: 260,
+  zIndex: 1,
   '@lg': {
     boxShadow: 'none',
     position: 'sticky',
@@ -82,12 +87,21 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
     <>
       <NavigationTrigger onClick={() => setMenuOpen(true)} />
       <StyledNavigation ref={ref} open={menuOpen}>
-        <Heading size="sm" css={{ mb: '$4', width: 200 }}>
-          Atom Learning Design System
-        </Heading>
+        <NextLink href="/">
+          <Logo
+            css={{ fill: '$primary800', mb: '$4', height: 'auto', width: 40 }}
+          />
+        </NextLink>
+        <Pill
+          css={{
+            position: 'absolute',
+            right: '$3',
+            top: '$3'
+          }}
+        >{`v${pkg.version}`}</Pill>
         {Object.entries(items).map(([source, content]) => (
           <React.Fragment key={source}>
-            <Heading as="h2" size="xs" css={{ mb: '$4' }}>
+            <Heading as="h2" size="xs" css={{ mb: '$3' }}>
               {capitalCase(source)}
             </Heading>
             <NavigationContent

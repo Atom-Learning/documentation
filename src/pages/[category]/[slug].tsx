@@ -1,9 +1,16 @@
 import { Flex, Heading, Text } from '@atom-learning/components'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
 import { MdxRemote } from 'next-mdx-remote/types'
 import * as React from 'react'
 
-import { Main, Navigation, Pagination, PropsTable } from '../../components'
+import {
+  ExternalLinks,
+  Main,
+  Navigation,
+  Pagination,
+  PropsTable
+} from '../../components'
 import {
   getPageBySlug,
   getPages,
@@ -18,6 +25,8 @@ type PageProps = {
     description?: string
     title: string
     id: string
+    homepage: string
+    source: 'overview' | 'theme' | 'components'
   }
   content: MdxRemote.Source
   pages: {
@@ -27,22 +36,37 @@ type PageProps = {
 }
 
 const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
-  <Flex>
-    <Navigation items={pages} />
-    <Main>
-      <Heading as="h1" size="lg" css={{ mb: '$5' }}>
-        {data.title}
-      </Heading>
-      {data.description && (
-        <Text size="lg" css={{ mb: '$4' }}>
-          {data.description}
-        </Text>
-      )}
-      {stringToMdx(content)}
-      {data.component && <PropsTable for={data.component} />}
-      <Pagination orderedPages={orderedPages} currentPage={data.id} />
-    </Main>
-  </Flex>
+  <>
+    <Head>
+      <title>{`Atom Learning | ${data.title}`}</title>
+    </Head>
+    <Flex>
+      <Navigation items={pages} />
+      <Main>
+        <Heading as="h1" size="lg" css={{ mb: '$4' }}>
+          {data.title}
+        </Heading>
+        {data.description && (
+          <Text size="lg" css={{ mb: data.component ? '$4' : '$5' }}>
+            {data.description}
+          </Text>
+        )}
+        {data.component && (
+          <ExternalLinks
+            component={data.component}
+            homepage={data.homepage}
+            css={{ mb: '$5' }}
+          />
+        )}
+        {stringToMdx(content)}
+        {data.component && <PropsTable for={data.component} />}
+        <Pagination
+          orderedPages={orderedPages}
+          currentPage={{ source: data.source, id: data.id }}
+        />
+      </Main>
+    </Flex>
+  </>
 )
 
 type Pages = [string, { category: string }[]][]
