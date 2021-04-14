@@ -33,6 +33,6 @@ export const Cell = styled('td', {
   },
   defaultVariants: {
     appearance: 'content',
-    size: 'md'
+    size: 'sm'
   }
 })
