@@ -1,6 +1,7 @@
 import { Heading, styled } from '@atom-learning/components'
 import pkg from '@atom-learning/components/package.json'
 import { capitalCase } from 'capital-case'
+import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
 import { Pill } from '../'
@@ -86,7 +87,11 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
     <>
       <NavigationTrigger onClick={() => setMenuOpen(true)} />
       <StyledNavigation ref={ref} open={menuOpen}>
-        <Logo css={{ mb: '$4', height: 'auto', width: 160 }} />
+        <NextLink href="/">
+          <Logo
+            css={{ fill: '$primary800', mb: '$4', height: 'auto', width: 40 }}
+          />
+        </NextLink>
         <Pill>{`v${pkg.version}`}</Pill>
         {Object.entries(items).map(([source, content]) => (
           <React.Fragment key={source}>
