@@ -89,7 +89,7 @@ const PropType = ({ name, type }) => {
   return <InlineCode>{type.name}</InlineCode>
 }
 
-const TableProps: React.FC<{ css?: CSS; component: ComponentDoc }> = ({
+const PropsTableContent: React.FC<{ css?: CSS; component: ComponentDoc }> = ({
   css,
   component
 }) => (
@@ -169,7 +169,7 @@ export const PropsTable: React.FC<PropsTableProps> = ({
               <Heading as="h3" size="sm" css={{ mb: '$3' }}>
                 {component}
               </Heading>
-              <TableProps
+              <PropsTableContent
                 component={componentProps}
                 css={{ mb: '$5', color: '$tonal900' }}
               />
@@ -188,7 +188,7 @@ export const PropsTable: React.FC<PropsTableProps> = ({
       <Heading as="h2" css={{ mb: '$3' }}>
         API Reference
       </Heading>
-      <TableProps component={componentProps} />
+      <PropsTableContent component={componentProps} />
     </Box>
   )
 }
