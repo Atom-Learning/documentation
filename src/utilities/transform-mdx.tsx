@@ -13,11 +13,13 @@ import { MdxRemote } from 'next-mdx-remote/types'
 import * as React from 'react'
 
 import {
+  Cell,
   CodeBlock,
   ColorPalette,
   IconTable,
   InlineCode,
-  Scale
+  Scale,
+  Table
 } from '../components'
 
 const components: MdxRemote.Components = {
@@ -42,6 +44,9 @@ const components: MdxRemote.Components = {
   a: Link,
   code: CodeBlock,
   hr: Divider,
+  table: (props) => <Table {...props} css={{ mb: '$4' }} />,
+  td: (props) => <Cell appearance="content" {...props} />,
+  th: (props) => <Cell appearance="heading" {...props} />,
   ColorPalette,
   Scale,
   IconTable,
