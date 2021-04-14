@@ -47,13 +47,9 @@ const Cell = styled('td', {
 
 const Empty = () => <Text css={{ color: '$tonal500' }}>-</Text>
 
-const TooltipLink = ({ children, content, ...rest }) => (
+const WithTooltip = ({ children, content }) => (
   <Tooltip>
-    <Tooltip.Trigger>
-      <Link size="sm" {...rest}>
-        {children}
-      </Link>
-    </Tooltip.Trigger>
+    <Tooltip.Trigger>{children}</Tooltip.Trigger>
     <Tooltip.Content
       css={{
         width: '90vw',
@@ -71,22 +67,26 @@ const TooltipLink = ({ children, content, ...rest }) => (
 const PropType = ({ name, type }) => {
   if (name === 'css') {
     return (
-      <TooltipLink
-        href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L1547"
-        content="Override the component styles. Supports tokens, media queries and all stitches features"
-      >
-        <InlineCode>CSSProperties</InlineCode>
-      </TooltipLink>
+      <WithTooltip content="Override the component styles. Supports tokens, media queries and all stitches features">
+        <Link
+          size="sm"
+          href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L1547"
+        >
+          <InlineCode>CSSProperties</InlineCode>
+        </Link>
+      </WithTooltip>
     )
   }
   if (name === 'as') {
     return (
-      <TooltipLink
-        href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L2993"
-        content="Change the component to a different HTML tag or custom component"
-      >
-        <InlineCode>JSX.IntrinsicElements</InlineCode>
-      </TooltipLink>
+      <WithTooltip content="Change the component to a different HTML tag or custom component">
+        <Link
+          size="sm"
+          href="https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react/v16/index.d.ts#L2993"
+        >
+          <InlineCode>JSX.IntrinsicElements</InlineCode>
+        </Link>
+      </WithTooltip>
     )
   }
   if (Array.isArray(type.value)) {
@@ -160,7 +160,7 @@ export const PropsTable: React.FC<PropsTableProps> = ({
                       <PropType name={name} type={type} />
                     </Cell>
                     <Cell>
-                      {defaultValue ? (
+                      {defaultValue && defaultValue.value !== 'undefined' ? (
                         <InlineCode>{defaultValue.value}</InlineCode>
                       ) : (
                         <Empty />
