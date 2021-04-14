@@ -2,7 +2,7 @@ import { Icon, Link, Stack } from '@atom-learning/components'
 import { ArrowRightTop } from '@atom-learning/icons'
 import * as React from 'react'
 
-type ExternalLinksProps = {
+type ExternalLinksProps = React.ComponentProps<typeof Stack> & {
   homepage: string
   component: string
 }
@@ -22,9 +22,10 @@ const ExternalLink = ({ children, to }) => (
 
 export const ExternalLinks: React.FC<ExternalLinksProps> = ({
   homepage,
-  component
+  component,
+  ...rest
 }) => (
-  <Stack gap="3" css={{ mb: '$5' }}>
+  <Stack gap="3" {...rest}>
     <ExternalLink to={homepage}>View source</ExternalLink>
     <ExternalLink to="https://github.com/Atom-Learning/components/issues/new">
       Report an issue

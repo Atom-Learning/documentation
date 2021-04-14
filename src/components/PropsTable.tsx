@@ -10,6 +10,7 @@ import {
 } from '@atom-learning/components'
 import docgen from '@atom-learning/components/dist/docgen.json'
 import { Ok } from '@atom-learning/icons'
+import { pascalCase } from 'pascal-case'
 import * as React from 'react'
 import { ComponentDoc } from 'react-docgen-typescript'
 
@@ -20,7 +21,9 @@ type PropsTableProps = {
 }
 
 const getComponentProps = (name): ComponentDoc =>
-  docgen.filter(Boolean).find((component) => component.displayName === name)
+  docgen
+    .filter(Boolean)
+    .find((component) => component.displayName === pascalCase(name))
 
 const columns = ['Prop', 'Type', 'Default', 'Required']
 

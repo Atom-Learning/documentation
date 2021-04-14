@@ -52,7 +52,11 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
           </Text>
         )}
         {data.component && (
-          <ExternalLinks component={data.component} homepage={data.homepage} />
+          <ExternalLinks
+            component={data.component}
+            homepage={data.homepage}
+            css={{ mb: '$5' }}
+          />
         )}
         {stringToMdx(content)}
         {data.component && <PropsTable for={data.component} />}

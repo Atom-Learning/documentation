@@ -61,7 +61,7 @@ export const IconTable: React.FC<IconTableProps> = ({ css }) => (
       flexWrap: 'wrap',
       gap: '$2',
       '@md': { mx: '-$sizes$4' },
-      '@lg': { mx: '-102px' },
+      '@lg': { mx: 'calc(($sizes$6 + $sizes$0) * -1)' },
       ...(css as any)
     }}
   >
