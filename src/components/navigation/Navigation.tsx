@@ -92,7 +92,13 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
             css={{ fill: '$primary800', mb: '$4', height: 'auto', width: 40 }}
           />
         </NextLink>
-        <Pill>{`v${pkg.version}`}</Pill>
+        <Pill
+          css={{
+            position: 'absolute',
+            right: '$3',
+            top: '$3'
+          }}
+        >{`v${pkg.version}`}</Pill>
         {Object.entries(items).map(([source, content]) => (
           <React.Fragment key={source}>
             <Heading as="h2" size="xs" css={{ mb: '$3' }}>

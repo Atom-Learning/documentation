@@ -10,8 +10,5 @@ export const Pill = styled('div', {
   fontWeight: 'bold',
   height: '$2',
   maxWidth: 'max-content',
-  position: 'absolute',
-  px: '$2',
-  right: '$2',
-  top: '$2'
+  px: '$2'
 })
