@@ -1,5 +1,6 @@
 import { Flex, Heading, Text } from '@atom-learning/components'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
 import { MdxRemote } from 'next-mdx-remote/types'
 import * as React from 'react'
 
@@ -35,28 +36,33 @@ type PageProps = {
 }
 
 const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
-  <Flex>
-    <Navigation items={pages} />
-    <Main>
-      <Heading as="h1" size="lg" css={{ mb: '$4' }}>
-        {data.title}
-      </Heading>
-      {data.description && (
-        <Text size="lg" css={{ mb: data.component ? '$4' : '$5' }}>
-          {data.description}
-        </Text>
-      )}
-      {data.component && (
-        <ExternalLinks component={data.component} homepage={data.homepage} />
-      )}
-      {stringToMdx(content)}
-      {data.component && <PropsTable for={data.component} />}
-      <Pagination
-        orderedPages={orderedPages}
-        currentPage={{ source: data.source, id: data.id }}
-      />
-    </Main>
-  </Flex>
+  <>
+    <Head>
+      <title>{`Atom Learning | ${data.title}`}</title>
+    </Head>
+    <Flex>
+      <Navigation items={pages} />
+      <Main>
+        <Heading as="h1" size="lg" css={{ mb: '$4' }}>
+          {data.title}
+        </Heading>
+        {data.description && (
+          <Text size="lg" css={{ mb: data.component ? '$4' : '$5' }}>
+            {data.description}
+          </Text>
+        )}
+        {data.component && (
+          <ExternalLinks component={data.component} homepage={data.homepage} />
+        )}
+        {stringToMdx(content)}
+        {data.component && <PropsTable for={data.component} />}
+        <Pagination
+          orderedPages={orderedPages}
+          currentPage={{ source: data.source, id: data.id }}
+        />
+      </Main>
+    </Flex>
+  </>
 )
 
 type Pages = [string, { category: string }[]][]
