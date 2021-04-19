@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@^0.4.1":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.4.1.tgz#55ad9a438d084a4fe3eadb57b7c4f503f0256ba8"
-  integrity sha512-NDX3NPIpFaXJiA3atJOqqCD7wEMUVhq0y35ojShH5rXFdBXIobNB1fhwPSspQT+And5raIapJb0hVgiZSHb9PA==
+"@atom-learning/components@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.5.0.tgz#ba02c7fc32f5a36534fc1769f1faef21a6320d50"
+  integrity sha512-Nu9BmUdeHUNQNOpR/LZrJ/isSkeoqyzxdwwpHP7ei8XYmnxgDanWm6Og88zJaDeaO7zSi2bWNxhAmxxftspaUA==
   dependencies:
     uid "^2.0.0"
     "@radix-ui/react-alert-dialog" "^0.0.15"
@@ -17,7 +17,7 @@
     "@radix-ui/react-slot" "^0.0.9"
     "@radix-ui/react-tooltip" "^0.0.16"
     "@radix-ui/react-visually-hidden" "0.0.11"
-    "@stitches/react" "^0.1.0"
+    "@stitches/react" "0.1.7"
     "@types/react" "^17.0.2"
     colorsys "^1.0.22"
     pure-react-carousel "^1.27.6"
@@ -1503,10 +1503,15 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@stitches/core@^0.1.0", "@stitches/core@^0.1.4":
+"@stitches/core@^0.1.0":
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/@stitches/core/-/core-0.1.4.tgz#1b33c3ef55c044f006049d8310b784720d669798"
   integrity sha512-jFZMpw6uD7BRvkPp3n0JsUlLO6d7oRwBgInEHDB1xlsRLqB4yaepyEyJ1CqMx8HidyW5QeLXH6IYPzERxCUM/Q==
+
+"@stitches/core@^0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@stitches/core/-/core-0.1.7.tgz#132d6e3bab1b3af44b6c67980d7e2d23b64703d0"
+  integrity sha512-OSo1qS0QlBJ/Uyc6h2luc8pzFR2qNK7ehWUtRDIegAhq5phvVw9B6oEc9E7HDf6ku8UEzCd/BVwXiUSjknMQDQ==
 
 "@stitches/react@0.1.0":
   version "0.1.0"
@@ -1515,12 +1520,12 @@
   dependencies:
     "@stitches/core" "^0.1.0"
 
-"@stitches/react@^0.1.0":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-0.1.4.tgz#f1a37911683cfc192906b0710c9685bddb316abc"
-  integrity sha512-/YI/cuyd8tCGaq5ewDF2goGVa/LuIQZbb4SKQM/DroluOrZ4W1Pwczk/vkijhP3pH11ssEHtD9/v8VzXb01nvw==
+"@stitches/react@0.1.7":
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-0.1.7.tgz#9e307b34a8b0c40d2c71907b686692ef881e9d37"
+  integrity sha512-oq+ll96qYrOmKeOGL+7fpIW9Gbxaw56kzdU7OcKWLwxaborOLHimmQELD0UXy9ZfMQ5EvgjbXPxussgUR8qrUg==
   dependencies:
-    "@stitches/core" "^0.1.4"
+    "@stitches/core" "^0.1.7"
 
 "@types/hast@^2.0.0":
   version "2.3.1"
