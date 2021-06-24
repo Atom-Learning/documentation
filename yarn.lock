@@ -2,21 +2,22 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.8.0.tgz#84d7b3b81275be9c7eeb5e3dbd72c119481cca44"
-  integrity sha512-HgvZe1VzACkqMd/UpW36Quy+5AReHdR6Iif17cfaGt6NEr8qhorZpDqjzni3kD2SIYWRobUu9xt1DgtKO9xzeg==
+"@atom-learning/components@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.10.0.tgz#836cb3eeb0f1c2963347287072908d52e8574798"
+  integrity sha512-QZ2EA2uN7+kE6WKHFkRLX+nbPHnQkOemYkPvG7uZrlrv+mxHXJAVh+1/xC3w05q2UTg/63EZlJOvW9jtp7stqA==
   dependencies:
     uid "^2.0.0"
-    "@radix-ui/react-alert-dialog" "^0.0.15"
+    "@radix-ui/react-alert-dialog" "0.0.15"
     "@radix-ui/react-checkbox" "0.0.13"
-    "@radix-ui/react-dialog" "^0.0.15"
-    "@radix-ui/react-popover" "^0.0.15"
+    "@radix-ui/react-dialog" "0.0.15"
+    "@radix-ui/react-popover" "0.0.15"
     "@radix-ui/react-progress" "0.0.11"
     "@radix-ui/react-radio-group" "0.0.14"
-    "@radix-ui/react-slot" "^0.0.9"
-    "@radix-ui/react-switch" "^0.0.11"
-    "@radix-ui/react-tooltip" "^0.0.16"
+    "@radix-ui/react-slot" "0.0.9"
+    "@radix-ui/react-switch" "0.0.11"
+    "@radix-ui/react-tabs" "0.0.14"
+    "@radix-ui/react-tooltip" "0.0.16"
     "@radix-ui/react-visually-hidden" "0.0.11"
     "@reach/combobox" "^0.15.1"
     "@stitches/react" "0.1.7"
@@ -25,6 +26,7 @@
     invariant "^2.2.4"
     pure-react-carousel "^1.27.6"
     react-hook-form "^6.15.4"
+    react-hook-form-persist "^2.0.0"
     react-hot-toast "^1.0.2"
     react-player "^2.9.0"
 
@@ -1171,7 +1173,7 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@radix-ui/react-alert-dialog@^0.0.15":
+"@radix-ui/react-alert-dialog@0.0.15":
   version "0.0.15"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-alert-dialog/-/react-alert-dialog-0.0.15.tgz#aff68a903143cbc01f7ba09e13c73aa8e866c36c"
   integrity sha512-bvhiWNd79KZWeKwsSJ5ebJ50EY6v3WdN3YiOk2u9pUhSrBSe2cKBLveNdUGuWxnIORMAn7I6vs5i9rxexSVsWA==
@@ -1210,6 +1212,15 @@
     "@radix-ui/react-primitive" "0.0.11"
     "@radix-ui/react-use-controllable-state" "0.0.6"
 
+"@radix-ui/react-collection@0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-collection/-/react-collection-0.0.13.tgz#050fc9b1d84b58ab04a5852812b181767dde2e85"
+  integrity sha512-TKUUFLeRlxp+1S1FQz9pQkP1VbRwZGOEH8oUdgWjUsNc+GVURlS3H5twsDtSAAfvebOc6YmDTE23mvvhfsPhnw==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-compose-refs" "0.0.5"
+    "@radix-ui/react-slot" "0.0.11"
+
 "@radix-ui/react-compose-refs@0.0.5":
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-compose-refs/-/react-compose-refs-0.0.5.tgz#0f71f0de1dec341f30cebd420b6bc3d12a3037dd"
@@ -1224,7 +1235,7 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@radix-ui/react-dialog@0.0.15", "@radix-ui/react-dialog@^0.0.15":
+"@radix-ui/react-dialog@0.0.15":
   version "0.0.15"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-dialog/-/react-dialog-0.0.15.tgz#eb0b42c56d82de798990c1c4b81db625587727fc"
   integrity sha512-rFnXoZdKsYMPKTExvVScYkdCAoVX+cYpokN1ykbgqJRUdbQXW9dQ4scbmGhATW+AlOtMk3DeQXjYw1r29JiQWw==
@@ -1277,6 +1288,13 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
+"@radix-ui/react-id@0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-id/-/react-id-0.0.6.tgz#c4b27d11861805e91ac296e7758ab47e3947b65c"
+  integrity sha512-PzmraF34fYggsYvTIZVJ5S68WMp3aKUN3HkSmGnz4zn9zpRjkAbbg7Xn3ueQI3FQsLWKgyUfnpsmWFDndpcqYg==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+
 "@radix-ui/react-label@0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-label/-/react-label-0.0.11.tgz#b7d55ecfcda088341fa5be730922a3b3359ae2b4"
@@ -1295,7 +1313,12 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@radix-ui/react-popover@^0.0.15":
+"@radix-ui/react-polymorphic@0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-polymorphic/-/react-polymorphic-0.0.12.tgz#bf4ae516669b68e059549538104d97322f7c876b"
+  integrity sha512-/GYNMicBnGzjD1d2fCAuzql1VeFrp8mqM3xfzT1kxhnV85TKdURO45jBfMgqo17XNXoNhWIAProUsCO4qFAAIg==
+
+"@radix-ui/react-popover@0.0.15":
   version "0.0.15"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-popover/-/react-popover-0.0.15.tgz#e94d24dcb00003cbe57fdfa1b5afdd052b8ac56f"
   integrity sha512-c9uto/f/u7EQxlGb9/ITulRPNBJE2jW8mKnCf3zq2ZjScaVkjK6vlfu6TAPY4MaXHVcEk1/xx/H2GbNFUEwzBg==
@@ -1359,6 +1382,14 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-polymorphic" "0.0.10"
 
+"@radix-ui/react-primitive@0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-primitive/-/react-primitive-0.0.14.tgz#752a967cb05d4c5643634fe20274e7dc905d1cce"
+  integrity sha512-FYOWGCrxFpLdB534aWTwMK4Pjg8cxFb+745qWhPfI+cYi+aYUddJQD3ilRHHXxCBD72ve7/PufqeB7Y/QlKqgg==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-polymorphic" "0.0.12"
+
 "@radix-ui/react-progress@0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-progress/-/react-progress-0.0.11.tgz#1ea6b20b3e027993f13475984cb5e478709eef51"
@@ -1397,7 +1428,31 @@
     "@radix-ui/react-id" "0.0.5"
     "@radix-ui/react-use-controllable-state" "0.0.6"
 
-"@radix-ui/react-slot@0.0.9", "@radix-ui/react-slot@^0.0.9":
+"@radix-ui/react-roving-focus@0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-roving-focus/-/react-roving-focus-0.0.14.tgz#cedc20ee78227199e4379434489cdd7c00e3edbd"
+  integrity sha512-MHYdC5kyx/3V8/9DbvMDOCPHP/4blRkaD3EUM4w7VTHUHiZgw6+Dnk1Gc2LoTkcx8Oz413aU+S11vyRdw/1pcA==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "0.0.5"
+    "@radix-ui/react-collection" "0.0.13"
+    "@radix-ui/react-compose-refs" "0.0.5"
+    "@radix-ui/react-context" "0.0.5"
+    "@radix-ui/react-id" "0.0.6"
+    "@radix-ui/react-polymorphic" "0.0.12"
+    "@radix-ui/react-primitive" "0.0.14"
+    "@radix-ui/react-use-callback-ref" "0.0.5"
+    "@radix-ui/react-use-controllable-state" "0.0.6"
+
+"@radix-ui/react-slot@0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-0.0.11.tgz#d0121018ae20d86683d527b7011b7f21465dffbd"
+  integrity sha512-H/l58Aqoyi9Jq5Jcny5v6HeMNelOivm2NUdaIvMBJzysbbwWhc78VEmpOpfQ6H+y/Fsx6aLprHbfmxPd/66PxQ==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-compose-refs" "0.0.5"
+
+"@radix-ui/react-slot@0.0.9":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-0.0.9.tgz#77bbe9884093f7c1bf2bf332b10fa85f10ef5522"
   integrity sha512-EC20mo4n24cz//C16JseBBtMtDtms3RL5Uv4fVznILJ+kXtVazfhJ8lax1FCPdxJu/iGoMpT8SqnK+wZ+Bnymw==
@@ -1406,7 +1461,7 @@
     "@radix-ui/primitive" "0.0.5"
     "@radix-ui/react-compose-refs" "0.0.5"
 
-"@radix-ui/react-switch@^0.0.11":
+"@radix-ui/react-switch@0.0.11":
   version "0.0.11"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-switch/-/react-switch-0.0.11.tgz#41866308887e53434c70c49440c78d73c3596641"
   integrity sha512-uDIFDWmq8v/zm+qM2yisna7xbESWL7oCVIgJSQ9kIjfU6u7Xk2WXBHsU+1qgdg68Y4xilyfT6m0hfUncQjNL7w==
@@ -1420,7 +1475,22 @@
     "@radix-ui/react-primitive" "0.0.11"
     "@radix-ui/react-use-controllable-state" "0.0.6"
 
-"@radix-ui/react-tooltip@^0.0.16":
+"@radix-ui/react-tabs@0.0.14":
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-tabs/-/react-tabs-0.0.14.tgz#0916d39d62fff028764cca37105fb5398aa49f84"
+  integrity sha512-TYc6ArLdKv5ZP8ZY8m6swsviqybZZSbVz5BUbC7etYfbTfBtLfZsVU07mKzTDvrw5B5GcZ+ngT+iQpqpnmd0Bg==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/primitive" "0.0.5"
+    "@radix-ui/react-context" "0.0.5"
+    "@radix-ui/react-id" "0.0.6"
+    "@radix-ui/react-polymorphic" "0.0.12"
+    "@radix-ui/react-primitive" "0.0.14"
+    "@radix-ui/react-roving-focus" "0.0.14"
+    "@radix-ui/react-use-callback-ref" "0.0.5"
+    "@radix-ui/react-use-controllable-state" "0.0.6"
+
+"@radix-ui/react-tooltip@0.0.16":
   version "0.0.16"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-tooltip/-/react-tooltip-0.0.16.tgz#33274c86ccd97330c9ff7fa103e524c5c051608a"
   integrity sha512-9t7re+G4SQE/INjXvutww0oy8UK9wA5UTOCMC20vcGZijUKnNTTV+wuxcQhP4NDQD08bT85EOWQc6vAjF3/+Eg==
@@ -4815,6 +4885,11 @@ react-feather@^2.0.9:
   integrity sha512-yMfCGRkZdXwIs23Zw/zIWCJO3m3tlaUvtHiXlW+3FH7cIT6fiK1iJ7RJWugXq7Fso8ZaQyUm92/GOOHXvkiVUw==
   dependencies:
     prop-types "^15.7.2"
+
+react-hook-form-persist@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-hook-form-persist/-/react-hook-form-persist-2.0.0.tgz#a6cd7fdc20f4f2511181470a5a182ab9065955af"
+  integrity sha512-oloLQ7e5x9ozqYhQMRoZaPIzzol3+sxpYXJTIQyhiOjvCwwYbxhCmV2UjGMN0A4bBMkZtlSxpVkE900vg6nnRw==
 
 react-hook-form@^6.15.4:
   version "6.15.4"

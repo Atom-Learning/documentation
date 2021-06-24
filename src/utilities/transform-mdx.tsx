@@ -43,7 +43,7 @@ const components: MdxRemote.Components = {
   ),
   a: Link,
   code: CodeBlock,
-  hr: Divider,
+  hr: (props) => <Divider {...props} css={{ my: '$5' }} />,
   table: (props) => <Table {...props} css={{ mb: '$4' }} />,
   td: (props) => <Cell size="md" appearance="content" {...props} />,
   th: (props) => <Cell size="md" appearance="heading" {...props} />,
