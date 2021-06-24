@@ -35,7 +35,9 @@ export const Pagination: React.FC<PaginationProps> = ({
             passHref
             href={`/${previousPage.source}/${previousPage.id}`}
           >
-            <Link size="lg">{previousPage.title}</Link>
+            <Link size="lg" css={{ py: '$2' }}>
+              {previousPage.title}
+            </Link>
           </NextLink>
         </Box>
       )}
@@ -45,7 +47,9 @@ export const Pagination: React.FC<PaginationProps> = ({
             Next
           </Text>
           <NextLink passHref href={`/${nextPage.source}/${nextPage.id}`}>
-            <Link size="lg">{nextPage.title}</Link>
+            <Link size="lg" css={{ py: '$2' }}>
+              {nextPage.title}
+            </Link>
           </NextLink>
         </Box>
       )}

@@ -53,7 +53,7 @@ const NavigationList: React.FC<NavigationListProps> = ({
                 size="sm"
                 css={{
                   display: 'block',
-                  py: '$0',
+                  py: '$2',
                   ...(isCurrentPage ? { color: '$primary800' } : {})
                 }}
                 onClick={onNavigate}
