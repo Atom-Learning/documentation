@@ -45,7 +45,7 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
       <Box as="main" css={{ width: '100%' }}>
         <Box as="header" css={{ bg: '$tonal50', py: '$8' }}>
           <Container css={{ px: '$4' }}>
-            <Heading as="h1" size="lg" css={{ mb: '$5' }}>
+            <Heading as="h1" size="lg" css={data.component ? { mb: '$5' } : {}}>
               {data.title}
             </Heading>
             {data.component && (
