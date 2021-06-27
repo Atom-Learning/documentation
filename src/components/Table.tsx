@@ -5,21 +5,21 @@ export const Table = styled('table', {
   width: '100%'
 })
 export const Cell = styled('td', {
-  borderBottom: '1px solid $tonal300',
+  borderBottom: '1px solid $tonal200',
   fontFamily: '$sans',
-  pr: '$3',
-  py: '$3',
+  pr: '$4',
+  py: '$4',
   textAlign: 'left',
   verticalAlign: 'middle',
   variants: {
     appearance: {
       heading: {
-        color: '$tonal800',
+        color: '$tonal700',
         fontWeight: 700,
         whiteSpace: 'nowrap'
       },
       content: {
-        color: '$tonal700'
+        color: '$tonal600'
       }
     },
     size: {

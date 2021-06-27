@@ -23,28 +23,35 @@ import {
 } from '../components'
 
 const components: MdxRemote.Components = {
-  h2: (props) => <Heading {...props} as="h2" css={{ mt: '$5', mb: '$4' }} />,
-  h3: (props) => <Heading {...props} as="h3" size="sm" css={{ my: '$4' }} />,
-  h4: (props) => (
-    <Heading {...props} as="h4" size="xs" css={{ mt: '$4', mb: '$3' }} />
+  h2: (props) => (
+    <Text
+      {...props}
+      size="lg"
+      as="h2"
+      css={{ fontWeight: 600, mt: '$8', mb: '$5' }}
+    />
   ),
-  p: (props) => <Text {...props} css={{ mb: '$4' }} />,
-  ul: (props) => <List {...props} css={{ mb: '$4' }} />,
+  h3: (props) => <Text {...props} as="h3" size="sm" css={{ my: '$5' }} />,
+  h4: (props) => (
+    <Text {...props} as="h4" size="xs" css={{ mt: '$5', mb: '$4' }} />
+  ),
+  p: (props) => <Text {...props} css={{ color: '$tonal700', mb: '$5' }} />,
+  ul: (props) => <List {...props} css={{ mb: '$5' }} />,
   li: List.Item,
   inlineCode: InlineCode,
   blockquote: (props) => (
     <Text
       {...props}
       as="blockquote"
-      css={{ pl: '$4', my: '$4', color: '$tonal600' }}
+      css={{ pl: '$5', my: '$5', color: '$tonal500' }}
     >
       {props.children.props.children}
     </Text>
   ),
   a: Link,
   code: CodeBlock,
-  hr: (props) => <Divider {...props} css={{ my: '$5' }} />,
-  table: (props) => <Table {...props} css={{ mb: '$4' }} />,
+  hr: (props) => <Divider {...props} css={{ my: '$8' }} />,
+  table: (props) => <Table {...props} css={{ mb: '$5' }} />,
   td: (props) => <Cell size="md" appearance="content" {...props} />,
   th: (props) => <Cell size="md" appearance="heading" {...props} />,
   ColorPalette,

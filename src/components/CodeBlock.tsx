@@ -21,13 +21,13 @@ const StyledPre = styled('pre', {
   fontSize: '$sm',
   fontWeight: 100,
   lineHeight: 1.5,
-  mb: '$4',
+  mb: '$5',
   mt: 0,
-  mx: '-$3',
+  mx: '-$4',
   overflow: 'hidden',
   position: 'relative',
   '&:focus-within': {
-    boxShadow: '0 0 0 3px $colors$primary500'
+    boxShadow: '0 0 0 3px $colors$primary'
   },
   '@sm': {
     borderRadius: '$1',
@@ -35,33 +35,33 @@ const StyledPre = styled('pre', {
   },
   '@md': {
     fontSize: '15px',
-    mx: '-$4'
+    mx: '-$5'
   }
 })
 const StyledLivePreview = styled(LivePreview, {
   alignItems: 'center',
   display: 'flex',
   flexWrap: 'wrap',
-  gap: '$3',
+  gap: '$4',
   justifyContent: 'center',
-  mx: '-$3',
+  mx: '-$4',
   overflow: 'visible',
-  p: '$4',
+  p: '$5',
   whiteSpace: 'initial',
   '@sm': {
     borderRadius: '$1',
     mx: 0
   },
   '@md': {
-    mx: '-$4',
-    py: '$5'
+    mx: '-$5',
+    py: '$8'
   }
 })
 const StyledLiveEditor = styled(LiveEditor, {
   '> textarea,> pre': {
-    p: '$3',
+    p: '$4',
     '@md': {
-      px: '$4',
+      px: '$5',
       py: '$sizes$2'
     }
   }
@@ -95,11 +95,11 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
             as="span"
             size="sm"
             css={{
-              color: '$tonal500',
+              color: '$tonal400',
               display: 'none',
               pointerEvents: 'none',
               position: 'absolute',
-              right: '$3',
+              right: '$4',
               top: '$2',
               '@sm': {
                 display: 'block'
@@ -135,9 +135,9 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
                 ...style,
                 m: 0,
                 overflow: 'auto',
-                p: '$3',
+                p: '$4',
                 '@md': {
-                  px: '$4',
+                  px: '$5',
                   py: '$sizes$2'
                 }
               })}`}

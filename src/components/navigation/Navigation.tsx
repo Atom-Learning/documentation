@@ -1,4 +1,4 @@
-import { Heading, styled } from '@atom-learning/components'
+import { Box, styled, Text } from '@atom-learning/components'
 import pkg from '@atom-learning/components/package.json'
 import { capitalCase } from 'capital-case'
 import { default as NextLink } from 'next/link'
@@ -47,8 +47,7 @@ const useOnClickOutside = (ref, handler) => {
 }
 
 const StyledNavigation = styled('nav', {
-  backgroundColor: 'white',
-  borderRight: '1px solid $tonal300',
+  backgroundColor: '$primary',
   boxShadow: '$1',
   height: '100vh',
   left: 0,
@@ -89,7 +88,13 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
       <StyledNavigation ref={ref} open={menuOpen}>
         <NextLink href="/">
           <Logo
-            css={{ fill: '$primary800', mb: '$4', height: 'auto', width: 40 }}
+            css={{
+              cursor: 'pointer',
+              fill: 'white',
+              mb: '$7',
+              height: 'auto',
+              width: 80
+            }}
           />
         </NextLink>
         <Pill
@@ -100,15 +105,15 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
           }}
         >{`v${pkg.version}`}</Pill>
         {Object.entries(items).map(([source, content]) => (
-          <React.Fragment key={source}>
-            <Heading as="h2" size="xs" css={{ mb: '$3' }}>
+          <Box css={{ mb: '$6' }} key={source}>
+            <Text as="h2" css={{ color: 'white', mb: '$4' }}>
               {capitalCase(source)}
-            </Heading>
+            </Text>
             <NavigationContent
               content={content}
               onNavigate={() => setMenuOpen(false)}
             />
-          </React.Fragment>
+          </Box>
         ))}
       </StyledNavigation>
     </>

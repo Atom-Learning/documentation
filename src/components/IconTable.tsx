@@ -19,17 +19,17 @@ const IconTableItem = ({ name, Component }) => (
         css={{
           alignItems: 'center',
           bg: 'white',
-          border: '1px solid $tonal300',
+          border: '1px solid $tonal200',
           borderRadius: '$1',
           cursor: 'pointer',
           flex: '1 0 auto',
           flexDirection: 'column',
           justifyContent: 'center',
-          p: '$4',
+          p: '$5',
           transition: 'all 75ms ease-out',
           '&:hover,&:focus': {
-            borderColor: '$primary900',
-            boxShadow: 'inset 0 0 0 1px $colors$primary900',
+            borderColor: '$primary',
+            boxShadow: 'inset 0 0 0 1px $colors$primary',
             '& svg': {
               transform: 'scale(1.5)'
             }
@@ -43,7 +43,7 @@ const IconTableItem = ({ name, Component }) => (
         <Icon
           is={Component}
           size="md"
-          css={{ color: '$primary900', transition: 'all 100ms ease-out' }}
+          css={{ color: '$primary', transition: 'all 100ms ease-out' }}
         />
       </Flex>
     </Tooltip.Trigger>
@@ -60,7 +60,7 @@ export const IconTable: React.FC<IconTableProps> = ({ css }) => (
     css={{
       flexWrap: 'wrap',
       gap: '$2',
-      '@md': { mx: '-$sizes$4' },
+      '@md': { mx: '-$sizes$5' },
       '@lg': { mx: 'calc(($sizes$6 + $sizes$0) * -1)' },
       ...(css as any)
     }}
@@ -70,7 +70,7 @@ export const IconTable: React.FC<IconTableProps> = ({ css }) => (
     ))}
     {/* Prevent last item filling the entire width */}
     {[0, 1, 2, 3, 4].map((i) => (
-      <Box key={i} css={{ flex: '1 0 auto', p: '$4' }}>
+      <Box key={i} css={{ flex: '1 0 auto', p: '$5' }}>
         <Box css={{ size: '$2' }} />
       </Box>
     ))}
