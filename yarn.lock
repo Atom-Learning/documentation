@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@^0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.10.0.tgz#836cb3eeb0f1c2963347287072908d52e8574798"
-  integrity sha512-QZ2EA2uN7+kE6WKHFkRLX+nbPHnQkOemYkPvG7uZrlrv+mxHXJAVh+1/xC3w05q2UTg/63EZlJOvW9jtp7stqA==
+"@atom-learning/components@1.0.0-beta.0":
+  version "1.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.0-beta.0.tgz#f60cbf56c5b9626d6118a6b357ac272d5dc3b1ec"
+  integrity sha512-jFzGcbYyk0OTZaIRyUv/FHyhsxuHszRuik6dIjMhFNZsPdG5K5hJbGlWijbMrfLGz7Nh1c4otX20ITeH7n5qQA==
   dependencies:
     uid "^2.0.0"
     "@radix-ui/react-alert-dialog" "0.0.15"
@@ -37,10 +37,10 @@
   dependencies:
     ikonate "^1.1.1"
 
-"@atom-learning/theme@^0.1.0-beta.8":
-  version "0.1.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-0.1.0-beta.8.tgz#7119a5f9eb79d9102c45abb5953e34d94b41eb67"
-  integrity sha512-q+VbGelIy9PhOEeZuXSujU+YopPWJoZmwLKguZh6txrOJWB/c61HD/jjV7ndD8Lg4obBAX7eV2qdNqF1e+LH/w==
+"@atom-learning/theme@1.0.0-beta.0":
+  version "1.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-1.0.0-beta.0.tgz#d98dd67e7bd357f15745b535cc4314e3e005527c"
+  integrity sha512-2GoFThrPu9rvn8hNxV9GrlnsPhzOY88SRLuY/jix5MKrj3vX4/Qpzm1Jue4f1Y0RA/CAsWSLaZyj7uasYqNFJg==
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
