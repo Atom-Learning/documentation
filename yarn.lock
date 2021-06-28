@@ -37,10 +37,10 @@
   dependencies:
     ikonate "^1.1.1"
 
-"@atom-learning/theme@1.0.0-beta.0":
-  version "1.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-1.0.0-beta.0.tgz#d98dd67e7bd357f15745b535cc4314e3e005527c"
-  integrity sha512-2GoFThrPu9rvn8hNxV9GrlnsPhzOY88SRLuY/jix5MKrj3vX4/Qpzm1Jue4f1Y0RA/CAsWSLaZyj7uasYqNFJg==
+"@atom-learning/theme@1.0.0-beta.1":
+  version "1.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-1.0.0-beta.1.tgz#300eb7a645c56ba3d2adabd061359f79a2e7fb1d"
+  integrity sha512-jbA+92fLehHDUFzK3a/hw0sv2LBFjzwXKt4Z485v89Vl3MVG1fg98LhGbIsQtHcZBXbaycvDsqZzKpIinT3ZfQ==
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
