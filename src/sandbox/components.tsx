@@ -7,6 +7,7 @@ import {
   CheckboxField,
   Combobox,
   Dialog,
+  Divider,
   Flex,
   Form,
   Heading,
@@ -24,6 +25,7 @@ import {
   RadioGroupField,
   SelectField,
   Switch,
+  Table,
   Tabs,
   Text,
   TextareaField,
@@ -82,6 +84,7 @@ const TriggerValidation = ({ trigger }) => {
 
 const Page = () => (
   <>
+    <Divider css={{ my: '$8' }} />
     <Group name="Typography">
       <Group.Section gap="$5" css={{ flexDirection: 'column' }}>
         <Heading size="xs">This is a heading size xs</Heading>
@@ -90,6 +93,14 @@ const Page = () => (
         <Heading size="lg">This is a heading size lg</Heading>
         <Heading size="xl">This is a heading size xl</Heading>
         <Heading size="xxl">This is a heading size xxl</Heading>
+        <Text size="xs">
+          This is a xs Paragraph. A really long paragraph of text, to
+          demonstrate prose text, like for example, the kind you might read in a
+          blog post. The reason we're using prose here is because the most
+          common use case for this container size is longform text. So we're
+          previewing some longform text here so we can make sure the container
+          width provides an optimal line length for this font size.
+        </Text>
         <Text size="sm">
           This is a sm Paragraph. A really long paragraph of text, to
           demonstrate prose text, like for example, the kind you might read in a
@@ -414,6 +425,41 @@ const Page = () => (
         <Icon css={{ color: '$danger' }} size="lg" is={EyeCrossed} />
       </Group.Section>
     </Group>
+    <Group name="Tables">
+      <Table css={{ borderCollapse: 'collapse' }}>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>First Name</Table.HeaderCell>
+            <Table.HeaderCell>Last Name</Table.HeaderCell>
+            <Table.HeaderCell>Age</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Rakim</Table.Cell>
+            <Table.Cell>Jackson</Table.Cell>
+            <Table.Cell>35</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Evelyn</Table.Cell>
+            <Table.Cell>Smith</Table.Cell>
+            <Table.Cell>27</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Miguel</Table.Cell>
+            <Table.Cell>Fernandez</Table.Cell>
+            <Table.Cell>52</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Footer>
+          <Table.Row>
+            <Table.FooterCell>Footer 1</Table.FooterCell>
+            <Table.FooterCell>Footer 2</Table.FooterCell>
+            <Table.FooterCell>Footer 3</Table.FooterCell>
+          </Table.Row>
+        </Table.Footer>
+      </Table>
+    </Group>
     <Group name="Loader">
       <Group.Section>
         <Loader size="sm" />
@@ -615,7 +661,12 @@ const Page = () => (
       <Group.Section>
         <Form
           onSubmit={() => null}
-          css={{ display: 'flex', gap: '$5', flexDirection: 'column' }}
+          css={{
+            display: 'flex',
+            gap: '$5',
+            flexDirection: 'column',
+            width: '100%'
+          }}
           render={(props) => (
             <>
               <TriggerValidation {...props} />

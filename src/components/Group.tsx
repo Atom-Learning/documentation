@@ -24,7 +24,7 @@ export const Group: React.FC<GroupProps> & {
   Section: typeof Section
   Separator: typeof Separator
 } = ({ name, children }) => (
-  <Box css={{ mr: '-$2', mb: '$8' }}>
+  <Box css={{ '@md': { mx: '-$8' }, mb: '$8' }}>
     <Text size="xl" as="h2" css={{ fontWeight: 600, mb: '$5' }}>
       {name}
     </Text>
