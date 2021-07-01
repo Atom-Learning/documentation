@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@^1.0.0-beta.4":
-  version "1.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.0-beta.4.tgz#ce4b7666e26f38042524ea9685560b777fce9e14"
-  integrity sha512-ni8oTMTdEA1aELjPJZnwz6972DpxHVaYsNbFYT2mQV8KMhd3/cEYuWCEfezW2V8FhjJkYjgj9rHyeAuve6r23Q==
+"@atom-learning/components@0.11.0":
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-0.11.0.tgz#b029caeb29f172ac68b42b75678fbe9cdcaab58a"
+  integrity sha512-iS1A+OLapSLvh1yYXq+Rz8n1fWxUD7d05JoeGADZyncn9uGPCLiuXZGshhdESkmKUemLizL1kW5s6mSbJjAa3w==
   dependencies:
     uid "^2.0.0"
     "@radix-ui/react-alert-dialog" "0.0.15"
@@ -30,17 +30,17 @@
     react-hot-toast "^1.0.2"
     react-player "^2.9.0"
 
-"@atom-learning/icons@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-0.3.0.tgz#c5fee682b52275a1ec21031d0ad8b52e60a1f11b"
-  integrity sha512-oxx8p0z2CRPXWkBE7e3sS75AUMGMV//U8En/BNbr8QM0wgKmQXABFvRD024j5NR9usDINK4MnUXUagrv0biNTg==
+"@atom-learning/icons@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-1.0.0.tgz#a4fbbdd1226cbb6e55e708982737863c941574e8"
+  integrity sha512-wcXxfa2l/xWYhqDEcqqcYAvmLDotmSicxFGBD/r7PpiJoLbxnlwloylPHfk4PLhnoSVJmTurfdBZgdXQzUA+gg==
   dependencies:
     ikonate "^1.1.1"
 
-"@atom-learning/theme@^1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-1.0.0-beta.1.tgz#300eb7a645c56ba3d2adabd061359f79a2e7fb1d"
-  integrity sha512-jbA+92fLehHDUFzK3a/hw0sv2LBFjzwXKt4Z485v89Vl3MVG1fg98LhGbIsQtHcZBXbaycvDsqZzKpIinT3ZfQ==
+"@atom-learning/theme@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-0.3.0.tgz#79a9ef395a7f19bcdc239ca860d006f0a6fcf894"
+  integrity sha512-PcUXvJQVWDjxKMtGA9QcPP1p5PbVfAlwUgumpRN6AMc9trOc+6G74dBT4N9EzwDqsdfMoAXdgZ45GpJiPY3Ltg==
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
