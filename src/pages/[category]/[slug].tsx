@@ -42,7 +42,7 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
     </Head>
     <Flex>
       <Navigation items={pages} />
-      <Box as="main" css={{ width: '100%' }}>
+      <Flex as="main" css={{ width: '100%', flexDirection: 'column' }}>
         <Box as="header" css={{ bg: '$tonal50', py: '$8' }}>
           <Container css={{ px: '$4' }}>
             <Heading as="h1" size="lg" css={data.component ? { mb: '$5' } : {}}>
@@ -56,7 +56,7 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
             )}
           </Container>
         </Box>
-        <Container css={{ px: '$4', py: '$8' }}>
+        <Container css={{ flex: 1, px: '$4', py: '$8' }}>
           {data.description && (
             <Text size="lg" css={{ mb: data.component ? '$5' : '$8' }}>
               {data.description}
@@ -69,7 +69,7 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
           orderedPages={orderedPages}
           currentPage={{ source: data.source, id: data.id }}
         />
-      </Box>
+      </Flex>
     </Flex>
   </>
 )

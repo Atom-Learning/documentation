@@ -22,7 +22,7 @@
   "homepage": "https://github.com/Atom-Learning/documentation#readme",
   "dependencies": {
     "@atom-learning/components": "1.0.0-beta.4",
-    "@atom-learning/icons": "^0.3.0",
+    "@atom-learning/icons": "^1.0.0",
     "@atom-learning/theme": "1.0.0-beta.1",
     "@next/mdx": "^10.0.6",
     "@stitches/react": "0.1.0",
@@ -34,7 +34,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-feather": "^2.0.9",
-    "react-live": "^2.2.3"
+    "react-live": "^2.2.3",
+    "throttle-debounce": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.22",
