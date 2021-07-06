@@ -82,6 +82,7 @@ export const IconTable: React.FC<IconTableProps> = ({ css }) => {
   return (
     <Box css={{ pt: '$5' }}>
       <Input
+        name="icon-search"
         placeholder="Search for an icon"
         css={{
           backgroundImage: `url(data:image/svg+xml;charset=US-ASCII,${encodeURIComponent(
