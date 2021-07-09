@@ -20,11 +20,13 @@ import {
   Link,
   List,
   Loader,
+  MarkdownContent,
   PasswordField,
   Popover,
   ProgressBar,
   RadioGroupField,
   SelectField,
+  StackContent,
   Switch,
   Table,
   Tabs,
@@ -140,7 +142,56 @@ const Page = () => (
         </List>
       </Group.Section>
     </Group>
+    <Group name="Typography spacing">
+      <Group.Section>
+        <StackContent>
+          <Heading>This is a heading</Heading>
+          <Text>
+            This is a Paragraph. A really long paragraph of text, to demonstrate
+            prose text, like for example, the kind you might read in a blog
+            post.
+          </Text>
+          <Text>
+            This is a Paragraph. A really long paragraph of text, to demonstrate
+            prose text, like for example, the kind you might read in a blog
+            post.
+          </Text>
+          <List>
+            <List.Item>This is a List</List.Item>
+            <List.Item>With multiple List.Items</List.Item>
+            <List.Item>And even more content here</List.Item>
+          </List>
+          <Text>
+            This is a Paragraph. A really long paragraph of text, to demonstrate
+            prose text, like for example, the kind you might read in a blog
+            post.
+          </Text>
+        </StackContent>
+      </Group.Section>
+      <Group.Section>
+        <MarkdownContent
+          content={`
+### This is a heading
 
+This is a Paragraph. A really long paragraph of text, to demonstrate
+prose text, like for example, the kind you might read in a blog
+post.
+
+This is a Paragraph. A really long paragraph of text, to demonstrate
+prose text, like for example, the kind you might read in a blog
+post.
+
+- This is a List
+- With multiple List.Items
+- And even more content here
+
+This is a Paragraph. A really long paragraph of text, to demonstrate
+prose text, like for example, the kind you might read in a blog
+post.
+          `}
+        />
+      </Group.Section>
+    </Group>
     <Group name="Buttons">
       <Group.Section>
         <Button size="sm">Button</Button>
