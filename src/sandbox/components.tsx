@@ -15,6 +15,7 @@ import {
   Icon,
   Image,
   InlineFieldWrapper,
+  Input,
   InputField,
   Label,
   Link,
@@ -26,7 +27,9 @@ import {
   ProgressBar,
   RadioGroupField,
   SearchInput,
+  Select,
   SelectField,
+  Stack,
   StackContent,
   Switch,
   Table,
@@ -717,6 +720,26 @@ post.
               </Combobox.Popover>
             </Combobox>
           </Box>
+          <Stack direction="row">
+            <Input
+              size="sm"
+              placeholder="Here is a small field"
+              css={{ width: '30%' }}
+            />
+            <SearchInput
+              size="sm"
+              placeholder="Here is a small search field"
+              css={{ width: '30%' }}
+            />
+            <Select
+              size="sm"
+              placeholder="Please select a small fruit"
+              css={{ width: '30%' }}
+            >
+              <option value="blueberries">Blueberries</option>
+              <option value="grapes">Grapes</option>
+            </Select>
+          </Stack>
         </Form>
       </Group.Section>
       <Group.Section>
