@@ -25,6 +25,7 @@ import {
   Popover,
   ProgressBar,
   RadioGroupField,
+  SearchInput,
   SelectField,
   StackContent,
   Switch,
@@ -635,6 +636,11 @@ post.
               name="likeCheckboxes"
             />
           </Box>
+          <CheckboxField
+            label="This is a checkbox"
+            name="likeCheckboxes"
+            description="This is the description. The reason we're using prose here is because the most common use case for this container size is longform text."
+          />
           <RadioGroupField
             direction="row"
             name="pronoun"
@@ -660,6 +666,15 @@ post.
               value="3"
             />
           </RadioGroupField>
+          <InlineFieldWrapper
+            css={{ width: 'max-content' }}
+            label="Do a switch thing"
+            direction="reverse"
+            align="center"
+          >
+            <Switch />
+          </InlineFieldWrapper>
+
           <PasswordField
             name="password"
             prompt={{
@@ -668,6 +683,7 @@ post.
             }}
             placeholder="Your password"
           />
+          <SearchInput name="password" placeholder="Search" />
           <SelectField name="something" label="Choose your favourite fruit">
             <option value="apples">Apples</option>
             <option value="bananas">Bananas</option>
@@ -701,13 +717,6 @@ post.
               </Combobox.Popover>
             </Combobox>
           </Box>
-          <InlineFieldWrapper
-            css={{ width: 'max-content' }}
-            label="Do a switch thing"
-            reverse
-          >
-            <Switch />
-          </InlineFieldWrapper>
         </Form>
       </Group.Section>
       <Group.Section>

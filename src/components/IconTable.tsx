@@ -1,4 +1,11 @@
-import { Box, CSS, Flex, Icon, Input, Text } from '@atom-learning/components'
+import {
+  Box,
+  CSS,
+  Flex,
+  Icon,
+  SearchInput,
+  Text
+} from '@atom-learning/components'
 import * as Icons from '@atom-learning/icons'
 import * as React from 'react'
 import { debounce } from 'throttle-debounce'
@@ -81,19 +88,12 @@ export const IconTable: React.FC<IconTableProps> = ({ css }) => {
 
   return (
     <Box css={{ pt: '$5' }}>
-      <Input
+      <SearchInput
         name="icon-search"
         placeholder="Search for an icon"
         css={{
-          backgroundImage: `url(data:image/svg+xml;charset=US-ASCII,${encodeURIComponent(
-            `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#757575" color="#757575" stroke-width="2" viewBox="0 0 24 24"><path d="M14.4 14.4L20 20"/><circle cx="10" cy="10" r="6"/></svg>`
-          )})`,
-          backgroundPosition: 'left $space$3 top 50%, 0 0',
-          backgroundRepeat: 'no-repeat, repeat',
-          backgroundSize: '20px auto, 100%',
           maxWidth: 300,
           mx: 'auto',
-          pl: '$6',
           width: '100%'
         }}
         onChange={(e) => handleSetIcons(e.target.value)}
