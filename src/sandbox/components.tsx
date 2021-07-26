@@ -54,6 +54,9 @@ import {
   VolumeLoud,
   Wheelchair
 } from '@atom-learning/icons'
+import logo from '@atom-learning/theme/lib/assets/logo.svg'
+import logoLight from '@atom-learning/theme/lib/assets/logo-light.svg'
+import logoPrimary from '@atom-learning/theme/lib/assets/logo-primary.svg'
 import * as React from 'react'
 
 import { Group } from '../components'
@@ -92,6 +95,24 @@ const TriggerValidation = ({ trigger }) => {
 const Page = () => (
   <>
     <Divider css={{ my: '$8' }} />
+    <Group name="Assets">
+      <Image src={logo} />
+      <Text size="sm" css={{ mt: '$3', mb: '$5', color: '$tonal600' }}>
+        @atom-learning/theme/lib/assets/logo.svg
+      </Text>
+      <Group.Separator />
+      <Box css={{ m: '-$2', p: '$2', bg: '$tonal100', width: 'max-content' }}>
+        <Image src={logoLight} />
+      </Box>
+      <Text size="sm" css={{ mt: '$3', mb: '$5', color: '$tonal600' }}>
+        @atom-learning/theme/lib/assets/logo-light.svg
+      </Text>
+      <Group.Separator />
+      <Image src={logoPrimary} />
+      <Text size="sm" css={{ mt: '$3', mb: '$5', color: '$tonal600' }}>
+        @atom-learning/theme/lib/assets/logo-primary.svg
+      </Text>
+    </Group>
     <Group name="Typography">
       <Group.Section gap="$5" css={{ flexDirection: 'column' }}>
         <Heading size="xs">This is a heading size xs</Heading>
@@ -314,35 +335,85 @@ post.
       <Group.Section>
         <Button size="sm">
           <Icon is={Add} />
-          Button
-        </Button>
-        <Button size="sm">
-          Button
-          <Icon is={ArrowRight} />
+          Icon
         </Button>
         <Button size="sm" appearance="outline">
           <Icon is={Add} />
-          Button
+          Icon
+        </Button>
+        <Button size="sm" theme="success">
+          <Icon is={Add} />
+          Icon
+        </Button>
+        <Button size="sm" theme="warning">
+          <Icon is={Add} />
+          Icon
+        </Button>
+        <Button size="sm" theme="danger">
+          <Icon is={Add} />
+          Icon
+        </Button>
+        <Group.Separator />
+        <Button size="sm">
+          Icon
+          <Icon is={ArrowRight} />
         </Button>
         <Button size="sm" appearance="outline">
-          Button
+          Icon
+          <Icon is={ArrowRight} />
+        </Button>
+        <Button size="sm" theme="success">
+          Icon
+          <Icon is={ArrowRight} />
+        </Button>
+        <Button size="sm" theme="warning">
+          Icon
+          <Icon is={ArrowRight} />
+        </Button>
+        <Button size="sm" theme="danger">
+          Icon
           <Icon is={ArrowRight} />
         </Button>
         <Group.Separator />
         <Button>
           <Icon is={Add} />
-          Button
-        </Button>
-        <Button>
-          Button
-          <Icon is={ArrowRight} />
+          Icon
         </Button>
         <Button appearance="outline">
           <Icon is={Add} />
-          Button
+          Icon
+        </Button>
+        <Button theme="success">
+          <Icon is={Add} />
+          Icon
+        </Button>
+        <Button theme="warning">
+          <Icon is={Add} />
+          Icon
+        </Button>
+        <Button theme="danger">
+          <Icon is={Add} />
+          Icon
+        </Button>
+        <Group.Separator />
+        <Button>
+          Icon
+          <Icon is={ArrowRight} />
         </Button>
         <Button appearance="outline">
-          Button
+          Icon
+          <Icon is={ArrowRight} />
+        </Button>
+        <Button theme="success">
+          Icon
+          <Icon is={ArrowRight} />
+        </Button>
+        <Button theme="warning">
+          Icon
+          <Icon is={ArrowRight} />
+        </Button>
+        <Button theme="danger">
+          Icon
           <Icon is={ArrowRight} />
         </Button>
       </Group.Section>
