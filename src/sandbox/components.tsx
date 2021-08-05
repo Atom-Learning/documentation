@@ -47,7 +47,10 @@ import {
   Add,
   ArrowRight,
   BatteryMedium,
+  Bin,
   Crossing,
+  Download,
+  Eye,
   EyeCrossed,
   Paperclip,
   Sun,
@@ -83,13 +86,6 @@ const AlertComponent = () => {
       Delete school
     </Button>
   )
-}
-
-const TriggerValidation = ({ trigger }) => {
-  React.useEffect(() => {
-    trigger()
-  }, [trigger])
-  return null
 }
 
 const Page = () => (
@@ -432,11 +428,21 @@ post.
     </Group>
     <Group name="Action Icons">
       <Group.Section>
-        <ActionIcon label="Attach a file" appearance="simple">
+        <ActionIcon label="Attach a file" appearance="simple" theme="neutral">
           <Icon is={VolumeLoud} size="sm" />
         </ActionIcon>
-        <ActionIcon label="Attach a file" appearance="subtle">
-          <Icon is={Add} size="sm" />
+        <ActionIcon
+          label="Attach a file"
+          appearance="simple"
+          theme="neutral"
+          size="lg"
+        >
+          <Icon is={VolumeLoud} />
+        </ActionIcon>
+      </Group.Section>
+      <Group.Section>
+        <ActionIcon label="Attach a file" appearance="simple">
+          <Icon is={VolumeLoud} size="sm" />
         </ActionIcon>
         <ActionIcon label="Attach a file" appearance="outline">
           <Icon is={Paperclip} size="sm" />
@@ -444,12 +450,15 @@ post.
         <ActionIcon label="Attach a file" appearance="solid">
           <Icon is={EyeCrossed} size="sm" />
         </ActionIcon>
+        <ActionIcon label="Attach a file" appearance="outline" isRounded>
+          <Icon is={Download} size="sm" />
+        </ActionIcon>
+        <ActionIcon label="Attach a file" appearance="solid" isRounded>
+          <Icon is={Bin} size="sm" />
+        </ActionIcon>
         <Group.Separator />
         <ActionIcon label="Attach a file" appearance="simple" theme="success">
           <Icon is={VolumeLoud} size="sm" />
-        </ActionIcon>
-        <ActionIcon label="Attach a file" appearance="subtle" theme="success">
-          <Icon is={Add} size="sm" />
         </ActionIcon>
         <ActionIcon label="Attach a file" appearance="outline" theme="success">
           <Icon is={Paperclip} size="sm" />
@@ -457,12 +466,25 @@ post.
         <ActionIcon label="Attach a file" appearance="solid" theme="success">
           <Icon is={EyeCrossed} size="sm" />
         </ActionIcon>
+        <ActionIcon
+          label="Attach a file"
+          appearance="outline"
+          theme="success"
+          isRounded
+        >
+          <Icon is={Download} size="sm" />
+        </ActionIcon>
+        <ActionIcon
+          label="Attach a file"
+          theme="success"
+          appearance="solid"
+          isRounded
+        >
+          <Icon is={Bin} size="sm" />
+        </ActionIcon>
         <Group.Separator />
         <ActionIcon label="Attach a file" appearance="simple" theme="warning">
           <Icon is={VolumeLoud} size="sm" />
-        </ActionIcon>
-        <ActionIcon label="Attach a file" appearance="subtle" theme="warning">
-          <Icon is={Add} size="sm" />
         </ActionIcon>
         <ActionIcon label="Attach a file" appearance="outline" theme="warning">
           <Icon is={Paperclip} size="sm" />
@@ -470,12 +492,25 @@ post.
         <ActionIcon label="Attach a file" appearance="solid" theme="warning">
           <Icon is={EyeCrossed} size="sm" />
         </ActionIcon>
+        <ActionIcon
+          label="Attach a file"
+          appearance="outline"
+          theme="warning"
+          isRounded
+        >
+          <Icon is={Download} size="sm" />
+        </ActionIcon>
+        <ActionIcon
+          label="Attach a file"
+          theme="warning"
+          appearance="solid"
+          isRounded
+        >
+          <Icon is={Bin} size="sm" />
+        </ActionIcon>
         <Group.Separator />
         <ActionIcon label="Attach a file" appearance="simple" theme="danger">
           <Icon is={VolumeLoud} size="sm" />
-        </ActionIcon>
-        <ActionIcon label="Attach a file" appearance="subtle" theme="danger">
-          <Icon is={Add} size="sm" />
         </ActionIcon>
         <ActionIcon label="Attach a file" appearance="outline" theme="danger">
           <Icon is={Paperclip} size="sm" />
@@ -483,19 +518,107 @@ post.
         <ActionIcon label="Attach a file" appearance="solid" theme="danger">
           <Icon is={EyeCrossed} size="sm" />
         </ActionIcon>
+        <ActionIcon
+          label="Attach a file"
+          appearance="outline"
+          theme="danger"
+          isRounded
+        >
+          <Icon is={Download} size="sm" />
+        </ActionIcon>
+        <ActionIcon
+          label="Attach a file"
+          theme="danger"
+          appearance="solid"
+          isRounded
+        >
+          <Icon is={Bin} size="sm" />
+        </ActionIcon>
+        <Group.Separator />
+        <ActionIcon label="Attach a file" appearance="simple" disabled>
+          <Icon is={VolumeLoud} size="sm" />
+        </ActionIcon>
+        <ActionIcon label="Attach a file" appearance="outline" disabled>
+          <Icon is={Paperclip} size="sm" />
+        </ActionIcon>
+        <ActionIcon label="Attach a file" appearance="solid" disabled>
+          <Icon is={EyeCrossed} size="sm" />
+        </ActionIcon>
+        <ActionIcon
+          label="Attach a file"
+          appearance="outline"
+          isRounded
+          disabled
+        >
+          <Icon is={Download} size="sm" />
+        </ActionIcon>
+        <ActionIcon label="Attach a file" appearance="solid" isRounded disabled>
+          <Icon is={Bin} size="sm" />
+        </ActionIcon>
       </Group.Section>
       <Group.Section>
         <ActionIcon size="lg" label="Attach a file" appearance="simple">
           <Icon is={VolumeLoud} />
-        </ActionIcon>
-        <ActionIcon size="lg" label="Attach a file" appearance="subtle">
-          <Icon is={Add} />
         </ActionIcon>
         <ActionIcon size="lg" label="Attach a file" appearance="outline">
           <Icon is={Paperclip} />
         </ActionIcon>
         <ActionIcon size="lg" label="Attach a file" appearance="solid">
           <Icon is={EyeCrossed} />
+        </ActionIcon>
+        <ActionIcon
+          size="lg"
+          label="Attach a file"
+          appearance="outline"
+          isRounded
+        >
+          <Icon is={Download} />
+        </ActionIcon>
+        <ActionIcon
+          size="lg"
+          label="Attach a file"
+          appearance="solid"
+          isRounded
+        >
+          <Icon is={Bin} />
+        </ActionIcon>
+        <Group.Separator />
+        <ActionIcon
+          size="lg"
+          label="Attach a file"
+          appearance="simple"
+          disabled
+        >
+          <Icon is={VolumeLoud} />
+        </ActionIcon>
+        <ActionIcon
+          size="lg"
+          label="Attach a file"
+          appearance="outline"
+          disabled
+        >
+          <Icon is={Paperclip} />
+        </ActionIcon>
+        <ActionIcon size="lg" label="Attach a file" appearance="solid" disabled>
+          <Icon is={EyeCrossed} />
+        </ActionIcon>
+        <ActionIcon
+          size="lg"
+          label="Attach a file"
+          appearance="outline"
+          isRounded
+          disabled
+        >
+          <Icon is={Download} />
+        </ActionIcon>
+        <ActionIcon
+          size="lg"
+          label="Attach a file"
+          appearance="solid"
+          isRounded
+          disabled
+        >
+          <Icon is={Bin} />
         </ActionIcon>
       </Group.Section>
     </Group>
@@ -553,7 +676,7 @@ post.
       </Group.Section>
     </Group>
     <Group name="Tables">
-      <Table css={{ borderCollapse: 'collapse' }}>
+      <Table css={{ borderCollapse: 'collapse', mb: '$5' }}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>First Name</Table.HeaderCell>
@@ -585,6 +708,62 @@ post.
             <Table.FooterCell>Footer 3</Table.FooterCell>
           </Table.Row>
         </Table.Footer>
+      </Table>
+      <Table css={{ borderCollapse: 'collapse' }}>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>First Name</Table.HeaderCell>
+            <Table.HeaderCell>Last Name</Table.HeaderCell>
+            <Table.HeaderCell>Actions</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Rakim</Table.Cell>
+            <Table.Cell>Jackson</Table.Cell>
+            <Table.Cell>
+              <Stack>
+                <Button size="sm" appearance="outline">
+                  <Icon is={Eye} />
+                  View
+                </Button>
+                <ActionIcon appearance="outline" label="Delete" isRounded>
+                  <Icon is={Bin} size="sm" />
+                </ActionIcon>
+              </Stack>
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Evelyn</Table.Cell>
+            <Table.Cell>Smith</Table.Cell>
+            <Table.Cell>
+              <Stack>
+                <Button size="sm" appearance="outline">
+                  <Icon is={Eye} />
+                  View
+                </Button>
+                <ActionIcon appearance="outline" label="Delete" isRounded>
+                  <Icon is={Bin} size="sm" />
+                </ActionIcon>
+              </Stack>
+            </Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Miguel</Table.Cell>
+            <Table.Cell>Fernandez</Table.Cell>
+            <Table.Cell>
+              <Stack>
+                <Button size="sm" appearance="outline">
+                  <Icon is={Eye} />
+                  View
+                </Button>
+                <ActionIcon appearance="outline" label="Delete" isRounded>
+                  <Icon is={Bin} size="sm" />
+                </ActionIcon>
+              </Stack>
+            </Table.Cell>
+          </Table.Row>
+        </Table.Body>
       </Table>
     </Group>
     <Group name="Loader">
@@ -822,9 +1001,11 @@ post.
             flexDirection: 'column',
             width: '100%'
           }}
-          render={(props) => (
+          render={() => (
             <>
-              <TriggerValidation {...props} />
+              <Button size="sm" type="submit">
+                Click to show validation errors
+              </Button>
               <ValidationError>
                 This is a validation error unattached to a form field
               </ValidationError>

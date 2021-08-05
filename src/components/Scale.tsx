@@ -26,26 +26,19 @@ export const Scale: React.FC<ScaleProps> = ({
           }
         }}
       >
-        <Flex css={{ flexDirection: 'column' }}>
+        <Flex css={{ mr: '$4', alignItems: 'center' }}>
           <Text
             css={{
               color: '$tonal700',
-              fontFamily: '$mono',
-              fontSize: '$sm',
-              mr: '$2',
-              mb: '$4'
+              fontSize: '$md',
+              fontWeight: 600,
+              minWidth: 20
             }}
           >
             {`$${key}`}
           </Text>
           {displayValue && (
-            <Text
-              css={{
-                color: '$tonal500',
-                fontFamily: '$mono',
-                fontSize: '$sm'
-              }}
-            >
+            <Text css={{ color: '$tonal400', fontSize: '$sm', ml: '$4' }}>
               {value}
             </Text>
           )}

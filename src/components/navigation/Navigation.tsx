@@ -1,11 +1,11 @@
-import { Box, styled, Text } from '@atom-learning/components'
+import { Box, Image, styled, Text } from '@atom-learning/components'
 import pkg from '@atom-learning/components/package.json'
+import logo from '@atom-learning/theme/lib/assets/logo-light.svg'
 import { capitalCase } from 'capital-case'
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
 import { Pill } from '../'
-import { Logo } from './Logo'
 import { NavigationContent } from './NavigationContent'
 import { NavigationTrigger } from './NavigationTrigger'
 
@@ -87,22 +87,10 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
       <NavigationTrigger onClick={() => setMenuOpen(true)} />
       <StyledNavigation ref={ref} open={menuOpen}>
         <NextLink href="/">
-          <Logo
-            css={{
-              cursor: 'pointer',
-              fill: 'white',
-              mb: '$7',
-              height: 'auto',
-              width: 80
-            }}
-          />
+          <Image src={logo} css={{ cursor: 'pointer', mb: '$7', width: 80 }} />
         </NextLink>
         <Pill
-          css={{
-            position: 'absolute',
-            right: '$3',
-            top: '$3'
-          }}
+          css={{ position: 'absolute', right: '$3', top: '$3' }}
         >{`v${pkg.version}`}</Pill>
         {Object.entries(items).map(([source, content]) => (
           <Box css={{ mb: '$6' }} key={source}>

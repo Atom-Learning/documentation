@@ -43,7 +43,12 @@ const components: MdxRemote.Components = {
     <Text
       {...props}
       as="blockquote"
-      css={{ pl: '$5', my: '$5', color: '$tonal500' }}
+      css={{
+        pl: '$5',
+        my: '$5',
+        color: '$tonal500',
+        borderLeft: '2px solid $colors$tonal400'
+      }}
     >
       {props.children.props.children}
     </Text>
