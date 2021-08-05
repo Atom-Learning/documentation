@@ -13,6 +13,7 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
   <Flex css={{ flexDirection: 'column', flexWrap: 'wrap' }} {...props}>
     {Object.entries(colors).map(([key, value]) => {
       const color = parseToHsl(value)
+      // @ts-ignore
       const hasAlpha = color?.alpha
       return (
         <Flex key={key} css={{ alignItems: 'center', mb: '$4', mr: '$3' }}>
