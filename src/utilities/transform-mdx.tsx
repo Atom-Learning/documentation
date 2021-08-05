@@ -24,16 +24,18 @@ import {
 
 const components: MdxRemote.Components = {
   h2: (props) => (
-    <Text
+    <Heading
       {...props}
-      size="lg"
+      size="md"
       as="h2"
       css={{ fontWeight: 600, mt: '$8', mb: '$5' }}
     />
   ),
-  h3: (props) => <Text {...props} as="h3" size="sm" css={{ my: '$5' }} />,
+  h3: (props) => (
+    <Heading {...props} as="h3" size="sm" css={{ mt: '$5', mb: '$4' }} />
+  ),
   h4: (props) => (
-    <Text {...props} as="h4" size="xs" css={{ mt: '$5', mb: '$4' }} />
+    <Heading {...props} as="h4" size="xs" css={{ mt: '$5', mb: '$4' }} />
   ),
   p: (props) => <Text {...props} css={{ color: '$tonal700', mb: '$5' }} />,
   ul: (props) => <List {...props} css={{ mb: '$5' }} />,
