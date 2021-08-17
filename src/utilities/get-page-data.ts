@@ -33,7 +33,7 @@ const getPagesSource = (source) => {
       'node_modules',
       '@atom-learning',
       'theme',
-      'dist'
+      'lib'
     )
   }
 

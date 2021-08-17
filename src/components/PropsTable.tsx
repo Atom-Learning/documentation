@@ -27,7 +27,7 @@ const getComponentProps = (name): ComponentDoc =>
 
 const columns = ['Prop', 'Type', 'Default', 'Required']
 
-const Empty = () => <Text css={{ color: '$tonal500' }}>-</Text>
+const Empty = () => <Text css={{ color: '$tonal400' }}>-</Text>
 
 const WithTooltip = ({ children, content }) => (
   <Tooltip>
@@ -123,7 +123,7 @@ const PropsTableContent: React.FC<{ css?: CSS; component: ComponentDoc }> = ({
 
             return (
               <tr key={key}>
-                <Cell css={{ pr: '$4' }}>
+                <Cell css={{ pr: '$5' }}>
                   <InlineCode>{name}</InlineCode>
                 </Cell>
                 <Cell>
@@ -157,8 +157,8 @@ export const PropsTable: React.FC<PropsTableProps> = ({
 }) => {
   if (componentName.includes(',')) {
     return (
-      <Box css={{ mt: '$5' }}>
-        <Heading as="h2" css={{ mb: '$4', color: '$tonal900' }}>
+      <Box css={{ mt: '$8' }}>
+        <Heading as="h2" css={{ mb: '$5', color: '$tonal800' }}>
           API Reference
         </Heading>
         {componentName.split(',').map((component) => {
@@ -166,12 +166,12 @@ export const PropsTable: React.FC<PropsTableProps> = ({
           if (!componentProps) return null
           return (
             <React.Fragment key={component}>
-              <Heading as="h3" size="sm" css={{ mb: '$3' }}>
+              <Heading as="h3" size="sm" css={{ mb: '$4' }}>
                 {component}
               </Heading>
               <PropsTableContent
                 component={componentProps}
-                css={{ mb: '$5', color: '$tonal900' }}
+                css={{ mb: '$8', color: '$tonal800' }}
               />
             </React.Fragment>
           )
@@ -184,8 +184,8 @@ export const PropsTable: React.FC<PropsTableProps> = ({
   if (!componentProps) return null
 
   return (
-    <Box css={{ mt: '$5' }}>
-      <Heading as="h2" css={{ mb: '$3' }}>
+    <Box css={{ mt: '$8' }}>
+      <Heading as="h2" css={{ mb: '$4' }}>
         API Reference
       </Heading>
       <PropsTableContent component={componentProps} />

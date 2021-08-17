@@ -1,12 +1,12 @@
-import { Flex, Heading, Text } from '@atom-learning/components'
+import { Box, Flex, Heading, Text } from '@atom-learning/components'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 import { MdxRemote } from 'next-mdx-remote/types'
 import * as React from 'react'
 
 import {
+  Container,
   ExternalLinks,
-  Main,
   Navigation,
   Pagination,
   PropsTable
@@ -42,29 +42,34 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
     </Head>
     <Flex>
       <Navigation items={pages} />
-      <Main>
-        <Heading as="h1" size="lg" css={{ mb: '$4' }}>
-          {data.title}
-        </Heading>
-        {data.description && (
-          <Text size="lg" css={{ mb: data.component ? '$4' : '$5' }}>
-            {data.description}
-          </Text>
-        )}
-        {data.component && (
-          <ExternalLinks
-            component={data.component}
-            homepage={data.homepage}
-            css={{ mb: '$5' }}
-          />
-        )}
-        {stringToMdx(content)}
-        {data.component && <PropsTable for={data.component} />}
+      <Flex as="main" css={{ width: '100%', flexDirection: 'column' }}>
+        <Box as="header" css={{ bg: '$tonal50', py: '$8' }}>
+          <Container css={{ px: '$4' }}>
+            <Heading as="h1" size="lg" css={data.component ? { mb: '$5' } : {}}>
+              {data.title}
+            </Heading>
+            {data.component && (
+              <ExternalLinks
+                component={data.component}
+                homepage={data.homepage}
+              />
+            )}
+          </Container>
+        </Box>
+        <Container css={{ flex: 1, px: '$4', py: '$8' }}>
+          {data.description && (
+            <Text size="lg" css={{ mb: data.component ? '$5' : '$8' }}>
+              {data.description}
+            </Text>
+          )}
+          {stringToMdx(content)}
+          {data.component && <PropsTable for={data.component} />}
+        </Container>
         <Pagination
           orderedPages={orderedPages}
           currentPage={{ source: data.source, id: data.id }}
         />
-      </Main>
+      </Flex>
     </Flex>
   </>
 )

@@ -1,4 +1,6 @@
-module.exports = {
+const withImages = require('next-images')
+
+module.exports = withImages({
   webpack: (config, { isServer }) => {
     // Fixes npm packages that depend on `fs` module
     // without this we get
@@ -23,4 +25,4 @@ module.exports = {
       }
     ]
   }
-}
+})

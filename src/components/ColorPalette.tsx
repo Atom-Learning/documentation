@@ -1,16 +1,6 @@
 import { Box, Flex, Text } from '@atom-learning/components'
+import { hsl, parseToHsl } from 'polished'
 import * as React from 'react'
-
-const getColorLightness = (color: string): number => {
-  // parse hsl
-  const reg = new RegExp(/hsl\((\d+),\s*([\d.]+)%,\s*([\d.]+)%\)/g)
-  // exit if can't match hsl
-  if (!color.match(reg)) return undefined
-  // format h, s, l values into array
-  const result = color.split(reg).filter(Boolean)
-  // access lightness value
-  return parseInt(result[result.length - 1])
-}
 
 type ColorPaletteProps = {
   colors: Record<string, string>
@@ -20,27 +10,30 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
   colors,
   ...props
 }) => (
-  <Box {...props}>
+  <Flex css={{ flexDirection: 'column', flexWrap: 'wrap' }} {...props}>
     {Object.entries(colors).map(([key, value]) => {
-      const color = getColorLightness(value) > 70 ? '$tonal700' : 'white'
+      const color = parseToHsl(value)
+      // @ts-ignore
+      const hasAlpha = color?.alpha
       return (
-        <Flex
-          key={key}
-          css={{
-            alignItems: 'center',
-            bg: `$${key}`,
-            justifyContent: 'space-between',
-            pl: '$4',
-            pr: '$3',
-            py: '$3'
-          }}
-        >
-          <Text css={{ color }}>{`$${key}`}</Text>
-          <Text size="sm" css={{ color, fontFamily: '$mono' }}>
-            {value}
-          </Text>
+        <Flex key={key} css={{ alignItems: 'center', mb: '$4', mr: '$3' }}>
+          <Box css={{ borderRadius: '$round', bg: `$${key}`, size: '$6' }} />
+          <Flex css={{ pl: '$3', flexDirection: 'column' }}>
+            <Text css={{ fontWeight: 600, mb: '$3' }}>{`$${key}`}</Text>
+            <Text
+              size="sm"
+              css={{ color: '$tonal400', mb: !hasAlpha ? '$3' : 0 }}
+            >
+              {value}
+            </Text>
+            {!hasAlpha && (
+              <Text size="sm" css={{ color: '$tonal400' }}>
+                {hsl(color)}
+              </Text>
+            )}
+          </Flex>
         </Flex>
       )
     })}
-  </Box>
+  </Flex>
 )

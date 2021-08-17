@@ -1,7 +1,7 @@
 import { styled } from '@atom-learning/components'
 
 export const InlineCode = styled('code', {
-  backgroundColor: '$tonal200',
+  backgroundColor: '$tonal100',
   borderRadius: '$0',
   fontFamily: '$mono',
   fontSize: '85%',

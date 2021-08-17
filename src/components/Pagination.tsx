@@ -1,6 +1,8 @@
-import { Box, Flex, Link, Text } from '@atom-learning/components'
+import { Box, Link, Text } from '@atom-learning/components'
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
+
+import { Container } from '../components'
 
 type PaginationProps = {
   orderedPages: {
@@ -25,34 +27,38 @@ export const Pagination: React.FC<PaginationProps> = ({
   const previousPage = orderedPages[currentPageIndex - 1]
 
   return (
-    <Flex as="footer" css={{ mt: '$5' }}>
-      {previousPage && (
-        <Box css={{ textAlign: 'left', mr: 'auto' }}>
-          <Text css={{ color: '$tonal500' }} size="sm">
-            Previous
-          </Text>
-          <NextLink
-            passHref
-            href={`/${previousPage.source}/${previousPage.id}`}
-          >
-            <Link size="lg" css={{ py: '$2' }}>
-              {previousPage.title}
-            </Link>
-          </NextLink>
-        </Box>
-      )}
-      {nextPage && (
-        <Box css={{ textAlign: 'right', ml: 'auto' }}>
-          <Text css={{ color: '$tonal500' }} size="sm">
-            Next
-          </Text>
-          <NextLink passHref href={`/${nextPage.source}/${nextPage.id}`}>
-            <Link size="lg" css={{ py: '$2' }}>
-              {nextPage.title}
-            </Link>
-          </NextLink>
-        </Box>
-      )}
-    </Flex>
+    <Box as="footer" css={{ bg: '$tonal50', mt: '$8' }}>
+      <Container css={{ display: 'flex', py: '$6', px: '$4' }}>
+        {previousPage && (
+          <Box css={{ textAlign: 'left', mr: 'auto' }}>
+            <Text css={{ color: '$tonal500' }} size="sm">
+              Previous
+            </Text>
+            <NextLink
+              passHref
+              href={`/${previousPage.source}/${previousPage.id}`}
+            >
+              {/* @ts-ignore */}
+              <Link size="lg" css={{ py: '$2' }}>
+                {previousPage.title}
+              </Link>
+            </NextLink>
+          </Box>
+        )}
+        {nextPage && (
+          <Box css={{ textAlign: 'right', ml: 'auto' }}>
+            <Text css={{ color: '$tonal500' }} size="sm">
+              Next
+            </Text>
+            <NextLink passHref href={`/${nextPage.source}/${nextPage.id}`}>
+              {/* @ts-ignore */}
+              <Link size="lg" css={{ py: '$2' }}>
+                {nextPage.title}
+              </Link>
+            </NextLink>
+          </Box>
+        )}
+      </Container>
+    </Box>
   )
 }

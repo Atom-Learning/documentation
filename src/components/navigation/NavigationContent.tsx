@@ -1,4 +1,4 @@
-import { Flex, Heading, Icon, Link, Text } from '@atom-learning/components'
+import { Flex, Icon, Link, Text } from '@atom-learning/components'
 import { ArrowRight } from '@atom-learning/icons'
 import { default as NextLink } from 'next/link'
 import { useRouter } from 'next/router'
@@ -15,30 +15,34 @@ type NavigationListProps = {
   items: PageData[]
   onNavigate: () => void
   currentPage: string
+  css?: any
 }
 
 const CategoryHeading = (props) => (
-  <Heading
+  <Text
     {...props}
     as="h3"
+    size="sm"
     css={{
-      color: '$tonal600',
-      fontSize: '$sm',
-      fontWeight: 400,
-      letterSpacing: '0.1em',
+      color: 'white',
+      fontWeight: 600,
       mb: '$3',
-      textTransform: 'uppercase'
+      mt: '$sizes$2'
     }}
   />
 )
 
 const NavigationList: React.FC<NavigationListProps> = ({
+  css,
   items,
   onNavigate,
   currentPage
 }) => {
   return (
-    <Text as="ul" css={{ listStyleType: 'none', m: 0, mb: '$4', p: 0 }}>
+    <Text
+      as="ul"
+      css={{ listStyleType: 'none', m: 0, mb: '$4', p: 0, ...(css as any) }}
+    >
       {items.map(({ id, source, title }) => {
         if (!title) return null
         const isCurrentPage = `/${source}/${id}` === currentPage
@@ -52,9 +56,13 @@ const NavigationList: React.FC<NavigationListProps> = ({
               <Link
                 size="sm"
                 css={{
+                  color: 'white',
                   display: 'block',
+                  width: '100%',
+                  textAlign: 'left',
                   py: '$2',
-                  ...(isCurrentPage ? { color: '$primary800' } : {})
+                  '&:hover,&:focus': { color: 'white' },
+                  ...(isCurrentPage ? { textDecoration: 'underline' } : {})
                 }}
                 onClick={onNavigate}
               >
@@ -62,7 +70,7 @@ const NavigationList: React.FC<NavigationListProps> = ({
               </Link>
             </NextLink>
             {isCurrentPage && (
-              <Icon css={{ color: '$primary800' }} size="sm" is={ArrowRight} />
+              <Icon css={{ color: 'white' }} size="sm" is={ArrowRight} />
             )}
           </Flex>
         )
@@ -95,6 +103,7 @@ export const NavigationContent: React.FC<NavigationContentProps> = ({
           )}
           {pages && (
             <NavigationList
+              css={{ ml: '$3' }}
               items={pages}
               onNavigate={onNavigate}
               currentPage={router.asPath}

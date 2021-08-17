@@ -1,11 +1,11 @@
-import { Heading, styled } from '@atom-learning/components'
+import { Box, Image, styled, Text } from '@atom-learning/components'
 import pkg from '@atom-learning/components/package.json'
+import logo from '@atom-learning/theme/lib/assets/logo-light.svg'
 import { capitalCase } from 'capital-case'
 import { default as NextLink } from 'next/link'
 import * as React from 'react'
 
 import { Pill } from '../'
-import { Logo } from './Logo'
 import { NavigationContent } from './NavigationContent'
 import { NavigationTrigger } from './NavigationTrigger'
 
@@ -47,8 +47,7 @@ const useOnClickOutside = (ref, handler) => {
 }
 
 const StyledNavigation = styled('nav', {
-  backgroundColor: 'white',
-  borderRight: '1px solid $tonal300',
+  backgroundColor: '$primary',
   boxShadow: '$1',
   height: '100vh',
   left: 0,
@@ -88,27 +87,21 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
       <NavigationTrigger onClick={() => setMenuOpen(true)} />
       <StyledNavigation ref={ref} open={menuOpen}>
         <NextLink href="/">
-          <Logo
-            css={{ fill: '$primary800', mb: '$4', height: 'auto', width: 40 }}
-          />
+          <Image src={logo} css={{ cursor: 'pointer', mb: '$7', width: 80 }} />
         </NextLink>
         <Pill
-          css={{
-            position: 'absolute',
-            right: '$3',
-            top: '$3'
-          }}
+          css={{ position: 'absolute', right: '$3', top: '$3' }}
         >{`v${pkg.version}`}</Pill>
         {Object.entries(items).map(([source, content]) => (
-          <React.Fragment key={source}>
-            <Heading as="h2" size="xs" css={{ mb: '$3' }}>
+          <Box css={{ mb: '$6' }} key={source}>
+            <Text as="h2" css={{ color: 'white', mb: '$4' }}>
               {capitalCase(source)}
-            </Heading>
+            </Text>
             <NavigationContent
               content={content}
               onNavigate={() => setMenuOpen(false)}
             />
-          </React.Fragment>
+          </Box>
         ))}
       </StyledNavigation>
     </>
