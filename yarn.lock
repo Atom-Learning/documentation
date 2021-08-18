@@ -34,10 +34,10 @@
     react-hot-toast "^1.0.2"
     react-player "^2.9.0"
 
-"@atom-learning/icons@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-1.0.0.tgz#a4fbbdd1226cbb6e55e708982737863c941574e8"
-  integrity sha512-wcXxfa2l/xWYhqDEcqqcYAvmLDotmSicxFGBD/r7PpiJoLbxnlwloylPHfk4PLhnoSVJmTurfdBZgdXQzUA+gg==
+"@atom-learning/icons@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-1.1.0.tgz#588909be43fc0b111c5ac7592f3ddb2bc9d1e4b1"
+  integrity sha512-ezaIlNjqnx1fejb0dA5KwHd9DWE/JK4LwZTIbqIQQToq4liUgwtmHSvy48dkaJ13VmjFz0w2Xq52WXUCAHB/rQ==
   dependencies:
     ikonate "^1.1.1"
 
