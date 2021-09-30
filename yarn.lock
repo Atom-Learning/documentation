@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@1.0.0-beta.14":
-  version "1.0.0-beta.14"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.0-beta.14.tgz#5e38549a3b80c6462bb3b8e2fa55628923e01c9a"
-  integrity sha512-z5KyD/tQfSSzEGvvZ8jY5F+2zbHO2i2Mtq75vnPuH6k0QkCnjzc9YLD2XaU64bzLiqHVIxtyP4hp+ubfkilHDQ==
+"@atom-learning/components@1.0.0-beta.15":
+  version "1.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.0-beta.15.tgz#3d4f3f7f500879c14cf92c139a310a150d5c06da"
+  integrity sha512-7UzxkReDrHathgRpFFMZTWepf7l81ZJgagrQoiafQn5z3sG6XSEU2fHlWk5qexDkOFTDKaC4237XYUuoO6HuyQ==
   dependencies:
     uid "^2.0.0"
     "@radix-ui/react-alert-dialog" "0.0.15"
@@ -34,10 +34,10 @@
     react-hot-toast "^1.0.2"
     react-player "^2.9.0"
 
-"@atom-learning/icons@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-1.1.0.tgz#588909be43fc0b111c5ac7592f3ddb2bc9d1e4b1"
-  integrity sha512-ezaIlNjqnx1fejb0dA5KwHd9DWE/JK4LwZTIbqIQQToq4liUgwtmHSvy48dkaJ13VmjFz0w2Xq52WXUCAHB/rQ==
+"@atom-learning/icons@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-1.3.0.tgz#4426514d509ea0f0078202aabcbc5da221c2c492"
+  integrity sha512-CSeicDwZfBQ6g/8NKGrIpWwi7iGbv8cGs08mCvzbSRijonxhoMhwNoDfqw12ST+o5Es7Te3MwKxh2dOWIbB8Jg==
   dependencies:
     ikonate "^1.1.1"
 
@@ -969,9 +969,9 @@
     regenerator-runtime "^0.13.4"
 
 "@babel/runtime@^7.14.0":
-  version "7.14.6"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.6.tgz#535203bc0892efc7dec60bdc27b2ecf6e409062d"
-  integrity sha512-/PCB2uJ7oM44tz8YhC4Z/6PeOKXp4K588f+5M3clr1M4zbqztlo0XEfJ2LEzj/FgwfgGcIdl8n7YYjTCI0BYwg==
+  version "7.15.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.15.4.tgz#fd17d16bfdf878e6dd02d19753a39fa8a8d9c84a"
+  integrity sha512-99catp6bHCaxr4sJ/DbTGgHS4+Rs2RVd2g7iOap6SLGPDknRK9ztKNsE/Fg6QhSeh1FGE5f6gHGQmvvn3I3xhw==
   dependencies:
     regenerator-runtime "^0.13.4"
 
