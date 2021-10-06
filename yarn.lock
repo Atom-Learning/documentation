@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@1.0.0-beta.15":
-  version "1.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.0-beta.15.tgz#3d4f3f7f500879c14cf92c139a310a150d5c06da"
-  integrity sha512-7UzxkReDrHathgRpFFMZTWepf7l81ZJgagrQoiafQn5z3sG6XSEU2fHlWk5qexDkOFTDKaC4237XYUuoO6HuyQ==
+"@atom-learning/components@1.0.0-rc.0":
+  version "1.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.0-rc.0.tgz#f961e90f40de76a4cda42f62b193e8aefcbd76b5"
+  integrity sha512-4HeKCDHRPSgtuMH3aIhuSNq6vvEFhUz4dmyU0z4fKk7ErlI8lCZunYq1WPJpdcGhH2ls3QTqwCPx7jVLvT7csw==
   dependencies:
     uid "^2.0.0"
     "@radix-ui/react-alert-dialog" "0.0.15"
@@ -20,7 +20,7 @@
     "@radix-ui/react-tooltip" "0.0.16"
     "@radix-ui/react-visually-hidden" "0.0.11"
     "@reach/combobox" "^0.15.1"
-    "@stitches/react" "0.1.7"
+    "@stitches/react" "^1.2.1"
     "@types/react" "^17.0.2"
     dlv "^1.1.3"
     invariant "^2.2.4"
@@ -41,10 +41,10 @@
   dependencies:
     ikonate "^1.1.1"
 
-"@atom-learning/theme@1.0.0-beta.6":
-  version "1.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-1.0.0-beta.6.tgz#467a665790520c36b8ec39962927fdd947d99e89"
-  integrity sha512-SX/VY3AkPDGoGfsP7zwj9Q7Uryb+TIxPjcsXD631pnxijgVLH4+WIwVv9/8aA4fZk1WKO4rp7T9u9ShT8YMeWA==
+"@atom-learning/theme@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/theme/-/theme-1.0.0.tgz#d6ca9f1684165b731c490f7594a6e2f79967bee4"
+  integrity sha512-sjyzKebnppjjXkksY60EGYJj0bMplGh6GAgQHgZPlJl2jvxhrF4Kg3fm+u9cZAIc0n/MLx1enZWvGNvOQAe/+g==
 
 "@babel/code-frame@7.12.11":
   version "7.12.11"
@@ -1678,11 +1678,6 @@
   resolved "https://registry.yarnpkg.com/@stitches/core/-/core-0.1.4.tgz#1b33c3ef55c044f006049d8310b784720d669798"
   integrity sha512-jFZMpw6uD7BRvkPp3n0JsUlLO6d7oRwBgInEHDB1xlsRLqB4yaepyEyJ1CqMx8HidyW5QeLXH6IYPzERxCUM/Q==
 
-"@stitches/core@^0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@stitches/core/-/core-0.1.7.tgz#132d6e3bab1b3af44b6c67980d7e2d23b64703d0"
-  integrity sha512-OSo1qS0QlBJ/Uyc6h2luc8pzFR2qNK7ehWUtRDIegAhq5phvVw9B6oEc9E7HDf6ku8UEzCd/BVwXiUSjknMQDQ==
-
 "@stitches/react@0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@stitches/react/-/react-0.1.0.tgz#707ac79e8a5e7eae0c742bdbf2535fa9ec5439d8"
@@ -1690,12 +1685,10 @@
   dependencies:
     "@stitches/core" "^0.1.0"
 
-"@stitches/react@0.1.7":
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-0.1.7.tgz#9e307b34a8b0c40d2c71907b686692ef881e9d37"
-  integrity sha512-oq+ll96qYrOmKeOGL+7fpIW9Gbxaw56kzdU7OcKWLwxaborOLHimmQELD0UXy9ZfMQ5EvgjbXPxussgUR8qrUg==
-  dependencies:
-    "@stitches/core" "^0.1.7"
+"@stitches/react@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@stitches/react/-/react-1.2.1.tgz#1e6e5877ccb0151a26f27c731e03efee55e8f7c6"
+  integrity sha512-xVnYuU3ZwvI4ghdM5r21hCb4eejkTZQqxm3q5iRTBnrbiG/8jpbEWTi8gXXjZ9X4+PssjuqBrjvPSqAcPvya6w==
 
 "@types/hast@^2.0.0":
   version "2.3.1"

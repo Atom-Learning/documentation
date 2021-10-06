@@ -1,4 +1,4 @@
-import { getCssString } from '@atom-learning/components'
+import { getCssText } from '@atom-learning/components'
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 import * as React from 'react'
 
@@ -13,7 +13,7 @@ export default class Document extends NextDocument {
           />
           <style
             id="stitches"
-            dangerouslySetInnerHTML={{ __html: getCssString() }}
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
         </Head>
         <body>

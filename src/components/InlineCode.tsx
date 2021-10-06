@@ -7,5 +7,6 @@ export const InlineCode = styled('code', {
   fontSize: '85%',
   m: 0,
   px: '$2',
-  py: '$1'
+  py: '$0',
+  whiteSpace: 'nowrap'
 })
