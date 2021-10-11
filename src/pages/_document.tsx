@@ -2,6 +2,8 @@ import { getCssText } from '@atom-learning/components'
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 import * as React from 'react'
 
+import { polyfills } from '../../polyfills.json'
+
 export default class Document extends NextDocument {
   render() {
     return (
@@ -18,6 +20,12 @@ export default class Document extends NextDocument {
         </Head>
         <body>
           <Main />
+          <script
+            src={`https://polyfill.io/v3/polyfill.min.js?features=${encodeURIComponent(
+              polyfills.join(',')
+            )}`}
+          />
+
           <NextScript />
         </body>
       </Html>
