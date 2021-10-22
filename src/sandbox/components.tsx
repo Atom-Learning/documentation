@@ -25,7 +25,9 @@ import {
   PasswordField,
   Popover,
   ProgressBar,
-  RadioGroupField,
+  RadioButtonField,
+  RadioCard,
+  RadioCardGroup,
   SearchInput,
   Select,
   SelectField,
@@ -45,6 +47,7 @@ import {
 } from '@atom-learning/components'
 import {
   Add,
+  ArrowLeft,
   ArrowRight,
   BatteryMedium,
   Bin,
@@ -641,18 +644,16 @@ post.
         </Heading>
         <Link>This is a Link</Link>
         <Link>
-          This is a Link with an icon <Icon size="sm" is={ArrowRight} />
+          <Icon is={ArrowLeft} />
+          This is a Link with an icon
+        </Link>
+        <Link>
+          This is a Link with an icon
+          <Icon is={ArrowRight} />
         </Link>
       </Group.Section>
     </Group>
     <Group name="Icons">
-      <Group.Section>
-        <Icon size="xs" is={BatteryMedium} />
-        <Icon size="xs" css={{ color: '$primary' }} is={Crossing} />
-        <Icon size="xs" css={{ color: '$success' }} is={Sun} />
-        <Icon size="xs" css={{ color: '$warning' }} is={Wheelchair} />
-        <Icon size="xs" css={{ color: '$danger' }} is={EyeCrossed} />
-      </Group.Section>
       <Group.Section>
         <Icon size="sm" is={BatteryMedium} />
         <Icon size="sm" css={{ color: '$primary' }} is={Crossing} />
@@ -894,31 +895,31 @@ post.
             name="likeCheckboxes"
             description="This is the description. The reason we're using prose here is because the most common use case for this container size is longform text."
           />
-          <RadioGroupField
+          <RadioButtonField
             direction="row"
             name="pronoun"
             label="Legend for radio fields"
             description="This is the description. The reason we're using prose here is because the most common."
           >
-            <RadioGroupField.Item label="He/Him" value="checkbox-row-1" />
-            <RadioGroupField.Item label="She/Her" value="checkbox-row-2" />
-            <RadioGroupField.Item label="They/Their" value="checkbox-row-3" />
-          </RadioGroupField>
-          <RadioGroupField name="options" label="Legend for radio fields">
-            <RadioGroupField.Item label="This is a radio button" value="1" />
-            <RadioGroupField.Item
+            <RadioButtonField.Item label="He/Him" value="checkbox-row-1" />
+            <RadioButtonField.Item label="She/Her" value="checkbox-row-2" />
+            <RadioButtonField.Item label="They/Their" value="checkbox-row-3" />
+          </RadioButtonField>
+          <RadioButtonField name="options" label="Legend for radio fields">
+            <RadioButtonField.Item label="This is a radio button" value="1" />
+            <RadioButtonField.Item
               label="This is a radio button to demonstrate
             prose text, like for example, the kind you might read in a blog
             post. The reason we're using prose here is because the most common
             use case for this container size is longform text."
               value="2"
             />
-            <RadioGroupField.Item
+            <RadioButtonField.Item
               disabled
               label="This is a disabled radio button"
               value="3"
             />
-          </RadioGroupField>
+          </RadioButtonField>
           <InlineFieldWrapper
             css={{ width: 'max-content' }}
             label="Do a switch thing"
@@ -970,6 +971,34 @@ post.
               </Combobox.Popover>
             </Combobox>
           </Box>
+          <RadioCardGroup align="right" size="lg" isFullWidth defaultValue="1">
+            <RadioCard value="1">
+              <Flex css={{ flexDirection: 'row', alignContent: 'center' }}>
+                <Text css={{ mr: '$4' }} size="sm">
+                  £99
+                </Text>
+                <Heading size="xs">This is a radio card option</Heading>
+              </Flex>
+            </RadioCard>
+            <RadioCard value="2">
+              <Flex css={{ flexDirection: 'row', alignContent: 'center' }}>
+                <Text css={{ mr: '$4' }} size="sm">
+                  £109
+                </Text>
+                <Heading size="xs">This is another radio card option</Heading>
+              </Flex>
+            </RadioCard>
+            <RadioCard value="3">
+              <Flex css={{ flexDirection: 'row', alignContent: 'center' }}>
+                <Text css={{ mr: '$4' }} size="sm">
+                  £149
+                </Text>
+                <Heading size="xs">
+                  And a further additional radio card option
+                </Heading>
+              </Flex>
+            </RadioCard>
+          </RadioCardGroup>
           <Stack direction="row">
             <Input
               size="sm"
@@ -1042,20 +1071,20 @@ post.
                 name="checkbox-error"
                 validation={{ required: 'This is the validation error' }}
               />
-              <RadioGroupField
+              <RadioButtonField
                 name="options-error"
                 label="Legend for radio fields"
                 validation={{ required: 'This is the validation error' }}
               >
-                <RadioGroupField.Item
+                <RadioButtonField.Item
                   label="This is a radio button"
                   value="1"
                 />
-                <RadioGroupField.Item
+                <RadioButtonField.Item
                   label="This is another radio button"
                   value="2"
                 />
-              </RadioGroupField>
+              </RadioButtonField>
             </>
           )}
         />
@@ -1149,7 +1178,7 @@ post.
     <Group name="Surfaces">
       <Group.Section>
         <Tooltip>
-          <Tooltip.Trigger>
+          <Tooltip.Trigger asChild>
             <Button>Hover for tooltip</Button>
           </Tooltip.Trigger>
           <Tooltip.Content>This is the tooltip content</Tooltip.Content>
@@ -1159,9 +1188,6 @@ post.
             <Button>Click for popover</Button>
           </Popover.Trigger>
           <Popover.Content>
-            <Heading size="xs" css={{ mb: '$4' }}>
-              Popover
-            </Heading>
             <Text size="sm">
               The `Popover` can display any type of element as a trigger and has
               the content hidden by default
@@ -1169,7 +1195,7 @@ post.
           </Popover.Content>
         </Popover>
         <Dialog>
-          <Dialog.Trigger>
+          <Dialog.Trigger asChild>
             <Button>Click for dialog</Button>
           </Dialog.Trigger>
           <Dialog.Content>
@@ -1190,7 +1216,7 @@ post.
       </Group.Section>
       <Group.Section>
         <Dialog>
-          <Dialog.Trigger>
+          <Dialog.Trigger asChild>
             <Button>Click for nested surfaces</Button>
           </Dialog.Trigger>
           <Dialog.Content>
@@ -1202,14 +1228,14 @@ post.
               the content hidden by default
             </Text>
             <Popover>
-              <Popover.Trigger>
+              <Popover.Trigger asChild>
                 <Link size="sm">Click for popover</Link>
               </Popover.Trigger>
               <Popover.Content>
                 <Text size="sm">
                   The `Popover` can display any{' '}
                   <Tooltip>
-                    <Tooltip.Trigger>
+                    <Tooltip.Trigger asChild>
                       <Link>type of element</Link>
                     </Tooltip.Trigger>
                     <Tooltip.Content>
