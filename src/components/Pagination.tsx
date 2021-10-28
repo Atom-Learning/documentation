@@ -53,35 +53,9 @@ export const Pagination: React.FC<PaginationProps> = ({
       <Container css={{ display: 'flex', py: '$6', px: '$4' }}>
         {previousPage && (
           <PaginationItem align="left" label="Previous" page={previousPage} />
-          // <Box css={{ textAlign: 'left', mr: 'auto' }}>
-          //   <Text css={{ color: '$tonal500' }} size="sm">
-          //     Previous
-          //   </Text>
-          //   <NextLink
-          //     passHref
-          //     href={`/${previousPage.source}/${previousPage.id}`}
-          //   >
-          //     {/* @ts-ignore */}
-          //     <Link size="lg" css={{ py: '$2' }}>
-          //       {previousPage.title}
-          //     </Link>
-          //   </NextLink>
-          // </Box>
         )}
         {nextPage && (
           <PaginationItem align="right" label="Next" page={nextPage} />
-
-          // <Box css={{ textAlign: 'right', ml: 'auto' }}>
-          //   <Text css={{ color: '$tonal500' }} size="sm">
-          //     Next
-          //   </Text>
-          //   <NextLink passHref href={`/${nextPage.source}/${nextPage.id}`}>
-          //     {/* @ts-ignore */}
-          //     <Link size="lg" css={{ display: 'block', py: '$2' }}>
-          //       {nextPage.title}
-          //     </Link>
-          //   </NextLink>
-          // </Box>
         )}
       </Container>
     </Box>
