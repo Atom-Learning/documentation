@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@atom-learning/components'
+import { Box, Divider, Flex, Text } from '@atom-learning/components'
 import { capitalCase } from 'capital-case'
 import { hsl, parseToHsl } from 'polished'
 import * as React from 'react'
@@ -48,17 +48,22 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
               />
               <Flex css={{ pl: '$3', flexDirection: 'column' }}>
                 <Text css={{ fontWeight: 600, mb: '$3' }}>{`$${key}`}</Text>
-                <Text
-                  size="sm"
-                  css={{ color: '$tonal400', mb: !hasAlpha ? '$3' : 0 }}
-                >
-                  {value}
-                </Text>
-                {!hasAlpha && (
-                  <Text size="sm" css={{ color: '$tonal400' }}>
-                    {hsl(color)}
+                <Flex css={{ alignItems: 'center' }}>
+                  <Text size="sm" css={{ color: '$tonal300' }}>
+                    {value}
                   </Text>
-                )}
+                  {!hasAlpha && (
+                    <>
+                      <Divider
+                        css={{ my: 0, mx: '$2', minHeight: '$1' }}
+                        orientation="vertical"
+                      />
+                      <Text size="sm" css={{ color: '$tonal300' }}>
+                        {hsl(color)}
+                      </Text>
+                    </>
+                  )}
+                </Flex>
               </Flex>
             </Flex>
           )

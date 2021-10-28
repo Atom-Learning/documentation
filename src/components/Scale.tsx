@@ -1,4 +1,3 @@
-import type { CSS } from '@atom-learning/components'
 import { Box, Divider, Flex, Text } from '@atom-learning/components'
 import * as React from 'react'
 
@@ -6,7 +5,6 @@ type ScaleProps = {
   children: (value: string | string[]) => React.ReactNode
   displayValue?: boolean
   scale: Record<string, string | string[]>
-  css?: CSS
 }
 
 const ScaleKey = ({ id }: { id: string }) => (
@@ -15,7 +13,7 @@ const ScaleKey = ({ id }: { id: string }) => (
       color: '$tonal700',
       fontSize: '$md',
       fontWeight: 600,
-      minWidth: 20,
+      minWidth: 40,
       mr: '$4'
     }}
   >
@@ -31,10 +29,9 @@ export const Scale: React.FC<ScaleProps> = ({
   scale,
   children,
   displayValue = true,
-  css,
   ...props
 }) => (
-  <Box css={{ overflow: 'hidden', ...css }} {...props}>
+  <Box {...props}>
     {Object.entries(scale).map(([key, value]) => (
       <Flex
         key={key}
