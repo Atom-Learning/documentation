@@ -43,7 +43,10 @@ const Page: React.FC<PageProps> = ({ pages, orderedPages, content, data }) => (
     <Flex>
       <Navigation items={pages} />
       <Flex as="main" css={{ width: '100%', flexDirection: 'column' }}>
-        <Box as="header" css={{ bg: '$tonal50', py: '$8' }}>
+        <Box
+          as="header"
+          css={{ bg: '$tonal50', pt: '128px', pb: '$8', '@md': { py: '$8' } }}
+        >
           <Container css={{ px: '$4' }}>
             <Heading as="h1" size="lg" css={data.component ? { mb: '$5' } : {}}>
               {data.title}

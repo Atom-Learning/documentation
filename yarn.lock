@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@1.0.0-rc.5":
-  version "1.0.0-rc.5"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.0-rc.5.tgz#9ea6f4ce34c7839342e3f2dba7b010a2a337f442"
-  integrity sha512-h3B4ngFAPh5EiUU3GiU2PLe1h4nWwVQZ1V363gD+NxpWWm02NGt1lmrngjl2Tw50wwBTY6vYwUJ+o/Jjwl9Gng==
+"@atom-learning/components@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.0.tgz#f643bb18a15dbcaedd96ebfe7258ad710d4d3737"
+  integrity sha512-UhK3ZFoAe+TZgGVhl/uICI7CEbH9ee2lFvJUoiqYkVIiap1kUuTjeG71/Ckw1F6tgseUKk7jRM1EyDOH8lFhzg==
   dependencies:
     uid "^2.0.0"
     "@radix-ui/react-alert-dialog" "0.1.1"
@@ -2309,9 +2309,9 @@ camelcase-css@2.0.1:
   integrity sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==
 
 caniuse-lite@^1.0.30001173, caniuse-lite@^1.0.30001179, caniuse-lite@^1.0.30001181:
-  version "1.0.30001197"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001197.tgz#47ad15b977d2f32b3ec2fe2b087e0c50443771db"
-  integrity sha512-8aE+sqBqtXz4G8g35Eg/XEaFr2N7rd/VQ6eABGBmNtcB8cN6qNJhMi6oSFy4UWWZgqgL3filHT8Nha4meu3tsw==
+  version "1.0.30001271"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001271.tgz"
+  integrity sha512-BBruZFWmt3HFdVPS8kceTBIguKxu4f99n5JNp06OlPD/luoAMIaIK5ieV5YjnBLH3Nysai9sxj9rpJj4ZisXOA==
 
 capital-case@^1.0.4:
   version "1.0.4"

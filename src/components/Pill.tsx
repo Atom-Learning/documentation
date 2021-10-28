@@ -2,7 +2,7 @@ import { styled } from '@atom-learning/components'
 
 export const Pill = styled('div', {
   alignItems: 'center',
-  bg: '$warning',
+  bg: '$brandGreen',
   borderRadius: '$round',
   color: 'white',
   display: 'flex',

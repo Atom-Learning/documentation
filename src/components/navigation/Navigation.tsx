@@ -1,4 +1,4 @@
-import { Box, Image, styled, Text } from '@atom-learning/components'
+import { Box, Heading, Image, styled, Text } from '@atom-learning/components'
 import pkg from '@atom-learning/components/package.json'
 import logo from '@atom-learning/theme/lib/assets/logo-light.svg'
 import { capitalCase } from 'capital-case'
@@ -94,9 +94,9 @@ export const Navigation: React.FC<NavigationProps> = ({ items }) => {
         >{`v${pkg.version}`}</Pill>
         {Object.entries(items).map(([source, content]) => (
           <Box css={{ mb: '$6' }} key={source}>
-            <Text as="h2" css={{ color: 'white', mb: '$4' }}>
+            <Heading as="h2" size="sm" css={{ color: 'white', mb: '$4' }}>
               {capitalCase(source)}
-            </Text>
+            </Heading>
             <NavigationContent
               content={content}
               onNavigate={() => setMenuOpen(false)}

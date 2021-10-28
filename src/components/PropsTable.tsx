@@ -33,7 +33,7 @@ const Empty = () => <Text css={{ color: '$tonal400' }}>-</Text>
 
 const WithTooltip = ({ children, content }) => (
   <Tooltip>
-    <Tooltip.Trigger>{children}</Tooltip.Trigger>
+    <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
     <Tooltip.Content
       css={{
         width: '90vw',
