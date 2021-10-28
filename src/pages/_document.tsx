@@ -1,6 +1,8 @@
-import { getCssString } from '@atom-learning/components'
+import { getCssText } from '@atom-learning/components'
 import NextDocument, { Head, Html, Main, NextScript } from 'next/document'
 import * as React from 'react'
+
+import { polyfills } from '../../polyfills.json'
 
 export default class Document extends NextDocument {
   render() {
@@ -13,11 +15,17 @@ export default class Document extends NextDocument {
           />
           <style
             id="stitches"
-            dangerouslySetInnerHTML={{ __html: getCssString() }}
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
           />
         </Head>
         <body>
           <Main />
+          <script
+            src={`https://polyfill.io/v3/polyfill.min.js?features=${encodeURIComponent(
+              polyfills.join(',')
+            )}`}
+          />
+
           <NextScript />
         </body>
       </Html>

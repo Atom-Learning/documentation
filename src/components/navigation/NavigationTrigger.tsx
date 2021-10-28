@@ -12,10 +12,10 @@ export const NavigationTrigger: React.FC<NavigationTriggerProps> = (props) => (
     css={{
       alignItems: 'center',
       background: 'white',
-      border: '1px solid $tonal300',
+      border: '1px solid $tonal200',
       borderRadius: '$0',
       cursor: 'pointer',
-      color: '$tonal800',
+      color: '$tonal500',
       justifyContent: 'center',
       left: '$3',
       p: 'unset',

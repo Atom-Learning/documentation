@@ -20,6 +20,8 @@ type PropsTableProps = {
   for: string
 }
 
+const sizeOrder = ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl']
+
 const getComponentProps = (name): ComponentDoc =>
   docgen
     .filter(Boolean)
@@ -31,7 +33,7 @@ const Empty = () => <Text css={{ color: '$tonal400' }}>-</Text>
 
 const WithTooltip = ({ children, content }) => (
   <Tooltip>
-    <Tooltip.Trigger>{children}</Tooltip.Trigger>
+    <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
     <Tooltip.Content
       css={{
         width: '90vw',
@@ -72,9 +74,27 @@ const PropType = ({ name, type }) => {
     )
   }
   if (Array.isArray(type.value)) {
-    const values = type.value
+    let values = type.value
       .filter(({ value }) => value !== 'undefined')
       .filter(({ value }) => !value.startsWith('{ [x: string]'))
+      .filter(({ value }) => !value.startsWith('{ "@sm"'))
+      .filter(({ value }) => !value.startsWith('"true"'))
+
+    if (values[0].value === 'false' && values[1].value === 'true') {
+      values = [{ value: 'boolean' }]
+    }
+
+    if (
+      values.some(({ value }) =>
+        sizeOrder.map((size) => `"${size}"`).includes(`${value}`)
+      )
+    ) {
+      const order = sizeOrder.map((size) => `"${size}"`)
+      values = values.sort(
+        (a, b) => order.indexOf(a.value) - order.indexOf(b.value)
+      )
+    }
+
     return (
       <Flex css={{ gap: '$2', flexWrap: 'wrap' }}>
         {values.map(({ value }, index) => (

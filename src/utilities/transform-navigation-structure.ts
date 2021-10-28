@@ -8,10 +8,11 @@ const nestedNavigationCategories = {
     'Overview',
     'Layout',
     'Content',
-    'Surfaces',
-    'Media',
     'Navigation',
-    'Forms',
+    'Form primitives',
+    'Form fields',
+    'Media',
+    'Surfaces',
     'Feedback',
     'Utilities'
   ]

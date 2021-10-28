@@ -16,6 +16,28 @@ type PaginationProps = {
   }
 }
 
+const PaginationItem = ({
+  align,
+  label,
+  page
+}: {
+  align: 'left' | 'right'
+  label: string
+  page: Record<string, string>
+}) => (
+  <Box css={{ textAlign: align, [align === 'left' ? 'mr' : 'ml']: 'auto' }}>
+    <Text css={{ color: '$tonal500' }} size="sm">
+      {label}
+    </Text>
+    <NextLink passHref href={`/${page.source}/${page.id}`}>
+      {/* @ts-ignore */}
+      <Link size="lg" css={{ display: 'block', py: '$2' }}>
+        {page.title}
+      </Link>
+    </NextLink>
+  </Box>
+)
+
 export const Pagination: React.FC<PaginationProps> = ({
   orderedPages,
   currentPage
@@ -30,33 +52,10 @@ export const Pagination: React.FC<PaginationProps> = ({
     <Box as="footer" css={{ bg: '$tonal50', mt: '$8' }}>
       <Container css={{ display: 'flex', py: '$6', px: '$4' }}>
         {previousPage && (
-          <Box css={{ textAlign: 'left', mr: 'auto' }}>
-            <Text css={{ color: '$tonal500' }} size="sm">
-              Previous
-            </Text>
-            <NextLink
-              passHref
-              href={`/${previousPage.source}/${previousPage.id}`}
-            >
-              {/* @ts-ignore */}
-              <Link size="lg" css={{ py: '$2' }}>
-                {previousPage.title}
-              </Link>
-            </NextLink>
-          </Box>
+          <PaginationItem align="left" label="Previous" page={previousPage} />
         )}
         {nextPage && (
-          <Box css={{ textAlign: 'right', ml: 'auto' }}>
-            <Text css={{ color: '$tonal500' }} size="sm">
-              Next
-            </Text>
-            <NextLink passHref href={`/${nextPage.source}/${nextPage.id}`}>
-              {/* @ts-ignore */}
-              <Link size="lg" css={{ py: '$2' }}>
-                {nextPage.title}
-              </Link>
-            </NextLink>
-          </Box>
+          <PaginationItem align="right" label="Next" page={nextPage} />
         )}
       </Container>
     </Box>

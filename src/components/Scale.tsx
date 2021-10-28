@@ -1,19 +1,40 @@
-import { Box, Flex, Text } from '@atom-learning/components'
+import type { CSS } from '@atom-learning/components'
+import { Box, Divider, Flex, Text } from '@atom-learning/components'
 import * as React from 'react'
 
 type ScaleProps = {
-  children: (value: string) => React.ReactNode
+  children: (value: string | string[]) => React.ReactNode
   displayValue?: boolean
-  scale: Record<string, string>
+  scale: Record<string, string | string[]>
+  css?: CSS
 }
+
+const ScaleKey = ({ id }: { id: string }) => (
+  <Text
+    css={{
+      color: '$tonal700',
+      fontSize: '$md',
+      fontWeight: 600,
+      minWidth: 20,
+      mr: '$4'
+    }}
+  >
+    {`$${id}`}
+  </Text>
+)
+
+const ScaleValue = ({ children }) => (
+  <Text css={{ color: '$tonal300', fontSize: '$sm' }}>{children}</Text>
+)
 
 export const Scale: React.FC<ScaleProps> = ({
   scale,
   children,
   displayValue = true,
+  css,
   ...props
 }) => (
-  <Box {...props}>
+  <Box css={{ overflow: 'hidden', ...css }} {...props}>
     {Object.entries(scale).map(([key, value]) => (
       <Flex
         key={key}
@@ -27,21 +48,23 @@ export const Scale: React.FC<ScaleProps> = ({
         }}
       >
         <Flex css={{ mr: '$4', alignItems: 'center' }}>
-          <Text
-            css={{
-              color: '$tonal700',
-              fontSize: '$md',
-              fontWeight: 600,
-              minWidth: 20
-            }}
-          >
-            {`$${key}`}
-          </Text>
-          {displayValue && (
-            <Text css={{ color: '$tonal400', fontSize: '$sm', ml: '$4' }}>
-              {value}
-            </Text>
-          )}
+          <ScaleKey id={String(key)} />
+          {displayValue &&
+            (Array.isArray(value) ? (
+              value.map((val, index) => (
+                <React.Fragment key={val}>
+                  <ScaleValue>{val}</ScaleValue>
+                  {index < value.length - 1 && (
+                    <Divider
+                      css={{ mx: '$2', minHeight: '$1' }}
+                      orientation="vertical"
+                    />
+                  )}
+                </React.Fragment>
+              ))
+            ) : (
+              <ScaleValue>{value}</ScaleValue>
+            ))}
         </Flex>
         {children(value)}
       </Flex>
