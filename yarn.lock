@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.0.tgz#f643bb18a15dbcaedd96ebfe7258ad710d4d3737"
-  integrity sha512-UhK3ZFoAe+TZgGVhl/uICI7CEbH9ee2lFvJUoiqYkVIiap1kUuTjeG71/Ckw1F6tgseUKk7jRM1EyDOH8lFhzg==
+"@atom-learning/components@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.0.2.tgz#ac41a03c9d660041a2feeca97a81c8d907875a04"
+  integrity sha512-qNqzML1jy788C8CQI3SUTJAOwg57D7LeIp2aXfpexGivwHtx0GR9EUD8sbEttWDr9Z1uLL6wTS59Kvt9u8Mo8g==
   dependencies:
     uid "^2.0.0"
     "@radix-ui/react-alert-dialog" "0.1.1"
