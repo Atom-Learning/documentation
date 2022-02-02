@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.5.0.tgz#0aa4707c1150baab667999a0c276af42cec88b2b"
-  integrity sha512-Pm/EQUhA8uub79LBtON2JuW3JifY+UYvQPPnM/1Bv8f2v3QTlliCKQ1gWrBScy3SHZeazQbUDoH7o97EMlpAjQ==
+"@atom-learning/components@1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.5.1.tgz#59aae530e8a3eb4d2ea6a9dd7af6ca62e2adefd7"
+  integrity sha512-8F727TBNoZzZMwUCtp0dyUqwzSAijadaa3DdtrcVk427rvnjrxoJA/hfvF5PKXkXvoh3alKR/JXBcaZ5BX5bYQ==
   dependencies:
     uid "^2.0.0"
     "@radix-ui/react-accordion" "^0.1.1"
@@ -39,10 +39,10 @@
     react-player "^2.9.0"
     throttle-debounce "^3.0.1"
 
-"@atom-learning/icons@1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-1.5.0.tgz#ca311e33ee0a2ab05bb4e0505c484816a90fb0ba"
-  integrity sha512-r6/dNlR/BnQuN7Gyf1fY/Na7TRNxP/IpGLI0c7TVJEFdSvJx9XuzL1yq7VM0e0pETvFO0ypIY81GiYIYM0sGYA==
+"@atom-learning/icons@1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-1.6.0.tgz#d3d715f4a17d6048ba219eee027b92aa6be41d57"
+  integrity sha512-DnOlVoDTDPKxmoNNgelg9y66i7LBvA4QBQN2zHc+tHVdIAfu1/u9WChMQK07dYsIi5/tUZ7Ggw1WFIxTsknRsQ==
   dependencies:
     ikonate "^1.1.1"
 
