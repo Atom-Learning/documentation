@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@atom-learning/components@1.6.3":
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.6.3.tgz#541c89a57e2f2249abd43cd041df33df6f2566f9"
-  integrity sha512-32lz6Pco5v6bzc8vaB0ATlql94aT9pWKfI/wp7JMJ9Cxw7fZdXiDnjnQhxft+p6n1/MCles1LfLjtL1/2JIbpQ==
+"@atom-learning/components@1.6.4":
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/@atom-learning/components/-/components-1.6.4.tgz#e0bd2b4fab0cde3366a78beb4eb8c47e2fc75136"
+  integrity sha512-KMId9bq/0QE4wE62BklHtO9M9KMdtXndo83WI/20cyXowb7Lz10TP0y8/3SpVH9J5bsd4IBhc4YJUj3CLrt4pg==
   dependencies:
     uid "^2.0.0"
     "@radix-ui/react-accordion" "^0.1.1"
