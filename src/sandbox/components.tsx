@@ -8,6 +8,7 @@ import {
   Carousel,
   CheckboxField,
   Combobox,
+  DateInput,
   Dialog,
   Divider,
   Flex,
@@ -34,6 +35,7 @@ import {
   SelectField,
   Stack,
   StackContent,
+  Stepper,
   Switch,
   Table,
   Tabs,
@@ -1304,6 +1306,13 @@ post.
           </Combobox.Popover>
         </Combobox>
       </Box>
+    </Group>
+    <Group name="Stepper">
+      <Stepper stepCount={3}>
+        <Stepper.StepBack>Back</Stepper.StepBack>
+        <Stepper.Steps />
+        <Stepper.StepForward>Next</Stepper.StepForward>
+      </Stepper>
     </Group>
   </>
 )
