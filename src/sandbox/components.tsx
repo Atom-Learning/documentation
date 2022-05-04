@@ -25,6 +25,7 @@ import {
   List,
   Loader,
   MarkdownContent,
+  NotificationBadge,
   PasswordField,
   Popover,
   ProgressBar,
@@ -56,6 +57,7 @@ import {
   ArrowRight,
   BatteryMedium,
   Bin,
+  Controls,
   Crossing,
   Download,
   Eye,
@@ -1361,6 +1363,15 @@ post.
           <DropdownMenu.LinkItem href="/logout">Log Out</DropdownMenu.LinkItem>
         </DropdownMenu.Content>
       </DropdownMenu>
+    </Group>
+    <Group name="Notification Badge">
+      <Group.Section>
+        <NotificationBadge value={3}>
+          <ActionIcon appearance="outline" size="lg" isRounded>
+            <Icon is={Controls} />
+          </ActionIcon>
+        </NotificationBadge>
+      </Group.Section>
     </Group>
   </>
 )
