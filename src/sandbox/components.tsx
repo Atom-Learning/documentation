@@ -1373,6 +1373,11 @@ post.
         </NotificationBadge>
       </Group.Section>
     </Group>
+    <Group name="Date Input">
+      <Group.Section>
+        <DateInput />
+      </Group.Section>
+    </Group>
   </>
 )
 
