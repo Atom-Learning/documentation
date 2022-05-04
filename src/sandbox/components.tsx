@@ -1272,6 +1272,39 @@ post.
         </Accordion.Item>
       </Accordion>
     </Group>
+    <Group name="Combobox">
+      <Box css={{ width: '400px' }}>
+        <Label css={{ mb: '$3' }} htmlFor="someid">
+          What's your favourite fruit?
+        </Label>
+        <Combobox onSelect={console.log} openOnFocus>
+          <Combobox.Input id="someid" />
+          <Combobox.Popover>
+            <Combobox.List>
+              <Combobox.Option value="Apple" />
+              <Combobox.Option value="Banana" />
+              <Combobox.Option value="Cranberry" />
+              <Combobox.Option value="Dragon fruit" />
+
+              <Flex css={{ alignItems: 'center', p: '$2' }}>
+                <Input size="sm" placeholder="New fruit" />
+                <Button
+                  size="sm"
+                  css={{ ml: '$2' }}
+                  onClick={() =>
+                    alert(
+                      'Nest other interactive UI here for advanced usecases'
+                    )
+                  }
+                >
+                  Add a new fruit
+                </Button>
+              </Flex>
+            </Combobox.List>
+          </Combobox.Popover>
+        </Combobox>
+      </Box>
+    </Group>
   </>
 )
 
