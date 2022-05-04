@@ -11,6 +11,7 @@ import {
   DateInput,
   Dialog,
   Divider,
+  DropdownMenu,
   Flex,
   Form,
   Heading,
@@ -1345,6 +1346,21 @@ post.
           <Slider theme="light" defaultValue={[50]} css={{ width: '320px' }} />
         </Box>
       </Group.Section>
+    </Group>
+    <Group name="Dropdown menu">
+      <DropdownMenu>
+        <DropdownMenu.Trigger asChild>
+          <Button>Click me</Button>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Content sideOffset={16}>
+          <DropdownMenu.Item onClick={() => alert('Great clicking!')}>
+            Item 1
+          </DropdownMenu.Item>
+          <DropdownMenu.Item>Item 2</DropdownMenu.Item>
+          <DropdownMenu.Separator />
+          <DropdownMenu.LinkItem href="/logout">Log Out</DropdownMenu.LinkItem>
+        </DropdownMenu.Content>
+      </DropdownMenu>
     </Group>
   </>
 )
