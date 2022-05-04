@@ -1026,6 +1026,42 @@ post.
               <option value="grapes">Grapes</option>
             </Select>
           </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Date Input</Label>
+            <DateInput />
+          </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Initial Date</Label>
+            <DateInput initialDate={new Date()} />
+          </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Date Format "YYYY/MM/DD"</Label>
+            <DateInput dateFormat="YYYY/MM/DD" />
+          </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Dayzed customisation</Label>
+            <DateInput firstDayOfWeek={0} />
+          </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Translations</Label>
+            <DateInput
+              weekdayNames={['D', 'L', 'M', 'X', 'J', 'V', 'S']}
+              monthNames={[
+                'Enero',
+                'Febrero',
+                'Marzo',
+                'Abril',
+                'Mayo',
+                'Junio',
+                'Julio',
+                'Agosto',
+                'Septiembre',
+                'Octubre',
+                'Noviembre',
+                'Diciembre'
+              ]}
+            />
+          </Stack>
         </Form>
       </Group.Section>
       <Group.Section>
@@ -1278,39 +1314,6 @@ post.
         </Accordion.Item>
       </Accordion>
     </Group>
-    <Group name="Combobox">
-      <Box css={{ width: '400px' }}>
-        <Label css={{ mb: '$3' }} htmlFor="someid">
-          What's your favourite fruit?
-        </Label>
-        <Combobox onSelect={console.log} openOnFocus>
-          <Combobox.Input id="someid" />
-          <Combobox.Popover>
-            <Combobox.List>
-              <Combobox.Option value="Apple" />
-              <Combobox.Option value="Banana" />
-              <Combobox.Option value="Cranberry" />
-              <Combobox.Option value="Dragon fruit" />
-
-              <Flex css={{ alignItems: 'center', p: '$2' }}>
-                <Input size="sm" placeholder="New fruit" />
-                <Button
-                  size="sm"
-                  css={{ ml: '$2' }}
-                  onClick={() =>
-                    alert(
-                      'Nest other interactive UI here for advanced usecases'
-                    )
-                  }
-                >
-                  Add a new fruit
-                </Button>
-              </Flex>
-            </Combobox.List>
-          </Combobox.Popover>
-        </Combobox>
-      </Box>
-    </Group>
     <Group name="Stepper">
       <Stepper stepCount={3}>
         <Stepper.StepBack>Back</Stepper.StepBack>
@@ -1371,51 +1374,6 @@ post.
             <Icon is={Controls} />
           </ActionIcon>
         </NotificationBadge>
-      </Group.Section>
-    </Group>
-    <Group name="Date Input">
-      <Group.Section>
-        <DateInput />
-      </Group.Section>
-      <Group.Section>
-        <Stack gap="2" direction="column">
-          <Label>Initial Date</Label>
-          <DateInput initialDate={new Date()} />
-        </Stack>
-      </Group.Section>
-      <Group.Section>
-        <Stack gap="2" direction="column">
-          <Label>Date Format "YYYY/MM/DD"</Label>
-          <DateInput dateFormat="YYYY/MM/DD" />
-        </Stack>
-      </Group.Section>
-      <Group.Section>
-        <Stack gap="2" direction="column">
-          <Label>Dayzed customisation</Label>
-          <DateInput firstDayOfWeek={0} />
-        </Stack>
-      </Group.Section>
-      <Group.Section>
-        <Stack gap="2" direction="column">
-          <Label>Translations</Label>
-          <DateInput
-            weekdayNames={['D', 'L', 'M', 'X', 'J', 'V', 'S']}
-            monthNames={[
-              'Enero',
-              'Febrero',
-              'Marzo',
-              'Abril',
-              'Mayo',
-              'Junio',
-              'Julio',
-              'Agosto',
-              'Septiembre',
-              'Octubre',
-              'Noviembre',
-              'Diciembre'
-            ]}
-          />
-        </Stack>
       </Group.Section>
     </Group>
   </>
