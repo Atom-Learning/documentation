@@ -1377,6 +1377,46 @@ post.
       <Group.Section>
         <DateInput />
       </Group.Section>
+      <Group.Section>
+        <Stack gap="2" direction="column">
+          <Label>Initial Date</Label>
+          <DateInput initialDate={new Date()} />
+        </Stack>
+      </Group.Section>
+      <Group.Section>
+        <Stack gap="2" direction="column">
+          <Label>Date Format "YYYY/MM/DD"</Label>
+          <DateInput dateFormat="YYYY/MM/DD" />
+        </Stack>
+      </Group.Section>
+      <Group.Section>
+        <Stack gap="2" direction="column">
+          <Label>Dayzed customisation</Label>
+          <DateInput firstDayOfWeek={0} />
+        </Stack>
+      </Group.Section>
+      <Group.Section>
+        <Stack gap="2" direction="column">
+          <Label>Translations</Label>
+          <DateInput
+            weekdayNames={['D', 'L', 'M', 'X', 'J', 'V', 'S']}
+            monthNames={[
+              'Enero',
+              'Febrero',
+              'Marzo',
+              'Abril',
+              'Mayo',
+              'Junio',
+              'Julio',
+              'Agosto',
+              'Septiembre',
+              'Octubre',
+              'Noviembre',
+              'Diciembre'
+            ]}
+          />
+        </Stack>
+      </Group.Section>
     </Group>
   </>
 )
