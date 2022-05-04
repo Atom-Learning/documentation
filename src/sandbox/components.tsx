@@ -1,5 +1,6 @@
 // @ts-nocheck
 import {
+  Accordion,
   ActionIcon,
   AlertProvider,
   Box,
@@ -1254,6 +1255,22 @@ post.
           </Dialog.Content>
         </Dialog>
       </Group.Section>
+    </Group>
+    <Group name="Accordion">
+      <Accordion type="single" defaultValue="1">
+        <Accordion.Item value="1">
+          <Accordion.Trigger>Accordion Header 1</Accordion.Trigger>
+          <Accordion.Content css={{ p: '$4' }}>
+            Accordion content 1
+          </Accordion.Content>
+        </Accordion.Item>
+        <Accordion.Item value="2">
+          <Accordion.Trigger>Accordion Header 2</Accordion.Trigger>
+          <Accordion.Content css={{ p: '$4' }}>
+            Accordion content 2
+          </Accordion.Content>
+        </Accordion.Item>
+      </Accordion>
     </Group>
   </>
 )
