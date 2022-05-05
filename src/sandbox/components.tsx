@@ -1,5 +1,6 @@
 // @ts-nocheck
 import {
+  Accordion,
   ActionIcon,
   AlertProvider,
   Box,
@@ -7,8 +8,10 @@ import {
   Carousel,
   CheckboxField,
   Combobox,
+  DateInput,
   Dialog,
   Divider,
+  DropdownMenu,
   Flex,
   Form,
   Heading,
@@ -22,6 +25,7 @@ import {
   List,
   Loader,
   MarkdownContent,
+  NotificationBadge,
   PasswordField,
   Popover,
   ProgressBar,
@@ -31,8 +35,10 @@ import {
   SearchInput,
   Select,
   SelectField,
+  Slider,
   Stack,
   StackContent,
+  Stepper,
   Switch,
   Table,
   Tabs,
@@ -51,6 +57,7 @@ import {
   ArrowRight,
   BatteryMedium,
   Bin,
+  Controls,
   Crossing,
   Download,
   Eye,
@@ -1019,6 +1026,68 @@ post.
               <option value="grapes">Grapes</option>
             </Select>
           </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Date Input</Label>
+            <DateInput />
+          </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Initial Date</Label>
+            <DateInput initialDate={new Date()} />
+          </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Date Format "YYYY/MM/DD"</Label>
+            <DateInput dateFormat="YYYY/MM/DD" />
+          </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Dayzed customisation</Label>
+            <DateInput firstDayOfWeek={0} />
+          </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Translations</Label>
+            <DateInput
+              weekdayNames={['D', 'L', 'M', 'X', 'J', 'V', 'S']}
+              monthNames={[
+                'Enero',
+                'Febrero',
+                'Marzo',
+                'Abril',
+                'Mayo',
+                'Junio',
+                'Julio',
+                'Agosto',
+                'Septiembre',
+                'Octubre',
+                'Noviembre',
+                'Diciembre'
+              ]}
+            />
+          </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Slider</Label>
+            <Slider defaultValue={[50]} css={{ width: '320px' }} />
+            <Slider defaultValue={[25, 75]} css={{ width: '320px' }} />
+            <Slider defaultValue={[50]} css={{ width: '320px' }}>
+              <Slider.Steps
+                min={0}
+                max={100}
+                steps={[
+                  { value: 0, label: 'min' },
+                  { value: 50, label: 'mid' },
+                  { value: 100, label: 'max' }
+                ]}
+              />
+            </Slider>
+            <Slider defaultValue={[50]} css={{ width: '320px' }}>
+              <Slider.Value value={[50]} />
+            </Slider>
+            <Box css={{ p: '$5', bg: '$tonal100' }}>
+              <Slider
+                theme="light"
+                defaultValue={[50]}
+                css={{ width: '320px' }}
+              />
+            </Box>
+          </Stack>
         </Form>
       </Group.Section>
       <Group.Section>
@@ -1253,6 +1322,53 @@ post.
             </Flex>
           </Dialog.Content>
         </Dialog>
+      </Group.Section>
+    </Group>
+    <Group name="Accordion">
+      <Accordion type="single" defaultValue="1">
+        <Accordion.Item value="1">
+          <Accordion.Trigger>Accordion Header 1</Accordion.Trigger>
+          <Accordion.Content css={{ p: '$4' }}>
+            Accordion content 1
+          </Accordion.Content>
+        </Accordion.Item>
+        <Accordion.Item value="2">
+          <Accordion.Trigger>Accordion Header 2</Accordion.Trigger>
+          <Accordion.Content css={{ p: '$4' }}>
+            Accordion content 2
+          </Accordion.Content>
+        </Accordion.Item>
+      </Accordion>
+    </Group>
+    <Group name="Stepper">
+      <Stepper stepCount={3}>
+        <Stepper.StepBack>Back</Stepper.StepBack>
+        <Stepper.Steps />
+        <Stepper.StepForward>Next</Stepper.StepForward>
+      </Stepper>
+    </Group>
+    <Group name="Dropdown menu">
+      <DropdownMenu>
+        <DropdownMenu.Trigger asChild>
+          <Button>Click me</Button>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Content sideOffset={16}>
+          <DropdownMenu.Item onClick={() => alert('Great clicking!')}>
+            Item 1
+          </DropdownMenu.Item>
+          <DropdownMenu.Item>Item 2</DropdownMenu.Item>
+          <DropdownMenu.Separator />
+          <DropdownMenu.LinkItem href="/logout">Log Out</DropdownMenu.LinkItem>
+        </DropdownMenu.Content>
+      </DropdownMenu>
+    </Group>
+    <Group name="Notification Badge">
+      <Group.Section>
+        <NotificationBadge value={3}>
+          <ActionIcon appearance="outline" size="lg" isRounded>
+            <Icon is={Controls} />
+          </ActionIcon>
+        </NotificationBadge>
       </Group.Section>
     </Group>
   </>
