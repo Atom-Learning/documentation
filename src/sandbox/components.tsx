@@ -1062,6 +1062,32 @@ post.
               ]}
             />
           </Stack>
+          <Stack gap="2" direction="column">
+            <Label>Slider</Label>
+            <Slider defaultValue={[50]} css={{ width: '320px' }} />
+            <Slider defaultValue={[25, 75]} css={{ width: '320px' }} />
+            <Slider defaultValue={[50]} css={{ width: '320px' }}>
+              <Slider.Steps
+                min={0}
+                max={100}
+                steps={[
+                  { value: 0, label: 'min' },
+                  { value: 50, label: 'mid' },
+                  { value: 100, label: 'max' }
+                ]}
+              />
+            </Slider>
+            <Slider defaultValue={[50]} css={{ width: '320px' }}>
+              <Slider.Value value={[50]} />
+            </Slider>
+            <Box css={{ p: '$5', bg: '$tonal100' }}>
+              <Slider
+                theme="light"
+                defaultValue={[50]}
+                css={{ width: '320px' }}
+              />
+            </Box>
+          </Stack>
         </Form>
       </Group.Section>
       <Group.Section>
@@ -1320,37 +1346,6 @@ post.
         <Stepper.Steps />
         <Stepper.StepForward>Next</Stepper.StepForward>
       </Stepper>
-    </Group>
-    <Group name="Slider">
-      <Group.Section>
-        <Slider defaultValue={[50]} css={{ width: '320px' }} />
-      </Group.Section>
-      <Group.Section>
-        <Slider defaultValue={[25, 75]} css={{ width: '320px' }} />
-      </Group.Section>
-      <Group.Section>
-        <Slider defaultValue={[50]} css={{ width: '320px' }}>
-          <Slider.Steps
-            min={0}
-            max={100}
-            steps={[
-              { value: 0, label: 'min' },
-              { value: 50, label: 'mid' },
-              { value: 100, label: 'max' }
-            ]}
-          />
-        </Slider>
-      </Group.Section>
-      <Group.Section>
-        <Slider defaultValue={[50]} css={{ width: '320px' }}>
-          <Slider.Value value={[50]} />
-        </Slider>
-      </Group.Section>
-      <Group.Section>
-        <Box css={{ p: '$5', bg: '$tonal100' }}>
-          <Slider theme="light" defaultValue={[50]} css={{ width: '320px' }} />
-        </Box>
-      </Group.Section>
     </Group>
     <Group name="Dropdown menu">
       <DropdownMenu>
