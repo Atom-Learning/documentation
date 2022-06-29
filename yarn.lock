@@ -40,10 +40,10 @@
     react-player "^2.9.0"
     throttle-debounce "^3.0.1"
 
-"@atom-learning/icons@1.9.0":
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-1.9.0.tgz#8711e1ad66fed670a987491a77ae7e6656dc13d7"
-  integrity sha512-RGEEkfI7lOFsOnPWJA29lrwiVFDD5IlEw8/1rKJF7dX0ukJXuTD/HjLec9jrtTkw2LMEgwn65aIoAQPVo7Sd5w==
+"@atom-learning/icons@1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@atom-learning/icons/-/icons-1.12.0.tgz#7df492748b2a34718bbefbd5fe47fea3f1b6483e"
+  integrity sha512-RBTZUMgROcaVKtUwabsTvhAzwLZB3BJgrovhHc5Z2Dcwf1wY7GahE73PvaVA71lg5ZGZyURIb09Z99yWnPz0BA==
   dependencies:
     ikonate "^1.1.1"
 
